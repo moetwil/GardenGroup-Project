@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GardenGroupModel.Enums;
 
 namespace Garden_Group.Forms
 {
@@ -46,48 +47,8 @@ namespace Garden_Group.Forms
         // Fill comboboxes
         private void FillComboBoxes()
         {
-            FillRoleComboBox();
-            FillBrancheComboBox();
-        }
-
-        private void FillCombobox<T>(List<T> itemList, ComboBox comboBox)
-        {
-            foreach (T item in itemList)
-            {
-                comboBox.Items.Add(item);
-                { Tag = item; };
-            }
-        }
-        private void FillRoleComboBox()
-        {
-            /*RoleService roleService = new RoleService();
-            List<Role> allRoles = roleService.GetAllRoles();
-            FillCombobox(allRoles, this.comboBoxCompanyRole);*/
-        }
-
-        private void FillBrancheComboBox()
-        {
-            /*BranchService branchService = new BranchService();
-            List<Branch> allBranches = branchService.GetAllBranches();
-            FillCombobox(allBranches, this.comboBoxLocation);*/
-        }
-
-        // show user information as the user is selected
-        private void ShowInformationInPanel(object sender, EventArgs e)
-        {
-            UserUC userUC = (UserUC)sender;
-            textBoxFirstname.Text = this.user.FirstName;
-            textBoxLastname.Text = this.user.LastName;
-            dateTimePickerDateOfBirth.Value = user.DateOfBirth;
-           // comboBoxCompanyRole.Text = user.JobInfo.Role;
-           // comboBoxBranch.Text = user.JobInfo.Branch;
-            textBoxEmail.Text = this.user.ContactInfo.Email;
-            textBoxPhoneNumber.Text = this.user.ContactInfo.PhoneNumber;
-            textBoxStreet.Text = this.user.ContactInfo.Address.Street;
-            textBoxHouseNumber.Text = this.user.ContactInfo.Address.HouseNumber;
-            textBoxPostalCode.Text = this.user.ContactInfo.Address.PostalCode;
-            textBoxCity.Text = this.user.ContactInfo.Address.City;
-            textBoxCountry.Text = this.user.ContactInfo.Address.Country;
+            this.comboBoxCompanyRole.DataSource = Enum.GetValues(typeof(Role));
+            this.comboBoxLocation.DataSource = Enum.GetValues(typeof(Branch));
         }
 
         private void buttonEditUser_Click(object sender, EventArgs e)

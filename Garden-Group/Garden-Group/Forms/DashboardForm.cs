@@ -39,9 +39,6 @@ namespace Garden_Group.Forms
             // Set welcome text to user
             this.labelWelcomeText.Text = $"Welkom {user.FirstName} {user.LastName}";
 
-            // Get role from logged in user
-            /*this.user.JobInfo.Role = roleService.GetRoleById(this.user.JobInfo.RoleId);*/
-
             //SetProgressBar(0, 0, this.circularPBUnresolvedIncidents);
 
             // Load the two PieCharts
