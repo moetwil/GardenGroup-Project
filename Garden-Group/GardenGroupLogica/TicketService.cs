@@ -36,12 +36,12 @@ namespace GardenGroupLogica
         {
             return ticketDao.GetAllTickets();
         }
-        /*
+
         public List<Ticket> GetTicketsFromUser(User user)
         {
-            List<Ticket> tickets = ticketDao.GetTicketsFromUser(user);
-            return filltickets(tickets);
-        }*/
+            return ticketDao.GetTicketsFromUser(user);
+        }
+
         // Delete ticket
         public void DeleteTicket(Ticket ticket)
         {
