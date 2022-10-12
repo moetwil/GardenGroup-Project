@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using GardenGroupModel.Enums;
+
 
 namespace GardenGroupLogica
 {
@@ -30,12 +32,11 @@ namespace GardenGroupLogica
             ticketDao.AddTicket(ticket);
         }
 
-        /*public List<Ticket> GetAllTickets()
+        public List<Ticket> GetAllTickets()
         {
-            List<Ticket> tickets = ticketDao.GetAllTickets();
-            return filltickets(tickets);
+            return ticketDao.GetAllTickets();
         }
-        
+        /*
         public List<Ticket> GetTicketsFromUser(User user)
         {
             List<Ticket> tickets = ticketDao.GetTicketsFromUser(user);
@@ -53,35 +54,35 @@ namespace GardenGroupLogica
             ticketDao.UpdateTicket(ticket);
         }
 
-        /*public int GetOpenTicketsAmount(List<Ticket> tickets)
+        public int GetOpenTicketsAmount(List<Ticket> tickets)
         {
+            // Deze methode mss met aggregate?
             int amount = 0;
-            foreach(Ticket ticket in tickets)
+            foreach (Ticket ticket in tickets)
             {
-                ticket.TicketState = ticketStateService.GetTicketStateById(ticket.TicketStateId);
 
-                if (ticket.TicketState.Name.ToLower() == "open" ||
-                    ticket.TicketState.Name.ToLower() == "in progress")
+                if (ticket.TicketState == TicketState.Open ||
+                    ticket.TicketState == TicketState.InProgress)
                     amount++;
             }
             return amount;
-        }*/
-        
-        /*public int GetTicketsPastDeadlineAmount(List<Ticket> tickets)
+        }
+
+        public int GetTicketsPastDeadlineAmount(List<Ticket> tickets)
         {
             int amount = 0;
             foreach (Ticket ticket in tickets)
             {
-                ticket.TicketState = ticketStateService.GetTicketStateById(ticket.TicketStateId);
 
-                if (ticket.TicketDate.Deadline < DateTime.Now && 
-                    (ticket.TicketState.Name.ToLower() == "open" ||
-                    ticket.TicketState.Name.ToLower() == "in progress"))
+                if (ticket.TicketDate.Deadline < DateTime.Now &&
+                    (ticket.TicketState == TicketState.Open ||
+                    ticket.TicketState == TicketState.InProgress))
                     amount++;
             }
 
             return amount;
-        }*/
+        }
+
         /*private List<Ticket> filltickets(List<Ticket> tickets)
         {
             foreach (Ticket ticket in tickets)
@@ -94,7 +95,7 @@ namespace GardenGroupLogica
             }
             return tickets;
         }*/
-    
+
     }
 }
 

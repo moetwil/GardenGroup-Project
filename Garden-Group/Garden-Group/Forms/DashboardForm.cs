@@ -15,15 +15,8 @@ using System.Windows.Forms;
 namespace Garden_Group.Forms
 {
     /*
-     TODO:
-    - Load tickets currently open
-    - Add tickets to circular progress bar
-    
-    - Load tickets past deadline
-    - Add tickets to circular progress bar
-
-    - Add date to dashboard
-     
+    TODO:
+    - Load all tickets
      */
     public partial class DashboardForm : Form
     {
@@ -33,6 +26,7 @@ namespace Garden_Group.Forms
         {
             this.user = user;
             InitializeComponent();
+            Test();
             this.Controls.Add(new MenuStripUC(this.user, this));
             this.SetSizeToDesktop();
 
@@ -55,14 +49,22 @@ namespace Garden_Group.Forms
             
         }
 
+        private void Test()
+        {
+            /*TicketService ticketService = new TicketService();
+            Ticket ticket = ticketService.GetAllTickets()[0];
+            MessageBox.Show(ticket.Title);*/
+
+        }
+
         private void LoadPieCharts(User user)
         {
-            switch (user.JobInfo.Role.ToString())
+            switch (user.JobInfo.Role)
             {
-                case "Employee":
+                case Role.Employee:
                     LoadEmployeeCharts();
                     break;
-                case "ServiceDeskEmployee":
+                case Role.ServiceDeskEmployee:
                     LoadServiceEmployeeCharts();
                     break;
             }
@@ -84,12 +86,12 @@ namespace Garden_Group.Forms
 
         private void LoadServiceEmployeeCharts()
         {
-            /*List<Ticket> allTickets = ticketService.GetAllTickets();
+            List<Ticket> allTickets = ticketService.GetAllTickets();
             int amountOpenTickets = ticketService.GetOpenTicketsAmount(allTickets);
             int amountPastDeadlineTickets = ticketService.GetTicketsPastDeadlineAmount(allTickets);
 
             SetProgressBar(amountOpenTickets, allTickets.Count, this.circularPBUnresolvedIncidents);
-            SetProgressBar(amountPastDeadlineTickets, allTickets.Count, this.circularProgressBarPastDeadline);*/
+            SetProgressBar(amountPastDeadlineTickets, allTickets.Count, this.circularProgressBarPastDeadline);
         }
 
         private void SetProgressBar(int value, int max, CircularProgressBar.CircularProgressBar progressBar)

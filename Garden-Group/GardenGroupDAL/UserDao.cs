@@ -75,7 +75,7 @@ namespace GardenGroupDAL
             this.InsertDocument(m_Collection, user);
         }
 
-        public void UpdateDocument(User user)
+        public void UpdateUser(User user)
         {
             this.UpdateDocument(m_Collection,user.Id, user);
         }

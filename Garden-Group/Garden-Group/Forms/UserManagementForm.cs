@@ -110,7 +110,7 @@ namespace Garden_Group.Forms
                 this.user.ContactInfo.Address.City = textBoxCity.Text;
                 this.user.ContactInfo.Address.Country = textBoxCountry.Text;
 
-                userService.UpdateDocument(this.user);
+                userService.UpdateUser(this.user);
             }
             catch (Exception)
             {
