@@ -18,34 +18,25 @@ namespace Garden_Group.Forms
         private User user;
         private List<Ticket> allTickets;
         private TicketService ticketService;
-        private TicketIncidentService ticketIncidentService;
-        private TicketStateService ticketStateService;
-        private TicketPriorityService ticketPriorityService;
-        private List<TicketState> ticketStates;
         private IncidentsUC selectedIncidentUC;        
 
         public IncidentManagementForm(User user)
         {
             this.user = user;
             ticketService = new TicketService();
-            this.allTickets = this.ticketService.GetAllTickets();
-            this.ticketIncidentService = new TicketIncidentService();
-            this.ticketStateService = new TicketStateService();
-            this.ticketPriorityService = new TicketPriorityService();
-            this.ticketStates = this.ticketStateService.GetAllTicketStates();
 
             InitializeComponent();
             this.SetSizeToDesktop();
         }
 
-        private void IncidentManagementForm_Load(object sender, EventArgs e)
+        /*private void IncidentManagementForm_Load(object sender, EventArgs e)
         {
             this.Controls.Add(new MenuStripUC(this.user, this));
             fillFlowPanel();
             loadComboBoxes();
-        }
+        }*/
 
-        private void fillFlowPanel()
+        /*private void fillFlowPanel()
         {
             flowLayoutPanelIncidents.Controls.Clear();
             foreach (Ticket ticket in allTickets)
@@ -55,9 +46,9 @@ namespace Garden_Group.Forms
                 incidentUC.Size = new Size(flowLayoutPanelIncidents.Width - SystemInformation.HorizontalScrollBarArrowWidth, 70);
                 flowLayoutPanelIncidents.Controls.Add(incidentUC);
             }
-        }
+        }*/
 
-        private void loadComboBoxes()
+        /*private void loadComboBoxes()
         {
             List<TicketPriority> priorityLevels = ticketPriorityService.GetAllTicketPriorities();
             ticketStates = ticketStateService.GetAllTicketStates();
@@ -69,9 +60,9 @@ namespace Garden_Group.Forms
                 comboBoxState.Items.Add(state);
             foreach (TicketIncident incident in ticketIncidents)
                 comboBoxType.Items.Add(incident);
-        }
+        }*/
 
-        private void IncidentUC_Clicked(object sender, EventArgs e)
+        /*private void IncidentUC_Clicked(object sender, EventArgs e)
         {
             buttonBecomeSolver.Enabled = true;
             selectedIncidentUC = (IncidentsUC)sender;
@@ -92,7 +83,7 @@ namespace Garden_Group.Forms
               dateTimePickerClosed.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.ClosingDate.Date;
 
             //dateTimePickerDeadline.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.Deadline.Date;
-        }
+        }*/
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
@@ -111,13 +102,13 @@ namespace Garden_Group.Forms
             buttonBecomeSolver.Enabled = false;
         }
 
-        private void buttonCloseTicket_Click(object sender, EventArgs e)
+        /*private void buttonCloseTicket_Click(object sender, EventArgs e)
         {
             ((Ticket)selectedIncidentUC.Tag).TicketState = ticketStates[0];
             ((Ticket)selectedIncidentUC.Tag).TicketStateId = ticketStates[0].Id;            
             ((Ticket)selectedIncidentUC.Tag).TicketDate.ClosingDate = DateTime.UtcNow;
             
             ticketService.UpdateTicket(((Ticket)selectedIncidentUC.Tag));
-        }
+        }*/
     }
 }

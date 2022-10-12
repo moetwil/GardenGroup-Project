@@ -52,19 +52,19 @@ namespace Garden_Group.Forms
 
         // Use Service Layer to retrieve data from the database. 
         private void FillStatusComboBox() {
-            TicketStateService ticketStateService = new TicketStateService();
+            /*TicketStateService ticketStateService = new TicketStateService();
             List<TicketState> ticketStates = ticketStateService.GetAllTicketStates();
-            FillCombobox(ticketStates, this.comboBoxTicketStateState);
+            FillCombobox(ticketStates, this.comboBoxTicketStateState);*/
         }
         private void FillPriorityComboBox(){
-            TicketPriorityService ticketPriorityService = new TicketPriorityService();
+            /*TicketPriorityService ticketPriorityService = new TicketPriorityService();
             List<TicketPriority> ticketPriorities = ticketPriorityService.GetAllTicketPriorities();
-            FillCombobox(ticketPriorities, this.comboBoxTicketPriority);
+            FillCombobox(ticketPriorities, this.comboBoxTicketPriority);*/
         }
         private void FillIncidentComboBox() {
-            TicketIncidentService ticketIncidentService = new TicketIncidentService();
+            /*TicketIncidentService ticketIncidentService = new TicketIncidentService();
             List<TicketIncident> ticketIncidents = ticketIncidentService.GetAllTicketIncidents();
-            FillCombobox(ticketIncidents, this.comboBoxTypeOfIncident);
+            FillCombobox(ticketIncidents, this.comboBoxTypeOfIncident);*/
         }
 
         private void CheckForEmptyChoices()
@@ -100,9 +100,9 @@ namespace Garden_Group.Forms
                 ticket.TicketDate = new TicketDate();
                 ticket.TicketDate.OpeningDate = DateTime.Now;
                 ticket.TicketDate.Deadline = dateTimePickerTicketDeadline.Value;
-                ticket.TicketPriorityId = ((TicketPriority)this.comboBoxTicketPriority.SelectedItem).Id;
+                /*ticket.TicketPriorityId = ((TicketPriority)this.comboBoxTicketPriority.SelectedItem).Id;
                 ticket.TicketStateId = ((TicketState)this.comboBoxTicketStateState.SelectedItem).Id;
-                ticket.TypeOfIncidentId = ((TicketIncident)this.comboBoxTypeOfIncident.SelectedItem).Id;
+                ticket.TypeOfIncidentId = ((TicketIncident)this.comboBoxTypeOfIncident.SelectedItem).Id;*/
 
                 // add ticket to database
                 TicketService ticketService = new TicketService();

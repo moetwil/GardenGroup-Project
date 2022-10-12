@@ -54,7 +54,7 @@ namespace Garden_Group.UserControls
             labelTicketDateStart.Text = ticket.TicketDate.OpeningDate.Date.ToShortDateString();
             labelTicketDateEnd.Text = ticket.TicketDate.ClosingDate.ToShortDateString();
 
-            if (ticket.TicketState.Name is not null)
+            /*if (ticket.TicketState.Name is not null)
                 labelTicketState.Text += ticket.TicketState.Name;
             else
                 labelTicketState.Text += "No ticket state";
@@ -73,7 +73,7 @@ namespace Garden_Group.UserControls
                 default:
                     panelTicketState.BackColor = Color.SlateGray;
                     break;
-            }
+            }*/
 
         }
         //parent.ticketConrtol_Click(sender, e); 

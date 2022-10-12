@@ -35,7 +35,7 @@ namespace Garden_Group.UserControls
             this.labelFirstName.Text = this.user.FirstName;
             this.labelLastName.Text = this.user.LastName;
             this.labelEmail.Text = this.user.ContactInfo.Email;
-            this.labelAmountOfTickets.Text = this.ticketService.GetTicketsFromUser(this.user).Count.ToString();
+            /*this.labelAmountOfTickets.Text = this.ticketService.GetTicketsFromUser(this.user).Count.ToString();*/
         }
 
         private void UserUC_Click(object sender, EventArgs e)
@@ -73,11 +73,11 @@ namespace Garden_Group.UserControls
 
         }
 
-        private int GetRole()
+        /*private int GetRole()
         {
             if (this.user.JobInfo.Role.JobName == "Employee") return 0;
             if (this.user.JobInfo.Role.JobName == "ServiceDeskEmployee") return 1;
             return -1;
-        }
+        }*/
     }
 }

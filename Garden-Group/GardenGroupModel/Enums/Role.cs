@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GardenGroupModel.Enums
 {
-    public enum RoleEnum
+    public enum Role
     {
         Employee, ServiceDeskEmployee
     }

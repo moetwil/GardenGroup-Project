@@ -11,12 +11,7 @@ namespace GardenGroupModel
 {
     public class JobInfo
     {
-
-        public string RoleId { get; set; }
-        public string BranchId { get; set; }
-        [BsonIgnore]
-        public Role? Role { get; set; }
-        [BsonIgnore]
+        public Role Role { get; set; }
         public Branch Branch { get; set; } 
     }
 }

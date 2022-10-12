@@ -60,16 +60,16 @@ namespace Garden_Group.Forms
         }
         private void FillRoleComboBox()
         {
-            RoleService roleService = new RoleService();
+            /*RoleService roleService = new RoleService();
             List<Role> allRoles = roleService.GetAllRoles();
-            FillCombobox(allRoles, this.comboBoxCompanyRole);
+            FillCombobox(allRoles, this.comboBoxCompanyRole);*/
         }
 
         private void FillBrancheComboBox()
         {
-            BranchService branchService = new BranchService();
+            /*BranchService branchService = new BranchService();
             List<Branch> allBranches = branchService.GetAllBranches();
-            FillCombobox(allBranches, this.comboBoxLocation);
+            FillCombobox(allBranches, this.comboBoxLocation);*/
         }
 
         // show user information as the user is selected
@@ -100,8 +100,8 @@ namespace Garden_Group.Forms
                 this.user.FirstName = textBoxFirstname.Text;
                 this.user.LastName = textBoxLastname.Text;
                 this.user.DateOfBirth = dateTimePickerDateOfBirth.Value;
-                this.user.JobInfo.RoleId = ((Role)comboBoxCompanyRole.SelectedItem).Id;
-                this.user.JobInfo.BranchId = ((Branch)comboBoxLocation.SelectedItem).Id;
+                /*this.user.JobInfo.RoleId = ((Role)comboBoxCompanyRole.SelectedItem).Id;
+                this.user.JobInfo.BranchId = ((Branch)comboBoxLocation.SelectedItem).Id;*/
                 this.user.ContactInfo.Email = textBoxEmail.Text;
                 this.user.ContactInfo.PhoneNumber = textBoxPhoneNumber.Text;
                 this.user.ContactInfo.Address.Street = textBoxStreet.Text;

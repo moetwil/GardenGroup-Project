@@ -79,8 +79,8 @@ namespace Garden_Group.Forms
             this.NewUser.FirstName = this.textBoxFirstname.Text;
             this.NewUser.LastName = this.textBoxLastname.Text;
             this.NewUser.DateOfBirth = this.dateTimePickerDoB.Value;
-            this.NewUser.JobInfo.RoleId = ((Role)this.comboBoxRole.SelectedItem).Id;
-            this.NewUser.JobInfo.BranchId = ((Branch)this.comboBoxLocationBranch.SelectedItem).Id;
+            /*this.NewUser.JobInfo.RoleId = ((Role)this.comboBoxRole.SelectedItem).Id;
+            this.NewUser.JobInfo.BranchId = ((Branch)this.comboBoxLocationBranch.SelectedItem).Id;*/
             this.NewUser.ContactInfo.Email = this.textBoxEmail.Text;
             this.NewUser.ContactInfo.PhoneNumber = this.textBoxPhone.Text;
             this.NewUser.ContactInfo.Address.Street = this.textBoxStreet.Text;
@@ -157,16 +157,16 @@ namespace Garden_Group.Forms
         }
         private void FillRoleComboBox()
         {
-            RoleService roleService = new RoleService();
+            /*RoleService roleService = new RoleService();
             List<Role> allRoles = roleService.GetAllRoles();
-            FillCombobox(allRoles, this.comboBoxRole);
+            FillCombobox(allRoles, this.comboBoxRole);*/
         }
 
         private void FillBrancheComboBox()
         {
-            BranchService branchService = new BranchService();
+            /*BranchService branchService = new BranchService();
             List<Branch> allBranches = branchService.GetAllBranches();
-            FillCombobox(allBranches, this.comboBoxLocationBranch);
+            FillCombobox(allBranches, this.comboBoxLocationBranch);*/
         }
     }
 }

@@ -12,17 +12,11 @@ namespace GardenGroupLogica
     public class TicketService
     {
         private TicketDao ticketDao;
-        private TicketStateService ticketStateService;
-        private TicketPriorityService ticketPriorityService;
-        private TicketIncidentService ticketIncidentService;
         private UserService userService;
 
         public TicketService()
         {
             ticketDao = new TicketDao();
-            ticketStateService = new TicketStateService();
-            ticketPriorityService = new TicketPriorityService();
-            ticketIncidentService = new TicketIncidentService();
             userService = new UserService();
         }
 
@@ -36,7 +30,7 @@ namespace GardenGroupLogica
             ticketDao.AddTicket(ticket);
         }
 
-        public List<Ticket> GetAllTickets()
+        /*public List<Ticket> GetAllTickets()
         {
             List<Ticket> tickets = ticketDao.GetAllTickets();
             return filltickets(tickets);
@@ -46,7 +40,7 @@ namespace GardenGroupLogica
         {
             List<Ticket> tickets = ticketDao.GetTicketsFromUser(user);
             return filltickets(tickets);
-        }
+        }*/
         // Delete ticket
         public void DeleteTicket(Ticket ticket)
         {
@@ -59,7 +53,7 @@ namespace GardenGroupLogica
             ticketDao.UpdateTicket(ticket);
         }
 
-        public int GetOpenTicketsAmount(List<Ticket> tickets)
+        /*public int GetOpenTicketsAmount(List<Ticket> tickets)
         {
             int amount = 0;
             foreach(Ticket ticket in tickets)
@@ -71,9 +65,9 @@ namespace GardenGroupLogica
                     amount++;
             }
             return amount;
-        }
+        }*/
         
-        public int GetTicketsPastDeadlineAmount(List<Ticket> tickets)
+        /*public int GetTicketsPastDeadlineAmount(List<Ticket> tickets)
         {
             int amount = 0;
             foreach (Ticket ticket in tickets)
@@ -87,8 +81,8 @@ namespace GardenGroupLogica
             }
 
             return amount;
-        }
-        private List<Ticket> filltickets(List<Ticket> tickets)
+        }*/
+        /*private List<Ticket> filltickets(List<Ticket> tickets)
         {
             foreach (Ticket ticket in tickets)
             {
@@ -99,7 +93,7 @@ namespace GardenGroupLogica
                 ticket.Solvers = userService.GetTicketSolvers(ticket.TicketSolvers);
             }
             return tickets;
-        }
+        }*/
     
     }
 }
