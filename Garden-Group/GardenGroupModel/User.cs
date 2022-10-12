@@ -13,12 +13,13 @@ namespace GardenGroupModel
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public ContactInfo ContactInfo { get; set; }
+        public JobInfo JobInfo { get; set; }
+        
         public List<string> TicketsIds { get; set; }
         public Password Password { get; set; }
 
         [BsonIgnore]
         public List<Ticket> Tickets { get; set; }
-        public JobInfo JobInfo { get; set; }
 
         public User()
         {

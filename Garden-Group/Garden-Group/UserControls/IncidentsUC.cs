@@ -49,7 +49,7 @@ namespace Garden_Group.UserControls
         
         public void FillUC()
         {
-            labelTitle.Text = ticket.Title;
+           /* labelTitle.Text = ticket.Title;
             labelDescription.Text = ticket.Description;
             labelTicketDateStart.Text = ticket.TicketDate.OpeningDate.Date.ToShortDateString();
             labelTicketDateEnd.Text = ticket.TicketDate.ClosingDate.ToShortDateString();
@@ -73,7 +73,7 @@ namespace Garden_Group.UserControls
                 default:
                     panelTicketState.BackColor = Color.SlateGray;
                     break;
-            }
+            }*/
 
         }
     }

@@ -34,7 +34,7 @@ namespace Garden_Group.Forms
             this.Controls.Add(new MenuStripUC(this.user, this));
             this.SetSizeToDesktop();
             labelTicketOverview.Text = $"Tickets overzicht van {user.FirstName}";
-            tickets = ticketService.GetTicketsFromUser(user);
+            /*tickets = ticketService.GetTicketsFromUser(user);*/
             
             fillOverview();
         }
@@ -56,10 +56,10 @@ namespace Garden_Group.Forms
             labelDateOpen.Text = ((Ticket)clickedTicket.Tag).TicketDate.OpeningDate.ToShortDateString();
             labelDateClose.Text = ((Ticket)clickedTicket.Tag).TicketDate.ClosingDate.ToShortDateString();
             labelDateDeadline.Text = ((Ticket)clickedTicket.Tag).TicketDate.Deadline.ToShortDateString();
-            labelIncidentType.Text = ((Ticket)clickedTicket.Tag).TypeOfIncident.Type;
+            /*labelIncidentType.Text = ((Ticket)clickedTicket.Tag).TypeOfIncident.Type;
             labelPriority.Text = ((Ticket)clickedTicket.Tag).TicketPriority.PriorityLevel;
             labelStateName.Text = ((Ticket)clickedTicket.Tag).TicketState.Name;
-            labelStateCode.Text = ((Ticket)clickedTicket.Tag).TicketState.Code.ToString();               
+            labelStateCode.Text = ((Ticket)clickedTicket.Tag).TicketState.Code.ToString();   */            
         }
 
         private void buttonIncidentAanmaken_Click(object sender, EventArgs e)

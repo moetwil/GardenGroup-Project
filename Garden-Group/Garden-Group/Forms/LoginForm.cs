@@ -30,7 +30,7 @@ namespace Garden_Group.Forms
             this.userService = new UserService();
             this.loginService = new LoginService();
             this.SetSizeToDesktop();
-            TestLogin();
+            //TestLogin();
         }
 
         public void TestLogin()
