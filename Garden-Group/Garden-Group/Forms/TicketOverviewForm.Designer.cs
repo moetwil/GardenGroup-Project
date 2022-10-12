@@ -1,0 +1,360 @@
+﻿namespace Garden_Group.Forms
+{
+    partial class TicketOverviewForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.flowTicketOverview = new System.Windows.Forms.FlowLayoutPanel();
+            this.labelTicketOverview = new System.Windows.Forms.Label();
+            this.buttonIncidentAanmaken = new System.Windows.Forms.Button();
+            this.buttonHighPriority = new System.Windows.Forms.Button();
+            this.buttonLowPriority = new System.Windows.Forms.Button();
+            this.labelInfoTitle = new System.Windows.Forms.Label();
+            this.panelTicketInfo = new System.Windows.Forms.Panel();
+            this.labelDeadlineText = new System.Windows.Forms.Label();
+            this.labelIncidentText = new System.Windows.Forms.Label();
+            this.labelOpentText = new System.Windows.Forms.Label();
+            this.labelDateDeadline = new System.Windows.Forms.Label();
+            this.labelIncidentType = new System.Windows.Forms.Label();
+            this.labelCodeText = new System.Windows.Forms.Label();
+            this.labelCloseText = new System.Windows.Forms.Label();
+            this.labelDateOpen = new System.Windows.Forms.Label();
+            this.labelStateCode = new System.Windows.Forms.Label();
+            this.labelStateText = new System.Windows.Forms.Label();
+            this.labelDateClose = new System.Windows.Forms.Label();
+            this.labelStateName = new System.Windows.Forms.Label();
+            this.labelPriorText = new System.Windows.Forms.Label();
+            this.labelPriority = new System.Windows.Forms.Label();
+            this.labelDescription = new System.Windows.Forms.Label();
+            this.panelTicketInfo.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // flowTicketOverview
+            // 
+            this.flowTicketOverview.AutoScroll = true;
+            this.flowTicketOverview.BackColor = System.Drawing.Color.White;
+            this.flowTicketOverview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowTicketOverview.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowTicketOverview.Location = new System.Drawing.Point(442, 156);
+            this.flowTicketOverview.Name = "flowTicketOverview";
+            this.flowTicketOverview.Size = new System.Drawing.Size(455, 350);
+            this.flowTicketOverview.TabIndex = 0;
+            this.flowTicketOverview.WrapContents = false;
+            // 
+            // labelTicketOverview
+            // 
+            this.labelTicketOverview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTicketOverview.AutoSize = true;
+            this.labelTicketOverview.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTicketOverview.Location = new System.Drawing.Point(300, 33);
+            this.labelTicketOverview.Name = "labelTicketOverview";
+            this.labelTicketOverview.Size = new System.Drawing.Size(101, 30);
+            this.labelTicketOverview.TabIndex = 1;
+            this.labelTicketOverview.Text = "Overzicht";
+            this.labelTicketOverview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonIncidentAanmaken
+            // 
+            this.buttonIncidentAanmaken.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonIncidentAanmaken.Location = new System.Drawing.Point(241, 388);
+            this.buttonIncidentAanmaken.Name = "buttonIncidentAanmaken";
+            this.buttonIncidentAanmaken.Size = new System.Drawing.Size(160, 72);
+            this.buttonIncidentAanmaken.TabIndex = 2;
+            this.buttonIncidentAanmaken.Text = "Nieuw incident aanmaken";
+            this.buttonIncidentAanmaken.UseVisualStyleBackColor = true;
+            this.buttonIncidentAanmaken.Click += new System.EventHandler(this.buttonIncidentAanmaken_Click);
+            // 
+            // buttonHighPriority
+            // 
+            this.buttonHighPriority.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonHighPriority.Location = new System.Drawing.Point(488, 531);
+            this.buttonHighPriority.Name = "buttonHighPriority";
+            this.buttonHighPriority.Size = new System.Drawing.Size(157, 61);
+            this.buttonHighPriority.TabIndex = 3;
+            this.buttonHighPriority.Text = "Prioriteit hoog";
+            this.buttonHighPriority.UseVisualStyleBackColor = true;
+            this.buttonHighPriority.Click += new System.EventHandler(this.buttonHighPriority_Click);
+            // 
+            // buttonLowPriority
+            // 
+            this.buttonLowPriority.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonLowPriority.Location = new System.Drawing.Point(685, 531);
+            this.buttonLowPriority.Name = "buttonLowPriority";
+            this.buttonLowPriority.Size = new System.Drawing.Size(157, 61);
+            this.buttonLowPriority.TabIndex = 4;
+            this.buttonLowPriority.Text = "Prioriteit laag";
+            this.buttonLowPriority.UseVisualStyleBackColor = true;
+            // 
+            // labelInfoTitle
+            // 
+            this.labelInfoTitle.AutoSize = true;
+            this.labelInfoTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelInfoTitle.Location = new System.Drawing.Point(15, 21);
+            this.labelInfoTitle.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            this.labelInfoTitle.Name = "labelInfoTitle";
+            this.labelInfoTitle.Size = new System.Drawing.Size(64, 32);
+            this.labelInfoTitle.TabIndex = 5;
+            this.labelInfoTitle.Text = "Titel";
+            // 
+            // panelTicketInfo
+            // 
+            this.panelTicketInfo.BackColor = System.Drawing.Color.White;
+            this.panelTicketInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTicketInfo.Controls.Add(this.labelDeadlineText);
+            this.panelTicketInfo.Controls.Add(this.labelIncidentText);
+            this.panelTicketInfo.Controls.Add(this.labelOpentText);
+            this.panelTicketInfo.Controls.Add(this.labelDateDeadline);
+            this.panelTicketInfo.Controls.Add(this.labelIncidentType);
+            this.panelTicketInfo.Controls.Add(this.labelCodeText);
+            this.panelTicketInfo.Controls.Add(this.labelCloseText);
+            this.panelTicketInfo.Controls.Add(this.labelDateOpen);
+            this.panelTicketInfo.Controls.Add(this.labelStateCode);
+            this.panelTicketInfo.Controls.Add(this.labelStateText);
+            this.panelTicketInfo.Controls.Add(this.labelDateClose);
+            this.panelTicketInfo.Controls.Add(this.labelStateName);
+            this.panelTicketInfo.Controls.Add(this.labelPriorText);
+            this.panelTicketInfo.Controls.Add(this.labelPriority);
+            this.panelTicketInfo.Controls.Add(this.labelDescription);
+            this.panelTicketInfo.Controls.Add(this.labelInfoTitle);
+            this.panelTicketInfo.Location = new System.Drawing.Point(915, 156);
+            this.panelTicketInfo.Name = "panelTicketInfo";
+            this.panelTicketInfo.Size = new System.Drawing.Size(310, 350);
+            this.panelTicketInfo.TabIndex = 6;
+            // 
+            // labelDeadlineText
+            // 
+            this.labelDeadlineText.AutoSize = true;
+            this.labelDeadlineText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDeadlineText.Location = new System.Drawing.Point(149, 5);
+            this.labelDeadlineText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelDeadlineText.Name = "labelDeadlineText";
+            this.labelDeadlineText.Size = new System.Drawing.Size(72, 20);
+            this.labelDeadlineText.TabIndex = 20;
+            this.labelDeadlineText.Text = "Deadline:";
+            // 
+            // labelIncidentText
+            // 
+            this.labelIncidentText.AutoSize = true;
+            this.labelIncidentText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelIncidentText.Location = new System.Drawing.Point(231, 62);
+            this.labelIncidentText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelIncidentText.Name = "labelIncidentText";
+            this.labelIncidentText.Size = new System.Drawing.Size(62, 20);
+            this.labelIncidentText.TabIndex = 19;
+            this.labelIncidentText.Text = "incident";
+            // 
+            // labelOpentText
+            // 
+            this.labelOpentText.AutoSize = true;
+            this.labelOpentText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelOpentText.Location = new System.Drawing.Point(15, 283);
+            this.labelOpentText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelOpentText.Name = "labelOpentText";
+            this.labelOpentText.Size = new System.Drawing.Size(95, 20);
+            this.labelOpentText.TabIndex = 18;
+            this.labelOpentText.Text = "Geopend op:";
+            // 
+            // labelDateDeadline
+            // 
+            this.labelDateDeadline.AutoSize = true;
+            this.labelDateDeadline.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDateDeadline.Location = new System.Drawing.Point(221, 5);
+            this.labelDateDeadline.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelDateDeadline.Name = "labelDateDeadline";
+            this.labelDateDeadline.Size = new System.Drawing.Size(72, 20);
+            this.labelDateDeadline.TabIndex = 13;
+            this.labelDateDeadline.Text = "Deadline:";
+            // 
+            // labelIncidentType
+            // 
+            this.labelIncidentType.AutoSize = true;
+            this.labelIncidentType.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelIncidentType.Location = new System.Drawing.Point(156, 62);
+            this.labelIncidentType.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelIncidentType.Name = "labelIncidentType";
+            this.labelIncidentType.Size = new System.Drawing.Size(74, 20);
+            this.labelIncidentType.TabIndex = 12;
+            this.labelIncidentType.Text = "Hardware";
+            this.labelIncidentType.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // labelCodeText
+            // 
+            this.labelCodeText.AutoSize = true;
+            this.labelCodeText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCodeText.Location = new System.Drawing.Point(15, 257);
+            this.labelCodeText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelCodeText.Name = "labelCodeText";
+            this.labelCodeText.Size = new System.Drawing.Size(85, 20);
+            this.labelCodeText.TabIndex = 17;
+            this.labelCodeText.Text = "Staat Code:";
+            // 
+            // labelCloseText
+            // 
+            this.labelCloseText.AutoSize = true;
+            this.labelCloseText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCloseText.Location = new System.Drawing.Point(15, 309);
+            this.labelCloseText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelCloseText.Name = "labelCloseText";
+            this.labelCloseText.Size = new System.Drawing.Size(92, 20);
+            this.labelCloseText.TabIndex = 16;
+            this.labelCloseText.Text = "Gesloten op:";
+            // 
+            // labelDateOpen
+            // 
+            this.labelDateOpen.AutoSize = true;
+            this.labelDateOpen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDateOpen.Location = new System.Drawing.Point(126, 283);
+            this.labelDateOpen.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelDateOpen.Name = "labelDateOpen";
+            this.labelDateOpen.Size = new System.Drawing.Size(77, 20);
+            this.labelDateOpen.TabIndex = 11;
+            this.labelDateOpen.Text = "8/10/2022";
+            // 
+            // labelStateCode
+            // 
+            this.labelStateCode.AutoSize = true;
+            this.labelStateCode.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelStateCode.Location = new System.Drawing.Point(126, 257);
+            this.labelStateCode.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelStateCode.Name = "labelStateCode";
+            this.labelStateCode.Size = new System.Drawing.Size(25, 20);
+            this.labelStateCode.TabIndex = 10;
+            this.labelStateCode.Text = "40";
+            // 
+            // labelStateText
+            // 
+            this.labelStateText.AutoSize = true;
+            this.labelStateText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelStateText.Location = new System.Drawing.Point(15, 231);
+            this.labelStateText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelStateText.Name = "labelStateText";
+            this.labelStateText.Size = new System.Drawing.Size(52, 20);
+            this.labelStateText.TabIndex = 15;
+            this.labelStateText.Text = "Status:";
+            // 
+            // labelDateClose
+            // 
+            this.labelDateClose.AutoSize = true;
+            this.labelDateClose.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDateClose.Location = new System.Drawing.Point(126, 309);
+            this.labelDateClose.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelDateClose.Name = "labelDateClose";
+            this.labelDateClose.Size = new System.Drawing.Size(77, 20);
+            this.labelDateClose.TabIndex = 9;
+            this.labelDateClose.Text = "8/10/2022";
+            // 
+            // labelStateName
+            // 
+            this.labelStateName.AutoSize = true;
+            this.labelStateName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelStateName.Location = new System.Drawing.Point(126, 231);
+            this.labelStateName.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelStateName.Name = "labelStateName";
+            this.labelStateName.Size = new System.Drawing.Size(45, 20);
+            this.labelStateName.TabIndex = 8;
+            this.labelStateName.Text = "Open";
+            // 
+            // labelPriorText
+            // 
+            this.labelPriorText.AutoSize = true;
+            this.labelPriorText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPriorText.Location = new System.Drawing.Point(15, 205);
+            this.labelPriorText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelPriorText.Name = "labelPriorText";
+            this.labelPriorText.Size = new System.Drawing.Size(104, 20);
+            this.labelPriorText.TabIndex = 14;
+            this.labelPriorText.Text = "Prioriteit level:";
+            // 
+            // labelPriority
+            // 
+            this.labelPriority.AutoSize = true;
+            this.labelPriority.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelPriority.Location = new System.Drawing.Point(126, 205);
+            this.labelPriority.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.labelPriority.Name = "labelPriority";
+            this.labelPriority.Size = new System.Drawing.Size(36, 20);
+            this.labelPriority.TabIndex = 7;
+            this.labelPriority.Text = "Low";
+            // 
+            // labelDescription
+            // 
+            this.labelDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDescription.Location = new System.Drawing.Point(15, 85);
+            this.labelDescription.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(278, 108);
+            this.labelDescription.TabIndex = 6;
+            // 
+            // TicketOverviewForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.panelTicketInfo);
+            this.Controls.Add(this.buttonLowPriority);
+            this.Controls.Add(this.buttonHighPriority);
+            this.Controls.Add(this.buttonIncidentAanmaken);
+            this.Controls.Add(this.labelTicketOverview);
+            this.Controls.Add(this.flowTicketOverview);
+            this.Name = "TicketOverviewForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "TicketOverviewForm";
+            this.Load += new System.EventHandler(this.TicketOverviewForm_Load);
+            this.panelTicketInfo.ResumeLayout(false);
+            this.panelTicketInfo.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private FlowLayoutPanel flowTicketOverview;
+        private Label labelTicketOverview;
+        private Button buttonIncidentAanmaken;
+        private Button buttonHighPriority;
+        private Button buttonLowPriority;
+        private Label labelInfoTitle;
+        private Panel panelTicketInfo;
+        private Label labelDateOpen;
+        private Label labelStateCode;
+        private Label labelDateClose;
+        private Label labelStateName;
+        private Label labelPriority;
+        private Label labelDescription;
+        private Label labelDateDeadline;
+        private Label labelIncidentType;
+        private Label labelOpentText;
+        private Label labelCodeText;
+        private Label labelCloseText;
+        private Label labelStateText;
+        private Label labelPriorText;
+        private Label labelDeadlineText;
+        private Label labelIncidentText;
+    }
+}

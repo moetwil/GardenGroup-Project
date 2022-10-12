@@ -1,0 +1,107 @@
+﻿using Garden_Group.UserControls;
+using GardenGroupLogica;
+using GardenGroupModel;
+using GardenGroupModel.Enums;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Garden_Group.Forms
+{
+    /*
+     TODO:
+    - Load tickets currently open
+    - Add tickets to circular progress bar
+    
+    - Load tickets past deadline
+    - Add tickets to circular progress bar
+
+    - Add date to dashboard
+     
+     */
+    public partial class DashboardForm : Form
+    {
+        private User user;
+        private RoleService roleService;
+        private TicketService ticketService;
+        public DashboardForm(User user)
+        {
+            this.user = user;
+            InitializeComponent();
+            this.Controls.Add(new MenuStripUC(this.user, this));
+            this.SetSizeToDesktop();
+
+            // Load service objects
+            this.roleService = new RoleService();
+            this.ticketService = new TicketService();
+        }
+
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
+            // Set welcome text to user
+            this.labelWelcomeText.Text = $"Welkom {user.FirstName} {user.LastName}";
+
+            // Get role from logged in user
+            this.user.JobInfo.Role = roleService.GetRoleById(this.user.JobInfo.RoleId);
+
+            //SetProgressBar(0, 0, this.circularPBUnresolvedIncidents);
+
+            // Load the two PieCharts
+            LoadPieCharts(this.user);
+            
+        }
+
+        private void LoadPieCharts(User user)
+        {
+            switch (user.JobInfo.Role.JobName)
+            {
+                case "Employee":
+                    LoadEmployeeCharts();
+                    break;
+                case "ServiceDeskEmployee":
+                    LoadServiceEmployeeCharts();
+                    break;
+            }
+
+        }
+
+
+        private void LoadEmployeeCharts()
+        {
+            List<Ticket> ticketsFromUser = ticketService.GetTicketsFromUser(this.user);
+            int amountOpenTickets = ticketService.GetOpenTicketsAmount(ticketsFromUser);
+            int amountPastDeadlineTickets = ticketService.GetTicketsPastDeadlineAmount(ticketsFromUser);
+
+            SetProgressBar(amountOpenTickets, ticketsFromUser.Count, this.circularPBUnresolvedIncidents);
+            SetProgressBar(amountPastDeadlineTickets, ticketsFromUser.Count, this.circularProgressBarPastDeadline);
+        }
+
+        private void LoadServiceEmployeeCharts()
+        {
+            List<Ticket> allTickets = ticketService.GetAllTickets();
+            int amountOpenTickets = ticketService.GetOpenTicketsAmount(allTickets);
+            int amountPastDeadlineTickets = ticketService.GetTicketsPastDeadlineAmount(allTickets);
+
+            SetProgressBar(amountOpenTickets, allTickets.Count, this.circularPBUnresolvedIncidents);
+            SetProgressBar(amountPastDeadlineTickets, allTickets.Count, this.circularProgressBarPastDeadline);
+        }
+
+        private void SetProgressBar(int value, int max, CircularProgressBar.CircularProgressBar progressBar)
+        {
+            progressBar.Maximum = max;
+            progressBar.Value = value;
+            progressBar.Text = $"{value}/{max}";
+
+            progressBar.Update();
+
+        }
+
+
+    }
+}
