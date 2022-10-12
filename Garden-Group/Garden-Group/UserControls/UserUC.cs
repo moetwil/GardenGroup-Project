@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GardenGroupModel.Enums;
+using Garden_Group.Forms;
 
 namespace Garden_Group.UserControls
 {
@@ -69,6 +70,10 @@ namespace Garden_Group.UserControls
             textBoxCity.Text = this.user.ContactInfo.Address.City;
             textBoxCountry.Text = this.user.ContactInfo.Address.Country;
 
+            
+            // parent
+            UserManagementForm parent = (UserManagementForm)this.Parent.Parent;
+            parent.SelectedUser = this.user;
         }
     }
 }

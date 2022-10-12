@@ -18,6 +18,7 @@ namespace Garden_Group.Forms
     {
         private User user;
         private UserService userService;
+        public User SelectedUser;
         public UserManagementForm(User user)
         {
             this.user = user;
@@ -53,25 +54,30 @@ namespace Garden_Group.Forms
 
         private void buttonEditUser_Click(object sender, EventArgs e)
         {
+            // get last selected usercontrol from flowpanellayout
+            UserUC userUC = (UserUC)this.flowLayoutPanelUsers.Controls[this.flowLayoutPanelUsers.Controls.Count - 1];
+
+
+
             UserService userService = new UserService();
 
             try
             {
                 // read data and change user
-                this.user.FirstName = textBoxFirstname.Text;
-                this.user.LastName = textBoxLastname.Text;
-                this.user.DateOfBirth = dateTimePickerDateOfBirth.Value;
-                /*this.user.JobInfo.RoleId = ((Role)comboBoxCompanyRole.SelectedItem).Id;
-                this.user.JobInfo.BranchId = ((Branch)comboBoxLocation.SelectedItem).Id;*/
-                this.user.ContactInfo.Email = textBoxEmail.Text;
-                this.user.ContactInfo.PhoneNumber = textBoxPhoneNumber.Text;
-                this.user.ContactInfo.Address.Street = textBoxStreet.Text;
-                this.user.ContactInfo.Address.HouseNumber = textBoxHouseNumber.Text;
-                this.user.ContactInfo.Address.PostalCode = textBoxPostalCode.Text;
-                this.user.ContactInfo.Address.City = textBoxCity.Text;
-                this.user.ContactInfo.Address.Country = textBoxCountry.Text;
+                this.SelectedUser.FirstName = textBoxFirstname.Text;
+                this.SelectedUser.LastName = textBoxLastname.Text;
+                this.SelectedUser.DateOfBirth = dateTimePickerDateOfBirth.Value;
+                this.SelectedUser.JobInfo.Role = (Role)comboBoxCompanyRole.SelectedItem;
+                this.SelectedUser.JobInfo.Branch = (Branch)comboBoxLocation.SelectedItem;
+                this.SelectedUser.ContactInfo.Email = textBoxEmail.Text;
+                this.SelectedUser.ContactInfo.PhoneNumber = textBoxPhoneNumber.Text;
+                this.SelectedUser.ContactInfo.Address.Street = textBoxStreet.Text;
+                this.SelectedUser.ContactInfo.Address.HouseNumber = textBoxHouseNumber.Text;
+                this.SelectedUser.ContactInfo.Address.PostalCode = textBoxPostalCode.Text;
+                this.SelectedUser.ContactInfo.Address.City = textBoxCity.Text;
+                this.SelectedUser.ContactInfo.Address.Country = textBoxCountry.Text;
 
-                userService.UpdateUser(this.user);
+                userService.UpdateUser(this.SelectedUser);                
             }
             catch (Exception)
             {
