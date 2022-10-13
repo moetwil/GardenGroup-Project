@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GardenGroupModel.Enums;
 
 namespace Garden_Group.Forms
 {
@@ -37,34 +38,17 @@ namespace Garden_Group.Forms
             this.Close();
         }
 
-        // Seperations of Concerns. 
+        // Use Service Layer to retrieve data from the database. 
         private void FillCheckboxes() {
-            FillStatusComboBox();
-            FillPriorityComboBox();
-            FillIncidentComboBox();
+            this.comboBoxTicketPriority.DataSource = Enum.GetValues(typeof(TicketPriority));
+            this.comboBoxTicketStateState.DataSource = Enum.GetValues(typeof(TicketState));
+            this.comboBoxTypeOfIncident.DataSource = Enum.GetValues(typeof(TicketIncident));
         }
 
         private void FillCombobox<T>(List<T> itemList, ComboBox comboBox) {
             foreach (T item in itemList) {
                 comboBox.Items.Add(item); { Tag = item; };
             }
-        }
-
-        // Use Service Layer to retrieve data from the database. 
-        private void FillStatusComboBox() {
-            /*TicketStateService ticketStateService = new TicketStateService();
-            List<TicketState> ticketStates = ticketStateService.GetAllTicketStates();
-            FillCombobox(ticketStates, this.comboBoxTicketStateState);*/
-        }
-        private void FillPriorityComboBox(){
-            /*TicketPriorityService ticketPriorityService = new TicketPriorityService();
-            List<TicketPriority> ticketPriorities = ticketPriorityService.GetAllTicketPriorities();
-            FillCombobox(ticketPriorities, this.comboBoxTicketPriority);*/
-        }
-        private void FillIncidentComboBox() {
-            /*TicketIncidentService ticketIncidentService = new TicketIncidentService();
-            List<TicketIncident> ticketIncidents = ticketIncidentService.GetAllTicketIncidents();
-            FillCombobox(ticketIncidents, this.comboBoxTypeOfIncident);*/
         }
 
         private void CheckForEmptyChoices()
