@@ -64,6 +64,7 @@ namespace Garden_Group.Forms
             string email = EmailBox.Text;
             string password = PasswordBox.Text;
             this.user = userService.FindUserByEmail(email.ToLower());
+
             if (loginService.CheckPassword(email.ToLower(), password))
             {
                 OpenDashboardForm();
