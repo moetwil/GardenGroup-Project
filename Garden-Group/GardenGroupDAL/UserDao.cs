@@ -38,11 +38,32 @@ namespace GardenGroupDAL
             return this.GetDocumentById(m_Collection, id);
         }
 
-        public User FindUserByEmail(string email)
+        /*public User FindUserByEmail(string email)
         {
             User user = m_Collection.Find(user => user.ContactInfo.Email.Equals(email)).FirstOrDefault();
             return user;
+        }*/
+
+        public User FindUserByEmail(string email)
+        {
+            /*BsonArray array = new BsonArray();
+            array.Add(new BsonDocument("$lookup",
+                new BsonDocument
+                    {
+                        { "from", "Tickets" },
+                        { "localField", "_id" },
+                        { "foreignField", "CreatorID" },
+                        { "as", "Tickets" }
+                    }));
+            array.Add("$match", new BsonDocument("ContactInfo.Email", email));*/
+            
+ 
+            return this.m_Collection.Aggregate()
+                .Lookup("Tickets", "_id", "CreatorID", "Tickets")
+                .Match(new BsonDocument("ContactInfo.Email", email))
+                .As<User>().ToList().FirstOrDefault();
         }
+
 
         public bool CheckIfEmailExists(string email)
         {
