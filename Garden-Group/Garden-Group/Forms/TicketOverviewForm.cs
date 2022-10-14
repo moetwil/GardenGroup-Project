@@ -40,7 +40,7 @@ namespace Garden_Group.Forms
         }
         private void fillOverview()
         {
-            foreach (Ticket ticket in tickets)
+            foreach (Ticket ticket in this.user.Tickets)
             {
                 TicketUC ticketConrtol = new TicketUC(ticket, this);
                 ticketConrtol.WasClicked += TicketConrtol_WasClicked;

@@ -17,8 +17,6 @@ namespace GardenGroupModel
         
         public List<string> TicketsIds { get; set; }
         public Password Password { get; set; }
-
-        [BsonIgnore]
         public List<Ticket> Tickets { get; set; }
 
         public User()
