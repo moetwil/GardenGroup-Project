@@ -30,7 +30,6 @@
         {
             this.flowLayoutPanelIncidents = new System.Windows.Forms.FlowLayoutPanel();
             this.labelDescriptionTxt = new System.Windows.Forms.Label();
-            this.labelCodeText = new System.Windows.Forms.Label();
             this.labelPriorityTxt = new System.Windows.Forms.Label();
             this.labelTypeTxt = new System.Windows.Forms.Label();
             this.labelStateTxt = new System.Windows.Forms.Label();
@@ -45,7 +44,6 @@
             this.dateTimePickerClosed = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDeadline = new System.Windows.Forms.DateTimePicker();
             this.labelCreatorName = new System.Windows.Forms.Label();
-            this.labelStateCode = new System.Windows.Forms.Label();
             this.comboBoxState = new System.Windows.Forms.ComboBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonBecomeSolver = new System.Windows.Forms.Button();
@@ -74,16 +72,6 @@
             this.labelDescriptionTxt.Size = new System.Drawing.Size(128, 30);
             this.labelDescriptionTxt.TabIndex = 2;
             this.labelDescriptionTxt.Text = "Beschrijving:";
-            // 
-            // labelCodeText
-            // 
-            this.labelCodeText.AutoSize = true;
-            this.labelCodeText.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCodeText.Location = new System.Drawing.Point(483, 201);
-            this.labelCodeText.Name = "labelCodeText";
-            this.labelCodeText.Size = new System.Drawing.Size(125, 30);
-            this.labelCodeText.TabIndex = 3;
-            this.labelCodeText.Text = "Status code:";
             // 
             // labelPriorityTxt
             // 
@@ -221,16 +209,6 @@
             this.labelCreatorName.TabIndex = 20;
             this.labelCreatorName.Text = "Voornaam achternaam";
             // 
-            // labelStateCode
-            // 
-            this.labelStateCode.AutoSize = true;
-            this.labelStateCode.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelStateCode.Location = new System.Drawing.Point(615, 201);
-            this.labelStateCode.Name = "labelStateCode";
-            this.labelStateCode.Size = new System.Drawing.Size(57, 30);
-            this.labelStateCode.TabIndex = 21;
-            this.labelStateCode.Text = "Error";
-            // 
             // comboBoxState
             // 
             this.comboBoxState.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -283,7 +261,6 @@
             this.buttonCloseTicket.TabIndex = 26;
             this.buttonCloseTicket.Text = "Sluit ticket";
             this.buttonCloseTicket.UseVisualStyleBackColor = true;
-            //this.buttonCloseTicket.Click += new System.EventHandler(this.buttonCloseTicket_Click);
             // 
             // IncidentManagementForm
             // 
@@ -295,7 +272,6 @@
             this.Controls.Add(this.buttonBecomeSolver);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.comboBoxState);
-            this.Controls.Add(this.labelStateCode);
             this.Controls.Add(this.labelCreatorName);
             this.Controls.Add(this.dateTimePickerDeadline);
             this.Controls.Add(this.dateTimePickerClosed);
@@ -310,14 +286,12 @@
             this.Controls.Add(this.labelStateTxt);
             this.Controls.Add(this.labelTypeTxt);
             this.Controls.Add(this.labelPriorityTxt);
-            this.Controls.Add(this.labelCodeText);
             this.Controls.Add(this.labelDescriptionTxt);
             this.Controls.Add(this.flowLayoutPanelIncidents);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "IncidentManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "IncidentManagementForm";
-            //this.Load += new System.EventHandler(this.IncidentManagementForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,7 +301,6 @@
 
         private FlowLayoutPanel flowLayoutPanelIncidents;
         private Label labelDescriptionTxt;
-        private Label labelCodeText;
         private Label labelPriorityTxt;
         private Label labelTypeTxt;
         private Label labelStateTxt;
@@ -342,7 +315,6 @@
         private DateTimePicker dateTimePickerClosed;
         private DateTimePicker dateTimePickerDeadline;
         private Label labelCreatorName;
-        private Label labelStateCode;
         private ComboBox comboBoxState;
         private Label labelTitle;
         private Button buttonBecomeSolver;
