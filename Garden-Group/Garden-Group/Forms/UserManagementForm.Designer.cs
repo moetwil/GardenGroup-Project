@@ -30,6 +30,7 @@
         {
             this.flowLayoutPanelUsers = new System.Windows.Forms.FlowLayoutPanel();
             this.panelUserInformation = new System.Windows.Forms.Panel();
+            this.labelErrorHandling = new System.Windows.Forms.Label();
             this.buttonEditUser = new System.Windows.Forms.Button();
             this.comboBoxLocation = new System.Windows.Forms.ComboBox();
             this.comboBoxCompanyRole = new System.Windows.Forms.ComboBox();
@@ -71,6 +72,7 @@
             // panelUserInformation
             // 
             this.panelUserInformation.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelUserInformation.Controls.Add(this.labelErrorHandling);
             this.panelUserInformation.Controls.Add(this.buttonEditUser);
             this.panelUserInformation.Controls.Add(this.comboBoxLocation);
             this.panelUserInformation.Controls.Add(this.comboBoxCompanyRole);
@@ -101,6 +103,15 @@
             this.panelUserInformation.Name = "panelUserInformation";
             this.panelUserInformation.Size = new System.Drawing.Size(793, 878);
             this.panelUserInformation.TabIndex = 1;
+            // 
+            // labelErrorHandling
+            // 
+            this.labelErrorHandling.AutoSize = true;
+            this.labelErrorHandling.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelErrorHandling.Location = new System.Drawing.Point(303, 801);
+            this.labelErrorHandling.Name = "labelErrorHandling";
+            this.labelErrorHandling.Size = new System.Drawing.Size(0, 25);
+            this.labelErrorHandling.TabIndex = 14;
             // 
             // buttonEditUser
             // 
@@ -143,7 +154,7 @@
             // textBoxCountry
             // 
             this.textBoxCountry.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxCountry.Location = new System.Drawing.Point(301, 709);
+            this.textBoxCountry.Location = new System.Drawing.Point(303, 709);
             this.textBoxCountry.Name = "textBoxCountry";
             this.textBoxCountry.Size = new System.Drawing.Size(321, 33);
             this.textBoxCountry.TabIndex = 12;
@@ -151,7 +162,7 @@
             // textBoxPostalCode
             // 
             this.textBoxPostalCode.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxPostalCode.Location = new System.Drawing.Point(301, 646);
+            this.textBoxPostalCode.Location = new System.Drawing.Point(303, 643);
             this.textBoxPostalCode.Name = "textBoxPostalCode";
             this.textBoxPostalCode.Size = new System.Drawing.Size(321, 33);
             this.textBoxPostalCode.TabIndex = 11;
@@ -159,7 +170,7 @@
             // textBoxCity
             // 
             this.textBoxCity.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxCity.Location = new System.Drawing.Point(301, 586);
+            this.textBoxCity.Location = new System.Drawing.Point(303, 586);
             this.textBoxCity.Name = "textBoxCity";
             this.textBoxCity.Size = new System.Drawing.Size(321, 33);
             this.textBoxCity.TabIndex = 10;
@@ -167,7 +178,7 @@
             // textBoxHouseNumber
             // 
             this.textBoxHouseNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxHouseNumber.Location = new System.Drawing.Point(301, 525);
+            this.textBoxHouseNumber.Location = new System.Drawing.Point(303, 524);
             this.textBoxHouseNumber.Name = "textBoxHouseNumber";
             this.textBoxHouseNumber.Size = new System.Drawing.Size(320, 33);
             this.textBoxHouseNumber.TabIndex = 9;
@@ -175,7 +186,7 @@
             // textBoxStreet
             // 
             this.textBoxStreet.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxStreet.Location = new System.Drawing.Point(301, 461);
+            this.textBoxStreet.Location = new System.Drawing.Point(303, 461);
             this.textBoxStreet.Name = "textBoxStreet";
             this.textBoxStreet.Size = new System.Drawing.Size(320, 33);
             this.textBoxStreet.TabIndex = 8;
@@ -390,5 +401,6 @@
         private Label label2;
         private Label label1;
         private Button buttonEditUser;
+        private Label labelErrorHandling;
     }
 }

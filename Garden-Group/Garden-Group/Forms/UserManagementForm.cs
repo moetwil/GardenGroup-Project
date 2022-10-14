@@ -51,14 +51,21 @@ namespace Garden_Group.Forms
             this.comboBoxCompanyRole.DataSource = Enum.GetValues(typeof(Role));
             this.comboBoxLocation.DataSource = Enum.GetValues(typeof(Branch));
         }
+        private void SuccesMessage(string text)
+        {
+            labelErrorHandling.ForeColor = Color.Green;
+            labelErrorHandling.Text = text;
+        }
 
+        private void ErrorMessage(string text)
+        {
+            labelErrorHandling.ForeColor = Color.Red;
+            labelErrorHandling.Text = text;
+        }
         private void buttonEditUser_Click(object sender, EventArgs e)
         {
             // get last selected usercontrol from flowpanellayout
             UserUC userUC = (UserUC)this.flowLayoutPanelUsers.Controls[this.flowLayoutPanelUsers.Controls.Count - 1];
-
-
-
             UserService userService = new UserService();
 
             try
@@ -77,12 +84,15 @@ namespace Garden_Group.Forms
                 this.SelectedUser.ContactInfo.Address.City = textBoxCity.Text;
                 this.SelectedUser.ContactInfo.Address.Country = textBoxCountry.Text;
 
-                userService.UpdateUser(this.SelectedUser);                
+                userService.UpdateUser(this.SelectedUser);
+                SuccesMessage("Gebruiker is met succes aangepast. ");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                // show exception in label
+                ErrorMessage(ex.Message);
+                ErrorLogService errorLogService = new ErrorLogService();
+                errorLogService.CatchExeptionToLog(ex);
             }
         }
     }

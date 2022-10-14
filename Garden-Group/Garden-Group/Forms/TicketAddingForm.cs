@@ -84,9 +84,9 @@ namespace Garden_Group.Forms
                 ticket.TicketDate = new TicketDate();
                 ticket.TicketDate.OpeningDate = DateTime.Now;
                 ticket.TicketDate.Deadline = dateTimePickerTicketDeadline.Value;
-                /*ticket.TicketPriorityId = ((TicketPriority)this.comboBoxTicketPriority.SelectedItem).Id;
-                ticket.TicketStateId = ((TicketState)this.comboBoxTicketStateState.SelectedItem).Id;
-                ticket.TypeOfIncidentId = ((TicketIncident)this.comboBoxTypeOfIncident.SelectedItem).Id;*/
+                ticket.TicketPriority = ((TicketPriority)this.comboBoxTicketPriority.SelectedItem);
+                ticket.TicketState = ((TicketState)this.comboBoxTicketStateState.SelectedItem);
+                ticket.TypeOfIncident = ((TicketIncident)this.comboBoxTypeOfIncident.SelectedItem);
 
                 // add ticket to database
                 TicketService ticketService = new TicketService();
