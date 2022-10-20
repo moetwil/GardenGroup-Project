@@ -51,6 +51,8 @@
             this.buttonBecomeSolver = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonCloseTicket = new System.Windows.Forms.Button();
+            this.checkBoxFilter = new System.Windows.Forms.CheckBox();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // flowLayoutPanelIncidents
@@ -58,10 +60,10 @@
             this.flowLayoutPanelIncidents.AutoScroll = true;
             this.flowLayoutPanelIncidents.BackColor = System.Drawing.SystemColors.ControlDark;
             this.flowLayoutPanelIncidents.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelIncidents.Location = new System.Drawing.Point(770, 130);
+            this.flowLayoutPanelIncidents.Location = new System.Drawing.Point(770, 234);
             this.flowLayoutPanelIncidents.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanelIncidents.Name = "flowLayoutPanelIncidents";
-            this.flowLayoutPanelIncidents.Size = new System.Drawing.Size(719, 814);
+            this.flowLayoutPanelIncidents.Size = new System.Drawing.Size(719, 710);
             this.flowLayoutPanelIncidents.TabIndex = 0;
             this.flowLayoutPanelIncidents.WrapContents = false;
             // 
@@ -284,11 +286,30 @@
             this.buttonCloseTicket.Text = "Sluit ticket";
             this.buttonCloseTicket.UseVisualStyleBackColor = true;
             // 
+            // checkBoxFilter
+            // 
+            this.checkBoxFilter.AutoSize = true;
+            this.checkBoxFilter.Location = new System.Drawing.Point(773, 156);
+            this.checkBoxFilter.Name = "checkBoxFilter";
+            this.checkBoxFilter.Size = new System.Drawing.Size(91, 19);
+            this.checkBoxFilter.TabIndex = 27;
+            this.checkBoxFilter.Text = "Filter Tickets";
+            this.checkBoxFilter.UseVisualStyleBackColor = true;
+            // 
+            // textBoxFilter
+            // 
+            this.textBoxFilter.Location = new System.Drawing.Point(772, 187);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(521, 23);
+            this.textBoxFilter.TabIndex = 28;
+            // 
             // IncidentManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.textBoxFilter);
+            this.Controls.Add(this.checkBoxFilter);
             this.Controls.Add(this.buttonCloseTicket);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonBecomeSolver);
@@ -347,5 +368,7 @@
         private Button buttonBecomeSolver;
         private Button buttonDelete;
         private Button buttonCloseTicket;
+        private CheckBox checkBoxFilter;
+        private TextBox textBoxFilter;
     }
 }
