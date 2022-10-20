@@ -42,7 +42,7 @@ namespace GardenGroupDAL
         {
             // error handling?
             return this.m_Collection.Aggregate()
-                .Lookup("Tickets", "_id", "CreatorID", "Tickets")
+                .Lookup("Tickets", "_id", "CreatorId", "Tickets")
                 .Match(new BsonDocument("ContactInfo.Email", email))
                 .As<User>().ToList().FirstOrDefault();
         }
@@ -55,7 +55,6 @@ namespace GardenGroupDAL
             {
                 return true;
             }
-
             return false;
         }
         
@@ -83,6 +82,5 @@ namespace GardenGroupDAL
         {
             this.UpdateDocument(m_Collection,user.Id, user);
         }
-
     }
 }

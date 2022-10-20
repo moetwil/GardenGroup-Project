@@ -79,7 +79,7 @@ namespace Garden_Group.Forms
                 Ticket ticket = new Ticket();
                 ticket.Title = textBoxTicketTitle.Text;
                 ticket.Description = textBoxTicketDescription.Text;
-                ticket.CreatorID = this.user.Id;
+                ticket.CreatorId = this.user.Id;
                 ticket.TicketSolvers = new List<string>();
                 ticket.TicketDate = new TicketDate();
                 ticket.TicketDate.OpeningDate = DateTime.Now;
