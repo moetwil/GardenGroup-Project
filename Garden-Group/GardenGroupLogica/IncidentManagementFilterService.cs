@@ -12,11 +12,24 @@ namespace GardenGroupLogica
     {
         public static List<Ticket> FilterTickets(List<Ticket> allTickets, string filter)
         {
-            // Filter list of tickets on title and description
-            List<Ticket> filteredTickets = allTickets.Where(ticket =>
-            ticket.Title.ToLower().Contains(filter.ToLower()) ||
-            ticket.Description.ToLower().Contains(filter.ToLower())
-            ).ToList();
+            // split the filter string into words
+            List<string> keyWords = filter.Split(' ').ToList();
+
+            // remove last word if it is empty
+            if (keyWords[keyWords.Count - 1] == "") 
+                keyWords.RemoveAt(keyWords.Count - 1);
+
+            // transform all keywords to lowercase
+            keyWords = keyWords.Select(x => x.ToLower()).ToList();
+
+            
+
+            // filter list of tickets on title and description with keywords array
+            List<Ticket> filteredTickets = allTickets.Where(ticket => 
+                 keyWords.Any(keyWord => 
+                     ticket.Title.ToLower().Contains(keyWord) || 
+                     ticket.Description.ToLower().Contains(keyWord))
+             ).ToList();
 
             return filteredTickets;
         }
