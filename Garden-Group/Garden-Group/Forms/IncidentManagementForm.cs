@@ -18,7 +18,12 @@ namespace Garden_Group.Forms
         private User user;
         private List<Ticket> allTickets;
         private TicketService ticketService;
-        private IncidentsUC selectedIncidentUC;        
+        private IncidentsUC selectedIncidentUC;
+
+        private void IncidentManagementForm_Load(object sender, EventArgs e)
+        {
+            this.Controls.Add(new MenuStripUC(this.user, this));
+        }
 
         public IncidentManagementForm(User user)
         {

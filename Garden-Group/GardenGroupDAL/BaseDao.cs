@@ -19,7 +19,7 @@ namespace GardenGroupDAL
        
         protected BaseDao()
         { 
-            m_Client = new MongoClient(ConfigurationManager.ConnectionStrings["GardenGroupDatabase"].ConnectionString);
+            m_Client = new MongoClient(ConfigurationManager.ConnectionStrings["NoSQLProject"].ConnectionString);
             m_Database = m_Client.GetDatabase("ProjectNoSQL");
         }
 
