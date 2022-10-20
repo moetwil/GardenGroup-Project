@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GardenGroupModel.Enums;
+using System.Text.RegularExpressions;
 
 namespace Garden_Group.Forms
 {
@@ -71,6 +72,7 @@ namespace Garden_Group.Forms
             try
             {
                 // read data and change user
+                checkForEmptyChoices();
                 this.SelectedUser.FirstName = textBoxFirstname.Text;
                 this.SelectedUser.LastName = textBoxLastname.Text;
                 this.SelectedUser.DateOfBirth = dateTimePickerDateOfBirth.Value;
@@ -94,6 +96,37 @@ namespace Garden_Group.Forms
                 ErrorLogService errorLogService = new ErrorLogService();
                 errorLogService.CatchExeptionToLog(ex);
             }
+        }
+
+        private void checkForEmptyChoices() 
+        {
+            // check if all fields are filled in
+            if (textBoxFirstname.Text == "" || textBoxLastname.Text == "" || textBoxEmail.Text == "" || textBoxPhoneNumber.Text == "" || textBoxStreet.Text == "" || textBoxHouseNumber.Text == "" || textBoxPostalCode.Text == "" || textBoxCity.Text == "" || textBoxCountry.Text == "" || dateTimePickerDateOfBirth.Value == null || comboBoxCompanyRole.SelectedItem == null || comboBoxLocation.SelectedItem == null)
+            {
+                throw new Exception("Niet alle velden zijn ingevuld.");
+            }
+            // if phone number are not numbers throw exception
+            if (!textBoxPhoneNumber.Text.All(char.IsDigit))
+            {
+                throw new Exception("Telefoonnummer mag alleen cijfers bevatten");
+            }
+            if (!ValidateEmail(textBoxEmail.Text) || CheckIfEmailExists(textBoxEmail.Text)) 
+            {
+                throw new Exception("Dit email adres is niet geldig of al in gebruik.");
+            }
+        }
+
+        // Check if email is valid
+        private bool ValidateEmail(string email)
+        {
+            return new Regex(@"^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,3}").Match(email).Success;
+        }
+
+        // Check if email is unique
+        private bool CheckIfEmailExists(string email)
+        {
+            UserService userService = new UserService();
+            return userService.CheckIfEmailExists(email);
         }
     }
 }
