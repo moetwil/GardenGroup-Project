@@ -23,8 +23,9 @@ namespace Garden_Group.Forms
         private void IncidentManagementForm_Load(object sender, EventArgs e)
         {
             this.Controls.Add(new MenuStripUC(this.user, this));
-            fillFlowPanel();
+            fillFlowPanel(this.allTickets);
             this.panelTransfer.Visible = false;
+            this.textBoxFilter.Visible = false;
         }
 
         public IncidentManagementForm(User user)
@@ -45,10 +46,10 @@ namespace Garden_Group.Forms
             loadComboBoxes();
         }*/
 
-        private void fillFlowPanel()
+        private void fillFlowPanel(List<Ticket> tickets)
         {
             flowLayoutPanelIncidents.Controls.Clear();
-            foreach (Ticket ticket in allTickets)
+            foreach (Ticket ticket in tickets)
             {
                 IncidentsUC incidentUC = new IncidentsUC(ticket, this);
                 incidentUC.Clicked += IncidentUC_Clicked;
@@ -134,6 +135,36 @@ namespace Garden_Group.Forms
             }
 
             TicketTransferService ticketTransferService = new TicketTransferService();
+        }
+
+        private void checkBoxFilter_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkBoxFilter.Checked)
+            {
+                this.textBoxFilter.Visible = true;
+                this.textBoxFilter.Clear();
+
+                // set users cursor in textbox
+                this.textBoxFilter.Focus();
+
+            }
+            else
+            {
+                this.textBoxFilter.Visible = false;
+                fillFlowPanel(this.allTickets);
+            }
+        }
+
+        private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            // if the checkbx of the filter is not checked, do nothing
+            if (!this.checkBoxFilter.Checked) return;
+
+            // filter allTickets on the text in the textbox
+            List<Ticket> filteredTickets = IncidentManagementFilterService.FilterTickets(this.allTickets, this.textBoxFilter.Text);
+
+            fillFlowPanel(filteredTickets);
         }
     }
 }
