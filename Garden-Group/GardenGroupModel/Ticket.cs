@@ -21,7 +21,10 @@ namespace GardenGroupModel
         public User Creator { get; set; }
 
         [BsonRepresentation(BsonType.ObjectId)]
-        public string CreatorID { get; set; }
+        public string CreatorId { get; set; }
+        
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string ServiceDeskEmplyeeId { get; set; }
         public TicketState TicketState { get; set; }
         public TicketPriority TicketPriority { get; set; }
         public TicketIncident TypeOfIncident { get; set; }
