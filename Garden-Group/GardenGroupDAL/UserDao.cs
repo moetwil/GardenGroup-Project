@@ -37,15 +37,10 @@ namespace GardenGroupDAL
         {
             return this.GetDocumentById(m_Collection, id);
         }
-
-        /*public User FindUserByEmail(string email)
-        {
-            User user = m_Collection.Find(user => user.ContactInfo.Email.Equals(email)).FirstOrDefault();
-            return user;
-        }*/
-
+        
         public User FindUserByEmail(string email)
         {
+            // error handling?
             return this.m_Collection.Aggregate()
                 .Lookup("Tickets", "_id", "CreatorID", "Tickets")
                 .Match(new BsonDocument("ContactInfo.Email", email))
