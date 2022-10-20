@@ -302,6 +302,7 @@
             this.checkBoxFilter.TabIndex = 27;
             this.checkBoxFilter.Text = "Filter Tickets";
             this.checkBoxFilter.UseVisualStyleBackColor = true;
+            this.checkBoxFilter.CheckedChanged += new System.EventHandler(this.checkBoxFilter_CheckedChanged);
             // 
             // textBoxFilter
             // 
@@ -309,6 +310,7 @@
             this.textBoxFilter.Name = "textBoxFilter";
             this.textBoxFilter.Size = new System.Drawing.Size(521, 23);
             this.textBoxFilter.TabIndex = 28;
+            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
             // 
             // checkBoxTransfer
             // 
