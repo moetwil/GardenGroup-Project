@@ -24,7 +24,15 @@ namespace GardenGroupDAL
 
         public List<User> GetAllUsers()
         {
-            return GetAllDocuments<User>(m_Collection);
+            // old
+            //return GetAllDocuments<User>(m_Collection);
+            
+
+            List<User> users = this.m_Collection.Aggregate()
+                .Lookup("Tickets", "_id", "CreatorId", "Tickets")
+                .As<User>().ToList();
+
+            return users;
         }
 
         public User FindUserByFirstName(string firstName)
@@ -37,15 +45,10 @@ namespace GardenGroupDAL
         {
             return this.GetDocumentById(m_Collection, id);
         }
-
-        /*public User FindUserByEmail(string email)
-        {
-            User user = m_Collection.Find(user => user.ContactInfo.Email.Equals(email)).FirstOrDefault();
-            return user;
-        }*/
-
+        
         public User FindUserByEmail(string email)
         {
+            // error handling?
             return this.m_Collection.Aggregate()
                 .Lookup("Tickets", "_id", "CreatorId", "Tickets")
                 .Match(new BsonDocument("ContactInfo.Email", email))

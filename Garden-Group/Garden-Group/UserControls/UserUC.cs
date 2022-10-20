@@ -37,6 +37,7 @@ namespace Garden_Group.UserControls
             this.labelFirstName.Text = this.user.FirstName;
             this.labelLastName.Text = this.user.LastName;
             this.labelEmail.Text = this.user.ContactInfo.Email;
+            this.labelAmountOfTickets.Text = this.user.Tickets.Count.ToString();
         }
 
         private void UserUC_Click(object sender, EventArgs e)

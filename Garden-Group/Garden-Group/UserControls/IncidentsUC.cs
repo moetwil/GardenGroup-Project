@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GardenGroupModel.Enums;
 
 namespace Garden_Group.UserControls
 {
@@ -49,31 +50,33 @@ namespace Garden_Group.UserControls
         
         public void FillUC()
         {
-           /* labelTitle.Text = ticket.Title;
+            labelTitle.Text = ticket.Title;
             labelDescription.Text = ticket.Description;
             labelTicketDateStart.Text = ticket.TicketDate.OpeningDate.Date.ToShortDateString();
             labelTicketDateEnd.Text = ticket.TicketDate.ClosingDate.ToShortDateString();
-
-            if (ticket.TicketState.Name is not null)
-                labelTicketState.Text += ticket.TicketState.Name;
+            
+            // if statement that checks if ticket.TicketState is in TicketState enum
+          
+            if(!ticket.TicketState.ToString().Equals(""))
+                this.labelTicketState.Text += ticket.TicketState.ToString();
             else
                 labelTicketState.Text += "No ticket state";
 
-            switch (ticket.TicketPriority.PriorityLevel)
+            switch (ticket.TicketPriority)
             {
-                case "Low":
+                case TicketPriority.Low:
                     panelTicketState.BackColor = Color.Green;
                     break;
-                case "Normal":
+                case TicketPriority.Normal:
                     panelTicketState.BackColor = Color.Orange;
                     break;
-                case "High":
+                case TicketPriority.High:
                     panelTicketState.BackColor = Color.Red;
                     break;
                 default:
                     panelTicketState.BackColor = Color.SlateGray;
                     break;
-            }*/
+            }
 
         }
     }

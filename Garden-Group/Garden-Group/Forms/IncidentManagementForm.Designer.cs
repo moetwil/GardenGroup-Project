@@ -51,13 +51,9 @@
             this.buttonBecomeSolver = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonCloseTicket = new System.Windows.Forms.Button();
-            this.checkBoxTicketTransfer = new System.Windows.Forms.CheckBox();
-            this.comboBoxTransferringTicketTo = new System.Windows.Forms.ComboBox();
-            this.panelTransfer = new System.Windows.Forms.Panel();
-            this.labelOldEmployee = new System.Windows.Forms.Label();
-            this.labelFromOldEmployee = new System.Windows.Forms.Label();
-            this.labelToNewPerson = new System.Windows.Forms.Label();
-            this.panelTransfer.SuspendLayout();
+
+            this.checkBoxFilter = new System.Windows.Forms.CheckBox();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // flowLayoutPanelIncidents
@@ -65,10 +61,10 @@
             this.flowLayoutPanelIncidents.AutoScroll = true;
             this.flowLayoutPanelIncidents.BackColor = System.Drawing.SystemColors.ControlDark;
             this.flowLayoutPanelIncidents.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelIncidents.Location = new System.Drawing.Point(770, 130);
+            this.flowLayoutPanelIncidents.Location = new System.Drawing.Point(770, 234);
             this.flowLayoutPanelIncidents.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanelIncidents.Name = "flowLayoutPanelIncidents";
-            this.flowLayoutPanelIncidents.Size = new System.Drawing.Size(719, 814);
+            this.flowLayoutPanelIncidents.Size = new System.Drawing.Size(719, 710);
             this.flowLayoutPanelIncidents.TabIndex = 0;
             this.flowLayoutPanelIncidents.WrapContents = false;
             // 
@@ -291,74 +287,30 @@
             this.buttonCloseTicket.Text = "Sluit ticket";
             this.buttonCloseTicket.UseVisualStyleBackColor = true;
             // 
-            // checkBoxTicketTransfer
+            // checkBoxFilter
             // 
-            this.checkBoxTicketTransfer.AutoSize = true;
-            this.checkBoxTicketTransfer.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkBoxTicketTransfer.Location = new System.Drawing.Point(113, 915);
-            this.checkBoxTicketTransfer.Name = "checkBoxTicketTransfer";
-            this.checkBoxTicketTransfer.Size = new System.Drawing.Size(153, 29);
-            this.checkBoxTicketTransfer.TabIndex = 27;
-            this.checkBoxTicketTransfer.Text = "Transfer ticket ";
-            this.checkBoxTicketTransfer.UseVisualStyleBackColor = true;
+            this.checkBoxFilter.AutoSize = true;
+            this.checkBoxFilter.Location = new System.Drawing.Point(773, 156);
+            this.checkBoxFilter.Name = "checkBoxFilter";
+            this.checkBoxFilter.Size = new System.Drawing.Size(91, 19);
+            this.checkBoxFilter.TabIndex = 27;
+            this.checkBoxFilter.Text = "Filter Tickets";
+            this.checkBoxFilter.UseVisualStyleBackColor = true;
             // 
-            // comboBoxTransferringTicketTo
+            // textBoxFilter
             // 
-            this.comboBoxTransferringTicketTo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxTransferringTicketTo.FormattingEnabled = true;
-            this.comboBoxTransferringTicketTo.Location = new System.Drawing.Point(195, 40);
-            this.comboBoxTransferringTicketTo.Name = "comboBoxTransferringTicketTo";
-            this.comboBoxTransferringTicketTo.Size = new System.Drawing.Size(229, 33);
-            this.comboBoxTransferringTicketTo.TabIndex = 28;
-            // 
-            // panelTransfer
-            // 
-            this.panelTransfer.Controls.Add(this.labelToNewPerson);
-            this.panelTransfer.Controls.Add(this.labelFromOldEmployee);
-            this.panelTransfer.Controls.Add(this.labelOldEmployee);
-            this.panelTransfer.Controls.Add(this.comboBoxTransferringTicketTo);
-            this.panelTransfer.Location = new System.Drawing.Point(298, 871);
-            this.panelTransfer.Name = "panelTransfer";
-            this.panelTransfer.Size = new System.Drawing.Size(427, 100);
-            this.panelTransfer.TabIndex = 29;
-            // 
-            // labelOldEmployee
-            // 
-            this.labelOldEmployee.AutoSize = true;
-            this.labelOldEmployee.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelOldEmployee.Location = new System.Drawing.Point(12, 43);
-            this.labelOldEmployee.Name = "labelOldEmployee";
-            this.labelOldEmployee.Size = new System.Drawing.Size(100, 25);
-            this.labelOldEmployee.TabIndex = 29;
-            this.labelOldEmployee.Text = "Geen tekst";
-            // 
-            // labelFromOldEmployee
-            // 
-            this.labelFromOldEmployee.AutoSize = true;
-            this.labelFromOldEmployee.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFromOldEmployee.Location = new System.Drawing.Point(12, 11);
-            this.labelFromOldEmployee.Name = "labelFromOldEmployee";
-            this.labelFromOldEmployee.Size = new System.Drawing.Size(48, 25);
-            this.labelFromOldEmployee.TabIndex = 30;
-            this.labelFromOldEmployee.Text = "Van:";
-            // 
-            // labelToNewPerson
-            // 
-            this.labelToNewPerson.AutoSize = true;
-            this.labelToNewPerson.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelToNewPerson.Location = new System.Drawing.Point(195, 11);
-            this.labelToNewPerson.Name = "labelToNewPerson";
-            this.labelToNewPerson.Size = new System.Drawing.Size(57, 25);
-            this.labelToNewPerson.TabIndex = 31;
-            this.labelToNewPerson.Text = "Naar:";
+            this.textBoxFilter.Location = new System.Drawing.Point(772, 187);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(521, 23);
+            this.textBoxFilter.TabIndex = 28;
             // 
             // IncidentManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.panelTransfer);
-            this.Controls.Add(this.checkBoxTicketTransfer);
+            this.Controls.Add(this.textBoxFilter);
+            this.Controls.Add(this.checkBoxFilter);
             this.Controls.Add(this.buttonCloseTicket);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonBecomeSolver);
@@ -419,11 +371,7 @@
         private Button buttonBecomeSolver;
         private Button buttonDelete;
         private Button buttonCloseTicket;
-        private CheckBox checkBoxTicketTransfer;
-        private ComboBox comboBoxTransferringTicketTo;
-        private Panel panelTransfer;
-        private Label labelToNewPerson;
-        private Label labelFromOldEmployee;
-        private Label labelOldEmployee;
+        private CheckBox checkBoxFilter;
+        private TextBox textBoxFilter;
     }
 }
