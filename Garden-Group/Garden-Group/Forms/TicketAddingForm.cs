@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GardenGroupModel.Enums;
 
 namespace Garden_Group.Forms
 {
@@ -37,34 +38,17 @@ namespace Garden_Group.Forms
             this.Close();
         }
 
-        // Seperations of Concerns. 
+        // Use Service Layer to retrieve data from the database. 
         private void FillCheckboxes() {
-            FillStatusComboBox();
-            FillPriorityComboBox();
-            FillIncidentComboBox();
+            this.comboBoxTicketPriority.DataSource = Enum.GetValues(typeof(TicketPriority));
+            this.comboBoxTicketStateState.DataSource = Enum.GetValues(typeof(TicketState));
+            this.comboBoxTypeOfIncident.DataSource = Enum.GetValues(typeof(TicketIncident));
         }
 
         private void FillCombobox<T>(List<T> itemList, ComboBox comboBox) {
             foreach (T item in itemList) {
                 comboBox.Items.Add(item); { Tag = item; };
             }
-        }
-
-        // Use Service Layer to retrieve data from the database. 
-        private void FillStatusComboBox() {
-            /*TicketStateService ticketStateService = new TicketStateService();
-            List<TicketState> ticketStates = ticketStateService.GetAllTicketStates();
-            FillCombobox(ticketStates, this.comboBoxTicketStateState);*/
-        }
-        private void FillPriorityComboBox(){
-            /*TicketPriorityService ticketPriorityService = new TicketPriorityService();
-            List<TicketPriority> ticketPriorities = ticketPriorityService.GetAllTicketPriorities();
-            FillCombobox(ticketPriorities, this.comboBoxTicketPriority);*/
-        }
-        private void FillIncidentComboBox() {
-            /*TicketIncidentService ticketIncidentService = new TicketIncidentService();
-            List<TicketIncident> ticketIncidents = ticketIncidentService.GetAllTicketIncidents();
-            FillCombobox(ticketIncidents, this.comboBoxTypeOfIncident);*/
         }
 
         private void CheckForEmptyChoices()
@@ -91,18 +75,18 @@ namespace Garden_Group.Forms
             try
             {
                 CheckForEmptyChoices();                
-                // add ticket to database
                 Ticket ticket = new Ticket();
                 ticket.Title = textBoxTicketTitle.Text;
                 ticket.Description = textBoxTicketDescription.Text;
-                ticket.CreatorID = this.user.Id;
+                ticket.CreatorId = this.user.Id;
+                ticket.ServiceDeskEmployeeId = this.user.Id;
                 ticket.TicketSolvers = new List<string>();
                 ticket.TicketDate = new TicketDate();
                 ticket.TicketDate.OpeningDate = DateTime.Now;
                 ticket.TicketDate.Deadline = dateTimePickerTicketDeadline.Value;
-                /*ticket.TicketPriorityId = ((TicketPriority)this.comboBoxTicketPriority.SelectedItem).Id;
-                ticket.TicketStateId = ((TicketState)this.comboBoxTicketStateState.SelectedItem).Id;
-                ticket.TypeOfIncidentId = ((TicketIncident)this.comboBoxTypeOfIncident.SelectedItem).Id;*/
+                ticket.TicketPriority = ((TicketPriority)this.comboBoxTicketPriority.SelectedItem);
+                ticket.TicketState = ((TicketState)this.comboBoxTicketStateState.SelectedItem);
+                ticket.TypeOfIncident = ((TicketIncident)this.comboBoxTypeOfIncident.SelectedItem);
 
                 // add ticket to database
                 TicketService ticketService = new TicketService();
@@ -123,6 +107,7 @@ namespace Garden_Group.Forms
                 errorLogService.CatchExeptionToLog(ex);
             }
         }
+        // user friendly
         private void ClearAllTextInForm() {
             textBoxTicketDescription.Clear();
             textBoxTicketTitle.Clear();

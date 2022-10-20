@@ -24,7 +24,15 @@ namespace GardenGroupDAL
 
         public List<User> GetAllUsers()
         {
-            return GetAllDocuments<User>(m_Collection);
+            // old
+            //return GetAllDocuments<User>(m_Collection);
+            
+
+            List<User> users = this.m_Collection.Aggregate()
+                .Lookup("Tickets", "_id", "CreatorId", "Tickets")
+                .As<User>().ToList();
+
+            return users;
         }
 
         public User FindUserByFirstName(string firstName)
@@ -37,29 +45,12 @@ namespace GardenGroupDAL
         {
             return this.GetDocumentById(m_Collection, id);
         }
-
-        /*public User FindUserByEmail(string email)
-        {
-            User user = m_Collection.Find(user => user.ContactInfo.Email.Equals(email)).FirstOrDefault();
-            return user;
-        }*/
-
+        
         public User FindUserByEmail(string email)
         {
-            /*BsonArray array = new BsonArray();
-            array.Add(new BsonDocument("$lookup",
-                new BsonDocument
-                    {
-                        { "from", "Tickets" },
-                        { "localField", "_id" },
-                        { "foreignField", "CreatorID" },
-                        { "as", "Tickets" }
-                    }));
-            array.Add("$match", new BsonDocument("ContactInfo.Email", email));*/
-            
- 
+            // error handling?
             return this.m_Collection.Aggregate()
-                .Lookup("Tickets", "_id", "CreatorID", "Tickets")
+                .Lookup("Tickets", "_id", "CreatorId", "Tickets")
                 .Match(new BsonDocument("ContactInfo.Email", email))
                 .As<User>().ToList().FirstOrDefault();
         }
@@ -72,7 +63,6 @@ namespace GardenGroupDAL
             {
                 return true;
             }
-
             return false;
         }
         
@@ -100,6 +90,5 @@ namespace GardenGroupDAL
         {
             this.UpdateDocument(m_Collection,user.Id, user);
         }
-
     }
 }

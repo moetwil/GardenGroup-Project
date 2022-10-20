@@ -16,37 +16,49 @@ namespace Garden_Group.Forms
     public partial class IncidentManagementForm : Form
     {
         private User user;
+        private Ticket selectedTicket;
         private List<Ticket> allTickets;
         private TicketService ticketService;
-        private IncidentsUC selectedIncidentUC;        
+        private IncidentsUC selectedIncidentUC;
+
+        private void IncidentManagementForm_Load(object sender, EventArgs e)
+        {
+            this.Controls.Add(new MenuStripUC(this.user, this));
+            fillFlowPanel(this.allTickets);
+            this.panelTransfer.Visible = false;
+            this.labelErrorHandling.Visible = false;
+            this.textBoxFilter.Visible = false;
+        }
 
         public IncidentManagementForm(User user)
         {
             this.user = user;
             ticketService = new TicketService();
+            this.allTickets = ticketService.GetAllTickets();
 
             InitializeComponent();
             this.SetSizeToDesktop();
+
         }
 
-        /*private void IncidentManagementForm_Load(object sender, EventArgs e)
+/*        private void IncidentManagementForm_Load(object sender, EventArgs e)
         {
             this.Controls.Add(new MenuStripUC(this.user, this));
             fillFlowPanel();
             loadComboBoxes();
         }*/
 
-        /*private void fillFlowPanel()
+        private void fillFlowPanel(List<Ticket> tickets)
         {
             flowLayoutPanelIncidents.Controls.Clear();
-            foreach (Ticket ticket in allTickets)
+            foreach (Ticket ticket in tickets)
             {
                 IncidentsUC incidentUC = new IncidentsUC(ticket, this);
                 incidentUC.Clicked += IncidentUC_Clicked;
                 incidentUC.Size = new Size(flowLayoutPanelIncidents.Width - SystemInformation.HorizontalScrollBarArrowWidth, 70);
                 flowLayoutPanelIncidents.Controls.Add(incidentUC);
             }
-        }*/
+        }
 
         /*private void loadComboBoxes()
         {
@@ -62,16 +74,16 @@ namespace Garden_Group.Forms
                 comboBoxType.Items.Add(incident);
         }*/
 
-        /*private void IncidentUC_Clicked(object sender, EventArgs e)
+        private void IncidentUC_Clicked(object sender, EventArgs e)
         {
             buttonBecomeSolver.Enabled = true;
             selectedIncidentUC = (IncidentsUC)sender;
-            Ticket ticket = (Ticket)selectedIncidentUC.Tag;
-            
+            this.selectedTicket = (Ticket)selectedIncidentUC.Tag;
+
             labelTitle.Text = ((Ticket)selectedIncidentUC.Tag).Title;
             richTextBoxDescription.Text = ((Ticket)selectedIncidentUC.Tag).Description;
-            labelStateCode.Text = ((Ticket)selectedIncidentUC.Tag).TicketState.Code.ToString();
-            labelCreatorName.Text = ((Ticket)selectedIncidentUC.Tag).Creator.FirstName + " " + ((Ticket)selectedIncidentUC.Tag).Creator.LastName;
+            //labelStateCode.Text = ((Ticket)selectedIncidentUC.Tag).TicketState.Code.ToString();
+            //labelCreatorName.Text = ((Ticket)selectedIncidentUC.Tag).Creator.FirstName + " " + ((Ticket)selectedIncidentUC.Tag).Creator.LastName;
 
 
             comboBoxPriority.SelectedItem = ((Ticket)selectedIncidentUC.Tag).TicketPriority;
@@ -79,11 +91,11 @@ namespace Garden_Group.Forms
             comboBoxType.SelectedItem = ((Ticket)selectedIncidentUC.Tag).TypeOfIncident;
 
             dateTimePickerOpen.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.OpeningDate.Date;
-            if (((Ticket)selectedIncidentUC.Tag).TicketState == ticketStates[0])
-              dateTimePickerClosed.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.ClosingDate.Date;
+            /*if (((Ticket)selectedIncidentUC.Tag).TicketState == ticketStates[0])
+                dateTimePickerClosed.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.ClosingDate.Date;*/
 
             //dateTimePickerDeadline.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.Deadline.Date;
-        }*/
+        }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
@@ -110,5 +122,71 @@ namespace Garden_Group.Forms
             
             ticketService.UpdateTicket(((Ticket)selectedIncidentUC.Tag));
         }*/
+
+        private void checkBoxTransfer_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                UserService userService = new UserService();
+                comboBoxTransfer.Items.Clear();
+
+                if (checkBoxTransfer.Checked)
+                {
+                    this.panelTransfer.Visible = true;
+                    this.panelTransfer.Show();
+                    foreach (User user in userService.GetAllUsers())
+                    {
+                        comboBoxTransfer.Items.Add(user);
+                    }
+                }
+                else
+                {
+                    this.panelTransfer.Visible = false;
+                    this.panelTransfer.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                this.labelErrorHandling.Text = ex.Message;
+                this.labelErrorHandling.Visible = true;
+            }       
+        }
+
+        private void comboBoxTransfer_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            User newEmployee = (User)this.comboBoxTransfer.SelectedItem;
+            TicketTransferService ticketTransferService = new TicketTransferService();
+            ticketTransferService.TransferTicket(this.selectedTicket, newEmployee);
+        }
+        
+        private void checkBoxFilter_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkBoxFilter.Checked)
+            {
+                this.textBoxFilter.Visible = true;
+                this.textBoxFilter.Clear();
+
+                // set users cursor in textbox
+                this.textBoxFilter.Focus();
+
+            }
+            else
+            {
+                this.textBoxFilter.Visible = false;
+                fillFlowPanel(this.allTickets);
+            }
+        }
+
+        private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            // if the checkbx of the filter is not checked, do nothing
+            if (!this.checkBoxFilter.Checked) return;
+
+            // filter allTickets on the text in the textbox
+            List<Ticket> filteredTickets = IncidentManagementFilterService.FilterTickets(this.allTickets, this.textBoxFilter.Text);
+
+            fillFlowPanel(filteredTickets);
+        }
     }
 }
