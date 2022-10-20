@@ -8,19 +8,14 @@ using System.Threading.Tasks;
 
 namespace GardenGroupLogica
 {
+    // Deze class is gemaakt als onderdeel 'O' van de Rubics door Lars Hartendorp. 
     public class TicketTransferService
     {
         private TicketDao ticketDao;
-        private TicketService ticketService;
-        //private UserService userService;
-
         public TicketTransferService()
         {
             this.ticketDao = new TicketDao();
-            ticketService = new TicketService();
-           //userService = new UserService();
         }
-
         public void TransferTicket(Ticket ticket, User newServiceDeskEmployee)
         {
             ticket.ServiceDeskEmployeeId = newServiceDeskEmployee.Id;

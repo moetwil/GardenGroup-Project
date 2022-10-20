@@ -123,16 +123,13 @@ namespace Garden_Group.Forms
             ticketService.UpdateTicket(((Ticket)selectedIncidentUC.Tag));
         }*/
 
-        // items to choose from comboBoxTransferringTicketTo must be a list of all users except the current user. 
-        // This list must be created in the constructor of this form.
-
-
         private void checkBoxTransfer_CheckedChanged(object sender, EventArgs e)
         {
             try
             {
                 UserService userService = new UserService();
                 comboBoxTransfer.Items.Clear();
+
                 if (checkBoxTransfer.Checked)
                 {
                     this.panelTransfer.Visible = true;
@@ -157,12 +154,11 @@ namespace Garden_Group.Forms
 
         private void comboBoxTransfer_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            User user = (User)this.comboBoxTransfer.SelectedItem;
+            User newEmployee = (User)this.comboBoxTransfer.SelectedItem;
             TicketTransferService ticketTransferService = new TicketTransferService();
-            ticketTransferService.TransferTicket(this.selectedTicket, user);
-            MessageBox.Show(this.selectedTicket.ServiceDeskEmployeeId);
+            ticketTransferService.TransferTicket(this.selectedTicket, newEmployee);
         }
-
+        
         private void checkBoxFilter_CheckedChanged(object sender, EventArgs e)
         {
 
