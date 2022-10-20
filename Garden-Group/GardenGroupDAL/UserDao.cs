@@ -24,7 +24,15 @@ namespace GardenGroupDAL
 
         public List<User> GetAllUsers()
         {
-            return GetAllDocuments<User>(m_Collection);
+            // old
+            //return GetAllDocuments<User>(m_Collection);
+            
+
+            List<User> users = this.m_Collection.Aggregate()
+                .Lookup("Tickets", "_id", "CreatorId", "Tickets")
+                .As<User>().ToList();
+
+            return users;
         }
 
         public User FindUserByFirstName(string firstName)
