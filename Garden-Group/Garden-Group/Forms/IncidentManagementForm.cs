@@ -23,12 +23,14 @@ namespace Garden_Group.Forms
         private void IncidentManagementForm_Load(object sender, EventArgs e)
         {
             this.Controls.Add(new MenuStripUC(this.user, this));
+            fillFlowPanel();
         }
 
         public IncidentManagementForm(User user)
         {
             this.user = user;
             ticketService = new TicketService();
+            this.allTickets = ticketService.GetAllTickets();
 
             InitializeComponent();
             this.SetSizeToDesktop();
@@ -41,7 +43,7 @@ namespace Garden_Group.Forms
             loadComboBoxes();
         }*/
 
-        /*private void fillFlowPanel()
+        private void fillFlowPanel()
         {
             flowLayoutPanelIncidents.Controls.Clear();
             foreach (Ticket ticket in allTickets)
@@ -51,7 +53,7 @@ namespace Garden_Group.Forms
                 incidentUC.Size = new Size(flowLayoutPanelIncidents.Width - SystemInformation.HorizontalScrollBarArrowWidth, 70);
                 flowLayoutPanelIncidents.Controls.Add(incidentUC);
             }
-        }*/
+        }
 
         /*private void loadComboBoxes()
         {
@@ -67,16 +69,16 @@ namespace Garden_Group.Forms
                 comboBoxType.Items.Add(incident);
         }*/
 
-        /*private void IncidentUC_Clicked(object sender, EventArgs e)
+        private void IncidentUC_Clicked(object sender, EventArgs e)
         {
             buttonBecomeSolver.Enabled = true;
             selectedIncidentUC = (IncidentsUC)sender;
             Ticket ticket = (Ticket)selectedIncidentUC.Tag;
-            
+
             labelTitle.Text = ((Ticket)selectedIncidentUC.Tag).Title;
             richTextBoxDescription.Text = ((Ticket)selectedIncidentUC.Tag).Description;
-            labelStateCode.Text = ((Ticket)selectedIncidentUC.Tag).TicketState.Code.ToString();
-            labelCreatorName.Text = ((Ticket)selectedIncidentUC.Tag).Creator.FirstName + " " + ((Ticket)selectedIncidentUC.Tag).Creator.LastName;
+            //labelStateCode.Text = ((Ticket)selectedIncidentUC.Tag).TicketState.Code.ToString();
+            //labelCreatorName.Text = ((Ticket)selectedIncidentUC.Tag).Creator.FirstName + " " + ((Ticket)selectedIncidentUC.Tag).Creator.LastName;
 
 
             comboBoxPriority.SelectedItem = ((Ticket)selectedIncidentUC.Tag).TicketPriority;
@@ -84,11 +86,11 @@ namespace Garden_Group.Forms
             comboBoxType.SelectedItem = ((Ticket)selectedIncidentUC.Tag).TypeOfIncident;
 
             dateTimePickerOpen.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.OpeningDate.Date;
-            if (((Ticket)selectedIncidentUC.Tag).TicketState == ticketStates[0])
-              dateTimePickerClosed.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.ClosingDate.Date;
+            /*if (((Ticket)selectedIncidentUC.Tag).TicketState == ticketStates[0])
+                dateTimePickerClosed.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.ClosingDate.Date;*/
 
             //dateTimePickerDeadline.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.Deadline.Date;
-        }*/
+        }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
