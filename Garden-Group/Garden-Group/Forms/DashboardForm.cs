@@ -71,14 +71,11 @@ namespace Garden_Group.Forms
 
         private void LoadEmployeeCharts()
         {
-            // dit ombouwen met aggregate
-            List<Ticket> ticketsFromUser = ticketService.GetTicketsFromUser(this.user);
-            int amountOpenTickets = ticketService.GetOpenTicketsAmount(ticketsFromUser);
-            int amountPastDeadlineTickets = ticketService.GetTicketsPastDeadlineAmount(ticketsFromUser);
+            int amountOpenTickets = ticketService.GetOpenTicketsAmount(this.user.Tickets);
+            int amountPastDeadlineTickets = ticketService.GetTicketsPastDeadlineAmount(this.user.Tickets);
 
-            SetProgressBar(amountOpenTickets, ticketsFromUser.Count, this.circularPBUnresolvedIncidents);
-            SetProgressBar(amountPastDeadlineTickets, ticketsFromUser.Count, this.circularProgressBarPastDeadline);
-
+            SetProgressBar(amountOpenTickets, this.user.Tickets.Count, this.circularPBUnresolvedIncidents);
+            SetProgressBar(amountPastDeadlineTickets, this.user.Tickets.Count, this.circularProgressBarPastDeadline);
         }
 
         private void LoadServiceEmployeeCharts()
