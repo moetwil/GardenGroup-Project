@@ -24,6 +24,7 @@ namespace Garden_Group.Forms
         {
             this.Controls.Add(new MenuStripUC(this.user, this));
             fillFlowPanel();
+            this.panelTransfer.Visible = false;
         }
 
         public IncidentManagementForm(User user)
@@ -34,10 +35,10 @@ namespace Garden_Group.Forms
 
             InitializeComponent();
             this.SetSizeToDesktop();
-            checkedTransfer();
+
         }
 
-        /*private void IncidentManagementForm_Load(object sender, EventArgs e)
+/*        private void IncidentManagementForm_Load(object sender, EventArgs e)
         {
             this.Controls.Add(new MenuStripUC(this.user, this));
             fillFlowPanel();
@@ -119,21 +120,20 @@ namespace Garden_Group.Forms
             ticketService.UpdateTicket(((Ticket)selectedIncidentUC.Tag));
         }*/
 
-        private void checkedTransfer() {
-            // visibility of combobox is false. 
-            // if checkbox is checked, combobox is visible
-
-            comboBoxTransferringTicketTo.Visible = false;
-            if (checkBoxTicketTransfer.Checked)
-            {
-                comboBoxTransferringTicketTo.Visible = true;
-            }
-
-        }
-
         // items to choose from comboBoxTransferringTicketTo must be a list of all users except the current user. 
         // This list must be created in the constructor of this form.
 
 
+        private void checkBoxTransfer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxTransfer.Checked)
+            {
+                this.panelTransfer.Visible = true;
+                this.panelTransfer.Show();
+
+            }
+
+            TicketTransferService ticketTransferService = new TicketTransferService();
+        }
     }
 }
