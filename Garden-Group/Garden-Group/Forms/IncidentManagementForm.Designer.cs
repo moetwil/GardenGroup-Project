@@ -283,7 +283,6 @@
             this.buttonCloseTicket.TabIndex = 26;
             this.buttonCloseTicket.Text = "Sluit ticket";
             this.buttonCloseTicket.UseVisualStyleBackColor = true;
-            //this.buttonCloseTicket.Click += new System.EventHandler(this.buttonCloseTicket_Click);
             // 
             // IncidentManagementForm
             // 
@@ -317,7 +316,7 @@
             this.Name = "IncidentManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "IncidentManagementForm";
-            //this.Load += new System.EventHandler(this.IncidentManagementForm_Load);
+            this.Load += new System.EventHandler(this.IncidentManagementForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
