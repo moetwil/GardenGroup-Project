@@ -34,6 +34,7 @@ namespace Garden_Group.Forms
 
             InitializeComponent();
             this.SetSizeToDesktop();
+            checkedTransfer();
         }
 
         /*private void IncidentManagementForm_Load(object sender, EventArgs e)
@@ -117,5 +118,22 @@ namespace Garden_Group.Forms
             
             ticketService.UpdateTicket(((Ticket)selectedIncidentUC.Tag));
         }*/
+
+        private void checkedTransfer() {
+            // visibility of combobox is false. 
+            // if checkbox is checked, combobox is visible
+
+            comboBoxTransferringTicketTo.Visible = false;
+            if (checkBoxTicketTransfer.Checked)
+            {
+                comboBoxTransferringTicketTo.Visible = true;
+            }
+
+        }
+
+        // items to choose from comboBoxTransferringTicketTo must be a list of all users except the current user. 
+        // This list must be created in the constructor of this form.
+
+
     }
 }

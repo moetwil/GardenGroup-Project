@@ -51,6 +51,7 @@
             this.buttonBecomeSolver = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonCloseTicket = new System.Windows.Forms.Button();
+
             this.checkBoxFilter = new System.Windows.Forms.CheckBox();
             this.textBoxFilter = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -338,6 +339,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "IncidentManagementForm";
             this.Load += new System.EventHandler(this.IncidentManagementForm_Load);
+            this.panelTransfer.ResumeLayout(false);
+            this.panelTransfer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
