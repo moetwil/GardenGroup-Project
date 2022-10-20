@@ -46,18 +46,6 @@ namespace GardenGroupDAL
 
         public User FindUserByEmail(string email)
         {
-            /*BsonArray array = new BsonArray();
-            array.Add(new BsonDocument("$lookup",
-                new BsonDocument
-                    {
-                        { "from", "Tickets" },
-                        { "localField", "_id" },
-                        { "foreignField", "CreatorID" },
-                        { "as", "Tickets" }
-                    }));
-            array.Add("$match", new BsonDocument("ContactInfo.Email", email));*/
-            
- 
             return this.m_Collection.Aggregate()
                 .Lookup("Tickets", "_id", "CreatorID", "Tickets")
                 .Match(new BsonDocument("ContactInfo.Email", email))
