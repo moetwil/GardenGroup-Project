@@ -16,6 +16,7 @@ namespace Garden_Group.Forms
     public partial class IncidentManagementForm : Form
     {
         private User user;
+        private Ticket selectedTicket;
         private List<Ticket> allTickets;
         private TicketService ticketService;
         private IncidentsUC selectedIncidentUC;
@@ -25,6 +26,7 @@ namespace Garden_Group.Forms
             this.Controls.Add(new MenuStripUC(this.user, this));
             fillFlowPanel(this.allTickets);
             this.panelTransfer.Visible = false;
+            this.labelErrorHandling.Visible = false;
             this.textBoxFilter.Visible = false;
         }
 
@@ -76,7 +78,7 @@ namespace Garden_Group.Forms
         {
             buttonBecomeSolver.Enabled = true;
             selectedIncidentUC = (IncidentsUC)sender;
-            Ticket ticket = (Ticket)selectedIncidentUC.Tag;
+            this.selectedTicket = (Ticket)selectedIncidentUC.Tag;
 
             labelTitle.Text = ((Ticket)selectedIncidentUC.Tag).Title;
             richTextBoxDescription.Text = ((Ticket)selectedIncidentUC.Tag).Description;
@@ -127,14 +129,38 @@ namespace Garden_Group.Forms
 
         private void checkBoxTransfer_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxTransfer.Checked)
+            try
             {
-                this.panelTransfer.Visible = true;
-                this.panelTransfer.Show();
-
+                UserService userService = new UserService();
+                comboBoxTransfer.Items.Clear();
+                if (checkBoxTransfer.Checked)
+                {
+                    this.panelTransfer.Visible = true;
+                    this.panelTransfer.Show();
+                    foreach (User user in userService.GetAllUsers())
+                    {
+                        comboBoxTransfer.Items.Add(user);
+                    }
+                }
+                else
+                {
+                    this.panelTransfer.Visible = false;
+                    this.panelTransfer.Hide();
+                }
             }
+            catch (Exception ex)
+            {
+                this.labelErrorHandling.Text = ex.Message;
+                this.labelErrorHandling.Visible = true;
+            }       
+        }
 
+        private void comboBoxTransfer_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            User user = (User)this.comboBoxTransfer.SelectedItem;
             TicketTransferService ticketTransferService = new TicketTransferService();
+            ticketTransferService.TransferTicket(this.selectedTicket, user);
+            MessageBox.Show(this.selectedTicket.ServiceDeskEmployeeId);
         }
 
         private void checkBoxFilter_CheckedChanged(object sender, EventArgs e)
