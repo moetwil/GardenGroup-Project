@@ -55,10 +55,11 @@
             this.textBoxFilter = new System.Windows.Forms.TextBox();
             this.checkBoxTransfer = new System.Windows.Forms.CheckBox();
             this.panelTransfer = new System.Windows.Forms.Panel();
-            this.comboBoxUserNames = new System.Windows.Forms.ComboBox();
+            this.comboBoxTransfer = new System.Windows.Forms.ComboBox();
             this.labelNameOfOldEmployee = new System.Windows.Forms.Label();
             this.labelToNewEmployee = new System.Windows.Forms.Label();
             this.labelFromOldEmployee = new System.Windows.Forms.Label();
+            this.labelErrorHandling = new System.Windows.Forms.Label();
             this.panelTransfer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -314,7 +315,7 @@
             // 
             this.checkBoxTransfer.AutoSize = true;
             this.checkBoxTransfer.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkBoxTransfer.Location = new System.Drawing.Point(113, 858);
+            this.checkBoxTransfer.Location = new System.Drawing.Point(113, 804);
             this.checkBoxTransfer.Name = "checkBoxTransfer";
             this.checkBoxTransfer.Size = new System.Drawing.Size(98, 29);
             this.checkBoxTransfer.TabIndex = 29;
@@ -324,23 +325,24 @@
             // 
             // panelTransfer
             // 
-            this.panelTransfer.Controls.Add(this.comboBoxUserNames);
+            this.panelTransfer.Controls.Add(this.comboBoxTransfer);
             this.panelTransfer.Controls.Add(this.labelNameOfOldEmployee);
             this.panelTransfer.Controls.Add(this.labelToNewEmployee);
             this.panelTransfer.Controls.Add(this.labelFromOldEmployee);
-            this.panelTransfer.Location = new System.Drawing.Point(217, 858);
+            this.panelTransfer.Location = new System.Drawing.Point(217, 804);
             this.panelTransfer.Name = "panelTransfer";
-            this.panelTransfer.Size = new System.Drawing.Size(508, 86);
+            this.panelTransfer.Size = new System.Drawing.Size(508, 92);
             this.panelTransfer.TabIndex = 30;
             // 
-            // comboBoxUserNames
+            // comboBoxTransfer
             // 
-            this.comboBoxUserNames.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBoxUserNames.FormattingEnabled = true;
-            this.comboBoxUserNames.Location = new System.Drawing.Point(213, 43);
-            this.comboBoxUserNames.Name = "comboBoxUserNames";
-            this.comboBoxUserNames.Size = new System.Drawing.Size(242, 29);
-            this.comboBoxUserNames.TabIndex = 3;
+            this.comboBoxTransfer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxTransfer.FormattingEnabled = true;
+            this.comboBoxTransfer.Location = new System.Drawing.Point(213, 43);
+            this.comboBoxTransfer.Name = "comboBoxTransfer";
+            this.comboBoxTransfer.Size = new System.Drawing.Size(242, 29);
+            this.comboBoxTransfer.TabIndex = 3;
+            this.comboBoxTransfer.SelectedIndexChanged += new System.EventHandler(this.comboBoxTransfer_SelectedIndexChanged_1);
             // 
             // labelNameOfOldEmployee
             // 
@@ -372,11 +374,22 @@
             this.labelFromOldEmployee.TabIndex = 0;
             this.labelFromOldEmployee.Text = "Van:";
             // 
+            // labelErrorHandling
+            // 
+            this.labelErrorHandling.AutoSize = true;
+            this.labelErrorHandling.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelErrorHandling.Location = new System.Drawing.Point(770, 988);
+            this.labelErrorHandling.Name = "labelErrorHandling";
+            this.labelErrorHandling.Size = new System.Drawing.Size(176, 25);
+            this.labelErrorHandling.TabIndex = 31;
+            this.labelErrorHandling.Text = "LabelErrorHandling";
+            // 
             // IncidentManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.labelErrorHandling);
             this.Controls.Add(this.panelTransfer);
             this.Controls.Add(this.checkBoxTransfer);
             this.Controls.Add(this.textBoxFilter);
@@ -445,9 +458,10 @@
         private TextBox textBoxFilter;
         private CheckBox checkBoxTransfer;
         private Panel panelTransfer;
-        private ComboBox comboBoxUserNames;
+        private ComboBox comboBoxTransfer;
         private Label labelNameOfOldEmployee;
         private Label labelToNewEmployee;
         private Label labelFromOldEmployee;
+        private Label labelErrorHandling;
     }
 }
