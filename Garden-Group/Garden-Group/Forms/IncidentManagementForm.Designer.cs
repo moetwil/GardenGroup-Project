@@ -194,11 +194,11 @@
             // buttonBecomeSolver
             // 
             this.buttonBecomeSolver.AutoSize = true;
-            this.buttonBecomeSolver.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.buttonBecomeSolver.BackColor = System.Drawing.Color.LightGray;
             this.buttonBecomeSolver.Enabled = false;
             this.buttonBecomeSolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBecomeSolver.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonBecomeSolver.Location = new System.Drawing.Point(1072, 796);
+            this.buttonBecomeSolver.Location = new System.Drawing.Point(1079, 797);
             this.buttonBecomeSolver.Name = "buttonBecomeSolver";
             this.buttonBecomeSolver.Size = new System.Drawing.Size(146, 37);
             this.buttonBecomeSolver.TabIndex = 24;
@@ -212,7 +212,7 @@
             this.buttonDelete.BackColor = System.Drawing.Color.LightCoral;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDelete.Location = new System.Drawing.Point(803, 796);
+            this.buttonDelete.Location = new System.Drawing.Point(810, 797);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(131, 37);
             this.buttonDelete.TabIndex = 25;
@@ -223,10 +223,10 @@
             // buttonCloseTicket
             // 
             this.buttonCloseTicket.AutoSize = true;
-            this.buttonCloseTicket.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.buttonCloseTicket.BackColor = System.Drawing.Color.LightGray;
             this.buttonCloseTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCloseTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCloseTicket.Location = new System.Drawing.Point(940, 796);
+            this.buttonCloseTicket.Location = new System.Drawing.Point(947, 797);
             this.buttonCloseTicket.Name = "buttonCloseTicket";
             this.buttonCloseTicket.Size = new System.Drawing.Size(126, 37);
             this.buttonCloseTicket.TabIndex = 26;
@@ -330,13 +330,15 @@
             // buttonEditTicket
             // 
             this.buttonEditTicket.AutoSize = true;
+            this.buttonEditTicket.BackColor = System.Drawing.Color.LightGray;
+            this.buttonEditTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonEditTicket.Location = new System.Drawing.Point(231, 491);
             this.buttonEditTicket.Name = "buttonEditTicket";
             this.buttonEditTicket.Size = new System.Drawing.Size(148, 42);
             this.buttonEditTicket.TabIndex = 31;
             this.buttonEditTicket.Text = "Bewerk ticket";
-            this.buttonEditTicket.UseVisualStyleBackColor = true;
+            this.buttonEditTicket.UseVisualStyleBackColor = false;
             this.buttonEditTicket.Click += new System.EventHandler(this.buttonEditTicket_Click);
             // 
             // textBoxTitle
@@ -392,10 +394,10 @@
             // buttonAddTicket
             // 
             this.buttonAddTicket.AutoSize = true;
-            this.buttonAddTicket.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.buttonAddTicket.BackColor = System.Drawing.Color.LightGreen;
             this.buttonAddTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddTicket.Location = new System.Drawing.Point(1222, 796);
+            this.buttonAddTicket.Location = new System.Drawing.Point(1229, 797);
             this.buttonAddTicket.Name = "buttonAddTicket";
             this.buttonAddTicket.Size = new System.Drawing.Size(167, 37);
             this.buttonAddTicket.TabIndex = 37;

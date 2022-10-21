@@ -58,6 +58,10 @@ namespace GardenGroupDAL
         {
             return m_Collection.Find(new BsonDocument()).SortBy(ticket => ticket.TicketPriority).ToList();
         }
+        public List<Ticket> SortTicketsByPriority(User user, SortDefinition<Ticket> sortOrder)
+        {
+            return m_Collection.Find(new BsonDocument("CreatorId", user.Id)).Sort(sortOrder).ToList();
+        }
 
     }
 }

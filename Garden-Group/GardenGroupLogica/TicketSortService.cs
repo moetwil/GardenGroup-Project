@@ -1,5 +1,6 @@
 ﻿using GardenGroupDAL;
 using GardenGroupModel;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,11 @@ namespace GardenGroupLogica
                 return ticketDao.SortTicketsByPriorityDescending();
             
             return ticketDao.SortTicketsByPriorityAscending();
+        }
+
+        public List<Ticket> SortTicketsByPriority(User user, SortDefinition<Ticket> sortOrder)
+        {
+            return ticketDao.SortTicketsByPriority(user, sortOrder);
         }
 
         // Tweede mogelijkheid
