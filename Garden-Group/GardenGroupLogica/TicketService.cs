@@ -65,6 +65,8 @@ namespace GardenGroupLogica
                     ticket.TicketState == TicketState.InProgress)
                     amount++;
             }
+            // Mischien beter maar aggregate is nog beter
+            int amount2 = tickets.Where(ticket => ticket.TicketState == TicketState.Open || ticket.TicketState == TicketState.InProgress).Count();
             return amount;
         }
 
@@ -79,22 +81,10 @@ namespace GardenGroupLogica
                     ticket.TicketState == TicketState.InProgress))
                     amount++;
             }
-
+            // Mischien beter maar aggregate is nog beter
+            int amount2 = tickets.Where(ticket => ticket.TicketDate.Deadline < DateTime.Now && (ticket.TicketState == TicketState.Open || ticket.TicketState == TicketState.InProgress)).Count();
             return amount;
         }
-
-        /*private List<Ticket> filltickets(List<Ticket> tickets)
-        {
-            foreach (Ticket ticket in tickets)
-            {
-                ticket.Creator = userService.GetUserById(ticket.CreatorID);
-                ticket.TicketState = ticketStateService.GetTicketStateById(ticket.TicketStateId);
-                ticket.TicketPriority = ticketPriorityService.GetTicketPriorityById(ticket.TicketPriorityId);
-                ticket.TypeOfIncident = ticketIncidentService.GetTicketIncidentById(ticket.TypeOfIncidentId);
-                ticket.Solvers = userService.GetTicketSolvers(ticket.TicketSolvers);
-            }
-            return tickets;
-        }*/
 
     }
 }

@@ -48,11 +48,6 @@
             this.labelPriorText = new System.Windows.Forms.Label();
             this.labelPriority = new System.Windows.Forms.Label();
             this.labelDescription = new System.Windows.Forms.Label();
-            this.listViewTicketOverview = new System.Windows.Forms.ListView();
-            this.columnTitle = new System.Windows.Forms.ColumnHeader();
-            this.columnDate = new System.Windows.Forms.ColumnHeader();
-            this.columnPriority = new System.Windows.Forms.ColumnHeader();
-            this.columnState = new System.Windows.Forms.ColumnHeader();
             this.panelTicketInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -299,46 +294,11 @@
             this.labelDescription.Size = new System.Drawing.Size(278, 108);
             this.labelDescription.TabIndex = 6;
             // 
-            // listViewTicketOverview
-            // 
-            this.listViewTicketOverview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnTitle,
-            this.columnDate,
-            this.columnPriority,
-            this.columnState});
-            this.listViewTicketOverview.FullRowSelect = true;
-            this.listViewTicketOverview.GridLines = true;
-            this.listViewTicketOverview.Location = new System.Drawing.Point(1366, 393);
-            this.listViewTicketOverview.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
-            this.listViewTicketOverview.Name = "listViewTicketOverview";
-            this.listViewTicketOverview.Size = new System.Drawing.Size(800, 350);
-            this.listViewTicketOverview.TabIndex = 7;
-            this.listViewTicketOverview.UseCompatibleStateImageBehavior = false;
-            this.listViewTicketOverview.View = System.Windows.Forms.View.Details;
-            // 
-            // columnTitle
-            // 
-            this.columnTitle.Text = "Titel";
-            this.columnTitle.Width = 150;
-            // 
-            // columnDate
-            // 
-            this.columnDate.Text = "Datum";
-            // 
-            // columnPriority
-            // 
-            this.columnPriority.Text = "Prioriteit";
-            // 
-            // columnState
-            // 
-            this.columnState.Text = "Status";
-            // 
             // TicketOverviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.listViewTicketOverview);
             this.Controls.Add(this.panelTicketInfo);
             this.Controls.Add(this.buttonLowPriority);
             this.Controls.Add(this.buttonHighPriority);
@@ -378,10 +338,5 @@
         private Label labelPriorText;
         private Label labelDeadlineText;
         private Label labelIncidentText;
-        private ListView listViewTicketOverview;
-        private ColumnHeader columnTitle;
-        private ColumnHeader columnDate;
-        private ColumnHeader columnPriority;
-        private ColumnHeader columnState;
     }
 }

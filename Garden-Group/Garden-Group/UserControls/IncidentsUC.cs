@@ -26,7 +26,7 @@ namespace Garden_Group.UserControls
             this.parent = parent;
             this.ticket = ticket;            
             this.Tag = ticket;
-            panelTicketState.Visible = true;
+            panelTicketPriority.Visible = true;
             FillUC();
         }
 
@@ -54,27 +54,21 @@ namespace Garden_Group.UserControls
             labelDescription.Text = ticket.Description;
             labelTicketDateStart.Text = ticket.TicketDate.OpeningDate.Date.ToShortDateString();
             labelTicketDateEnd.Text = ticket.TicketDate.ClosingDate.ToShortDateString();
-            
-            // if statement that checks if ticket.TicketState is in TicketState enum
-          
-            if(!ticket.TicketState.ToString().Equals(""))
-                this.labelTicketState.Text += ticket.TicketState.ToString();
-            else
-                labelTicketState.Text += "No ticket state";
+            labelTicketState.Text = ticket.TicketState.ToString();
 
             switch (ticket.TicketPriority)
             {
                 case TicketPriority.Low:
-                    panelTicketState.BackColor = Color.Green;
+                    panelTicketPriority.BackColor = Color.Green;
                     break;
                 case TicketPriority.Normal:
-                    panelTicketState.BackColor = Color.Orange;
+                    panelTicketPriority.BackColor = Color.Orange;
                     break;
                 case TicketPriority.High:
-                    panelTicketState.BackColor = Color.Red;
+                    panelTicketPriority.BackColor = Color.Red;
                     break;
                 default:
-                    panelTicketState.BackColor = Color.SlateGray;
+                    panelTicketPriority.BackColor = Color.SlateGray;
                     break;
             }
 

@@ -33,7 +33,6 @@ namespace Garden_Group.Forms
             labelTicketOverview.Text = $"Tickets overzicht van {user}";
             
             fillOverview();
-            //updateListView();
         }
         
         private void fillOverview()
@@ -71,27 +70,11 @@ namespace Garden_Group.Forms
             var sort = Builders<BsonDocument>.Sort.Descending("TicketPriorityId");
         }
 
-
-
-
-        //onnodig
-        private void updateListView()
+        private void buttonLowPriority_Click(object sender, EventArgs e)
         {
-            foreach (Ticket ticket in user.Tickets)
-            {
-                listViewTicketOverview.Items.Add(createListViewItem(ticket));
-            }
+            var sort = Builders<BsonDocument>.Sort.Ascending("TicketPriorityId");
         }
 
-        private ListViewItem createListViewItem(Ticket ticket)
-        {
-            ListViewItem item = new ListViewItem();
-            item.Tag = ticket;
-            item.SubItems.Add(ticket.Title);
-            item.SubItems.Add(ticket.TicketDate.OpeningDate.ToShortDateString());
-            item.SubItems.Add(ticket.TicketPriority.ToString());
-            item.SubItems.Add(ticket.TicketState.ToString());
-            return item;
-        }
+
     }
 }
