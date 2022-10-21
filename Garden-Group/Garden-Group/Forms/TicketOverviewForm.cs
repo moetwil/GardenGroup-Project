@@ -64,10 +64,12 @@ namespace Garden_Group.Forms
             form.ShowDialog();
             this.Close();
         }
-
+        
         private void buttonHighPriority_Click(object sender, EventArgs e)
         {
-            var sort = Builders<BsonDocument>.Sort.Descending("TicketPriorityId");
+            TicketSortService ticketSortService = new TicketSortService();
+            SortDefinition<Ticket> sort = Builders<Ticket>.Sort.Descending("TicketPriority");
+            List<Ticket> sortedTickets = ticketSortService.SortTicketsByPriority(this.user, sort);
         }
 
         private void buttonLowPriority_Click(object sender, EventArgs e)
