@@ -115,15 +115,15 @@
             this.buttonLowPriority.TabIndex = 4;
             this.buttonLowPriority.Text = "Prioriteit laag";
             this.buttonLowPriority.UseVisualStyleBackColor = false;
+            this.buttonLowPriority.Click += new System.EventHandler(this.buttonLowPriority_Click);
             // 
             // labelInfoTitle
             // 
-            this.labelInfoTitle.AutoSize = true;
-            this.labelInfoTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelInfoTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelInfoTitle.Location = new System.Drawing.Point(15, 21);
             this.labelInfoTitle.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.labelInfoTitle.Name = "labelInfoTitle";
-            this.labelInfoTitle.Size = new System.Drawing.Size(64, 32);
+            this.labelInfoTitle.Size = new System.Drawing.Size(278, 60);
             this.labelInfoTitle.TabIndex = 5;
             this.labelInfoTitle.Text = "Titel";
             // 
@@ -148,14 +148,14 @@
             this.panelTicketInfo.Location = new System.Drawing.Point(768, 109);
             this.panelTicketInfo.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
             this.panelTicketInfo.Name = "panelTicketInfo";
-            this.panelTicketInfo.Size = new System.Drawing.Size(310, 350);
+            this.panelTicketInfo.Size = new System.Drawing.Size(310, 386);
             this.panelTicketInfo.TabIndex = 6;
             // 
             // labelDeadlineText
             // 
             this.labelDeadlineText.AutoSize = true;
             this.labelDeadlineText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDeadlineText.Location = new System.Drawing.Point(15, 257);
+            this.labelDeadlineText.Location = new System.Drawing.Point(15, 289);
             this.labelDeadlineText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelDeadlineText.Name = "labelDeadlineText";
             this.labelDeadlineText.Size = new System.Drawing.Size(72, 20);
@@ -166,7 +166,7 @@
             // 
             this.labelIncidentText.AutoSize = true;
             this.labelIncidentText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelIncidentText.Location = new System.Drawing.Point(231, 62);
+            this.labelIncidentText.Location = new System.Drawing.Point(231, 94);
             this.labelIncidentText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelIncidentText.Name = "labelIncidentText";
             this.labelIncidentText.Size = new System.Drawing.Size(62, 20);
@@ -177,7 +177,7 @@
             // 
             this.labelOpentText.AutoSize = true;
             this.labelOpentText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelOpentText.Location = new System.Drawing.Point(15, 283);
+            this.labelOpentText.Location = new System.Drawing.Point(15, 315);
             this.labelOpentText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelOpentText.Name = "labelOpentText";
             this.labelOpentText.Size = new System.Drawing.Size(95, 20);
@@ -188,7 +188,7 @@
             // 
             this.labelDateDeadline.AutoSize = true;
             this.labelDateDeadline.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDateDeadline.Location = new System.Drawing.Point(126, 257);
+            this.labelDateDeadline.Location = new System.Drawing.Point(126, 289);
             this.labelDateDeadline.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelDateDeadline.Name = "labelDateDeadline";
             this.labelDateDeadline.Size = new System.Drawing.Size(72, 20);
@@ -199,7 +199,7 @@
             // 
             this.labelIncidentType.AutoSize = true;
             this.labelIncidentType.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelIncidentType.Location = new System.Drawing.Point(156, 62);
+            this.labelIncidentType.Location = new System.Drawing.Point(156, 94);
             this.labelIncidentType.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelIncidentType.Name = "labelIncidentType";
             this.labelIncidentType.Size = new System.Drawing.Size(74, 20);
@@ -211,7 +211,7 @@
             // 
             this.labelCloseText.AutoSize = true;
             this.labelCloseText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelCloseText.Location = new System.Drawing.Point(15, 309);
+            this.labelCloseText.Location = new System.Drawing.Point(15, 341);
             this.labelCloseText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelCloseText.Name = "labelCloseText";
             this.labelCloseText.Size = new System.Drawing.Size(92, 20);
@@ -222,7 +222,7 @@
             // 
             this.labelDateOpen.AutoSize = true;
             this.labelDateOpen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDateOpen.Location = new System.Drawing.Point(126, 283);
+            this.labelDateOpen.Location = new System.Drawing.Point(126, 315);
             this.labelDateOpen.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelDateOpen.Name = "labelDateOpen";
             this.labelDateOpen.Size = new System.Drawing.Size(77, 20);
@@ -233,7 +233,7 @@
             // 
             this.labelStateText.AutoSize = true;
             this.labelStateText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelStateText.Location = new System.Drawing.Point(15, 231);
+            this.labelStateText.Location = new System.Drawing.Point(15, 263);
             this.labelStateText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelStateText.Name = "labelStateText";
             this.labelStateText.Size = new System.Drawing.Size(52, 20);
@@ -244,7 +244,7 @@
             // 
             this.labelDateClose.AutoSize = true;
             this.labelDateClose.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDateClose.Location = new System.Drawing.Point(126, 309);
+            this.labelDateClose.Location = new System.Drawing.Point(126, 341);
             this.labelDateClose.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelDateClose.Name = "labelDateClose";
             this.labelDateClose.Size = new System.Drawing.Size(77, 20);
@@ -255,7 +255,7 @@
             // 
             this.labelStateName.AutoSize = true;
             this.labelStateName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelStateName.Location = new System.Drawing.Point(126, 231);
+            this.labelStateName.Location = new System.Drawing.Point(126, 263);
             this.labelStateName.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelStateName.Name = "labelStateName";
             this.labelStateName.Size = new System.Drawing.Size(45, 20);
@@ -266,7 +266,7 @@
             // 
             this.labelPriorText.AutoSize = true;
             this.labelPriorText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPriorText.Location = new System.Drawing.Point(15, 205);
+            this.labelPriorText.Location = new System.Drawing.Point(15, 237);
             this.labelPriorText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelPriorText.Name = "labelPriorText";
             this.labelPriorText.Size = new System.Drawing.Size(104, 20);
@@ -277,7 +277,7 @@
             // 
             this.labelPriority.AutoSize = true;
             this.labelPriority.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPriority.Location = new System.Drawing.Point(126, 205);
+            this.labelPriority.Location = new System.Drawing.Point(126, 237);
             this.labelPriority.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelPriority.Name = "labelPriority";
             this.labelPriority.Size = new System.Drawing.Size(36, 20);
@@ -288,7 +288,7 @@
             // 
             this.labelDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDescription.Location = new System.Drawing.Point(15, 85);
+            this.labelDescription.Location = new System.Drawing.Point(15, 117);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(278, 108);

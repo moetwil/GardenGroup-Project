@@ -20,15 +20,22 @@ namespace GardenGroupLogica
         
         public List<Ticket> SortTicketsByPriority(bool descending)
         {
-            if (descending)
-                return ticketDao.SortTicketsByPriorityDescending();
-            
-            return ticketDao.SortTicketsByPriorityAscending();
+            SortDefinition<Ticket> sort = Builders<Ticket>.Sort.Descending("TicketPriority");
+
+            if (!descending)
+                sort = Builders<Ticket>.Sort.Ascending("TicketPriority");
+
+            return ticketDao.SortTicketsByPriority(sort);
         }
 
-        public List<Ticket> SortTicketsByPriority(User user, SortDefinition<Ticket> sortOrder)
+        public List<Ticket> SortTicketsByPriority(User user, bool descending)
         {
-            return ticketDao.SortTicketsByPriority(user, sortOrder);
+            SortDefinition<Ticket> sort = Builders<Ticket>.Sort.Descending("TicketPriority");
+            
+            if (!descending)
+                sort = Builders<Ticket>.Sort.Ascending("TicketPriority");
+            
+            return ticketDao.SortTicketsByPriority(user, sort);
         }
 
         // Tweede mogelijkheid

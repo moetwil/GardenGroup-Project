@@ -73,7 +73,7 @@
             this.flowLayoutPanelIncidents.Location = new System.Drawing.Point(768, 159);
             this.flowLayoutPanelIncidents.Margin = new System.Windows.Forms.Padding(50, 0, 0, 0);
             this.flowLayoutPanelIncidents.Name = "flowLayoutPanelIncidents";
-            this.flowLayoutPanelIncidents.Size = new System.Drawing.Size(666, 674);
+            this.flowLayoutPanelIncidents.Size = new System.Drawing.Size(666, 672);
             this.flowLayoutPanelIncidents.TabIndex = 0;
             this.flowLayoutPanelIncidents.WrapContents = false;
             // 
@@ -200,7 +200,7 @@
             this.buttonBecomeSolver.Enabled = false;
             this.buttonBecomeSolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBecomeSolver.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonBecomeSolver.Location = new System.Drawing.Point(1079, 797);
+            this.buttonBecomeSolver.Location = new System.Drawing.Point(1074, 847);
             this.buttonBecomeSolver.Name = "buttonBecomeSolver";
             this.buttonBecomeSolver.Size = new System.Drawing.Size(146, 39);
             this.buttonBecomeSolver.TabIndex = 24;
@@ -214,7 +214,7 @@
             this.buttonDelete.BackColor = System.Drawing.Color.LightCoral;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonDelete.Location = new System.Drawing.Point(810, 797);
+            this.buttonDelete.Location = new System.Drawing.Point(805, 847);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(131, 39);
             this.buttonDelete.TabIndex = 25;
@@ -228,7 +228,7 @@
             this.buttonCloseTicket.BackColor = System.Drawing.Color.LightGray;
             this.buttonCloseTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCloseTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCloseTicket.Location = new System.Drawing.Point(947, 797);
+            this.buttonCloseTicket.Location = new System.Drawing.Point(942, 847);
             this.buttonCloseTicket.Name = "buttonCloseTicket";
             this.buttonCloseTicket.Size = new System.Drawing.Size(126, 39);
             this.buttonCloseTicket.TabIndex = 26;
@@ -399,7 +399,7 @@
             this.buttonAddTicket.BackColor = System.Drawing.Color.LightGreen;
             this.buttonAddTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonAddTicket.Location = new System.Drawing.Point(1229, 797);
+            this.buttonAddTicket.Location = new System.Drawing.Point(1224, 847);
             this.buttonAddTicket.Name = "buttonAddTicket";
             this.buttonAddTicket.Size = new System.Drawing.Size(167, 39);
             this.buttonAddTicket.TabIndex = 37;

@@ -49,18 +49,14 @@ namespace GardenGroupDAL
         {
             UpdateDocument<Ticket>(this.m_Collection, ticket.Id, ticket);
         }
-        public List<Ticket> SortTicketsByPriorityDescending()
+
+        public List<Ticket> SortTicketsByPriority(SortDefinition<Ticket> sortOrder)
         {
-            
-            return m_Collection.Find(new BsonDocument()).SortByDescending(ticket => ticket.TicketPriority).ToList();
-        }
-        public List<Ticket> SortTicketsByPriorityAscending()
-        {
-            return m_Collection.Find(new BsonDocument()).SortBy(ticket => ticket.TicketPriority).ToList();
+            return m_Collection.Find(new BsonDocument()).Sort(sortOrder).ToList();
         }
         public List<Ticket> SortTicketsByPriority(User user, SortDefinition<Ticket> sortOrder)
         {
-            return m_Collection.Find(new BsonDocument("CreatorId", user.Id)).Sort(sortOrder).ToList();
+            return m_Collection.Find(new BsonDocument("CreatorId", ObjectId.Parse(user.Id))).Sort(sortOrder).ToList();
         }
 
         // Luc individual
