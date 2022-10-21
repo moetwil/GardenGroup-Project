@@ -48,7 +48,17 @@ namespace GardenGroupDAL
         public void UpdateTicket(Ticket ticket)
         {
             UpdateDocument<Ticket>(this.m_Collection, ticket.Id, ticket);
-        }        
+        }
+        public List<Ticket> SortTicketsByPriorityDescending()
+        {
+            
+            return m_Collection.Find(new BsonDocument()).SortByDescending(ticket => ticket.TicketPriority).ToList();
+        }
+        public List<Ticket> SortTicketsByPriorityAscending()
+        {
+            return m_Collection.Find(new BsonDocument()).SortBy(ticket => ticket.TicketPriority).ToList();
+        }
+
     }
 }
 

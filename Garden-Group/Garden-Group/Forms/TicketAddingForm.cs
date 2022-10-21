@@ -75,11 +75,11 @@ namespace Garden_Group.Forms
             try
             {
                 CheckForEmptyChoices();                
-                // add ticket to database
                 Ticket ticket = new Ticket();
                 ticket.Title = textBoxTicketTitle.Text;
                 ticket.Description = textBoxTicketDescription.Text;
                 ticket.CreatorId = this.user.Id;
+                ticket.ServiceDeskEmployeeId = this.user.Id;
                 ticket.TicketSolvers = new List<string>();
                 ticket.TicketDate = new TicketDate();
                 ticket.TicketDate.OpeningDate = DateTime.Now;
@@ -107,6 +107,7 @@ namespace Garden_Group.Forms
                 errorLogService.CatchExeptionToLog(ex);
             }
         }
+        // user friendly
         private void ClearAllTextInForm() {
             textBoxTicketDescription.Clear();
             textBoxTicketTitle.Clear();
