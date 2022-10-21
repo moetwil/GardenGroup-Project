@@ -53,14 +53,23 @@ namespace Garden_Group.Forms
         private void fillFlowPanel(List<Ticket> tickets)
         {
             flowLayoutPanelIncidents.Controls.Clear();
+            //List<IncidentsUC> incidents = new List<IncidentsUC>();
             
             foreach (Ticket ticket in tickets)
             {
                 IncidentsUC incidentUC = new IncidentsUC(ticket, this);
                 incidentUC.Clicked += IncidentUC_Clicked;
                 incidentUC.Size = new Size(flowLayoutPanelIncidents.Width - SystemInformation.HorizontalScrollBarArrowWidth, 70);
+                
+                //incidents.Add(incidentUC);
+                //if (incidents.Count == 10)
+                //{
+                //    flowLayoutPanelIncidents.Controls.AddRange(incidents.ToArray());
+                //    incidents = new List<IncidentsUC>();
+                //}
                 flowLayoutPanelIncidents.Controls.Add(incidentUC);
             }
+            //flowLayoutPanelIncidents.Controls.AddRange(incidents.ToArray());
         }
 
         private void IncidentUC_Clicked(object sender, EventArgs e)
