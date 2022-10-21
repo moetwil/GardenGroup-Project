@@ -1,5 +1,6 @@
 ﻿using Garden_Group.UserControls;
 using GardenGroupLogica;
+using GardenGroupLogica.Individual;
 using GardenGroupModel;
 using GardenGroupModel.Enums;
 using System;

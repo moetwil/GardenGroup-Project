@@ -59,6 +59,15 @@ namespace GardenGroupDAL
             return m_Collection.Find(new BsonDocument()).SortBy(ticket => ticket.TicketPriority).ToList();
         }
 
+        // Luc individual
+        // find tickets on search keywords in title or description
+        public List<Ticket> FindTicketsBySearchKeywords(Func<Ticket, bool> func)
+        {
+            return m_Collection.AsQueryable().Where(func).ToList();
+        }
+
+
+
     }
 }
 

@@ -86,6 +86,15 @@ namespace GardenGroupLogica
             return amount;
         }
 
+
+
+
+        // Luc individual
+        /*public List<Ticket> FindTicketsBySearchKeywords()
+        {
+            return this.ticketDao.FindTicketsBySearchKeywords(searchKeywords);
+        }*/
+
     }
 }
 
