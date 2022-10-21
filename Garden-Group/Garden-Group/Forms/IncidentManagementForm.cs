@@ -1,5 +1,6 @@
 ﻿using Garden_Group.UserControls;
 using GardenGroupLogica;
+using GardenGroupLogica.Individual;
 using GardenGroupModel;
 using GardenGroupModel.Enums;
 using System;
@@ -277,6 +278,25 @@ namespace Garden_Group.Forms
                 sortedTickets = this.allTickets.OrderBy(t => t.TicketPriority).ToList();
             
             fillFlowPanel(sortedTickets);
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string search = textBoxSearch.Text;
+            
+            if (search.Equals(String.Empty))
+            {
+
+
+
+
+                fillFlowPanel(this.allTickets);
+                return;
+            }
+            
+            IncidentManagementSearchService incidentManagementSearchService = new IncidentManagementSearchService();
+            List<Ticket> searchTickets = incidentManagementSearchService.FindTicketsBySearchKeywords(search);
+            fillFlowPanel(searchTickets);
         }
     }
 }

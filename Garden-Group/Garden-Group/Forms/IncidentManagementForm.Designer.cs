@@ -59,6 +59,8 @@
             this.buttonSortDescending = new System.Windows.Forms.Button();
             this.buttonSortAscending = new System.Windows.Forms.Button();
             this.buttonAddTicket = new System.Windows.Forms.Button();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.panelTransfer.SuspendLayout();
             this.panelIncidentEditor.SuspendLayout();
             this.SuspendLayout();
@@ -68,10 +70,10 @@
             this.flowLayoutPanelIncidents.AutoScroll = true;
             this.flowLayoutPanelIncidents.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.flowLayoutPanelIncidents.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelIncidents.Location = new System.Drawing.Point(768, 109);
+            this.flowLayoutPanelIncidents.Location = new System.Drawing.Point(768, 159);
             this.flowLayoutPanelIncidents.Margin = new System.Windows.Forms.Padding(50, 0, 0, 0);
             this.flowLayoutPanelIncidents.Name = "flowLayoutPanelIncidents";
-            this.flowLayoutPanelIncidents.Size = new System.Drawing.Size(666, 672);
+            this.flowLayoutPanelIncidents.Size = new System.Drawing.Size(666, 674);
             this.flowLayoutPanelIncidents.TabIndex = 0;
             this.flowLayoutPanelIncidents.WrapContents = false;
             // 
@@ -200,7 +202,7 @@
             this.buttonBecomeSolver.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonBecomeSolver.Location = new System.Drawing.Point(1079, 797);
             this.buttonBecomeSolver.Name = "buttonBecomeSolver";
-            this.buttonBecomeSolver.Size = new System.Drawing.Size(146, 37);
+            this.buttonBecomeSolver.Size = new System.Drawing.Size(146, 39);
             this.buttonBecomeSolver.TabIndex = 24;
             this.buttonBecomeSolver.Text = "Word oplosser";
             this.buttonBecomeSolver.UseVisualStyleBackColor = false;
@@ -214,7 +216,7 @@
             this.buttonDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonDelete.Location = new System.Drawing.Point(810, 797);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(131, 37);
+            this.buttonDelete.Size = new System.Drawing.Size(131, 39);
             this.buttonDelete.TabIndex = 25;
             this.buttonDelete.Text = "Delete ticket";
             this.buttonDelete.UseVisualStyleBackColor = false;
@@ -228,7 +230,7 @@
             this.buttonCloseTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCloseTicket.Location = new System.Drawing.Point(947, 797);
             this.buttonCloseTicket.Name = "buttonCloseTicket";
-            this.buttonCloseTicket.Size = new System.Drawing.Size(126, 37);
+            this.buttonCloseTicket.Size = new System.Drawing.Size(126, 39);
             this.buttonCloseTicket.TabIndex = 26;
             this.buttonCloseTicket.Text = "Sluit ticket";
             this.buttonCloseTicket.UseVisualStyleBackColor = false;
@@ -237,7 +239,7 @@
             // checkBoxFilter
             // 
             this.checkBoxFilter.AutoSize = true;
-            this.checkBoxFilter.Location = new System.Drawing.Point(771, 45);
+            this.checkBoxFilter.Location = new System.Drawing.Point(771, 95);
             this.checkBoxFilter.Name = "checkBoxFilter";
             this.checkBoxFilter.Size = new System.Drawing.Size(91, 19);
             this.checkBoxFilter.TabIndex = 27;
@@ -247,7 +249,7 @@
             // 
             // textBoxFilter
             // 
-            this.textBoxFilter.Location = new System.Drawing.Point(770, 76);
+            this.textBoxFilter.Location = new System.Drawing.Point(770, 126);
             this.textBoxFilter.Name = "textBoxFilter";
             this.textBoxFilter.Size = new System.Drawing.Size(378, 23);
             this.textBoxFilter.TabIndex = 28;
@@ -257,7 +259,7 @@
             // 
             this.checkBoxTransfer.AutoSize = true;
             this.checkBoxTransfer.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.checkBoxTransfer.Location = new System.Drawing.Point(64, 802);
+            this.checkBoxTransfer.Location = new System.Drawing.Point(64, 852);
             this.checkBoxTransfer.Name = "checkBoxTransfer";
             this.checkBoxTransfer.Size = new System.Drawing.Size(98, 29);
             this.checkBoxTransfer.TabIndex = 29;
@@ -279,7 +281,7 @@
             // 
             this.labelErrorHandling.AutoSize = true;
             this.labelErrorHandling.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelErrorHandling.Location = new System.Drawing.Point(1001, 902);
+            this.labelErrorHandling.Location = new System.Drawing.Point(1001, 952);
             this.labelErrorHandling.Name = "labelErrorHandling";
             this.labelErrorHandling.Size = new System.Drawing.Size(176, 25);
             this.labelErrorHandling.TabIndex = 31;
@@ -288,9 +290,9 @@
             // panelTransfer
             // 
             this.panelTransfer.Controls.Add(this.comboBoxTransfer);
-            this.panelTransfer.Location = new System.Drawing.Point(168, 802);
+            this.panelTransfer.Location = new System.Drawing.Point(168, 852);
             this.panelTransfer.Name = "panelTransfer";
-            this.panelTransfer.Size = new System.Drawing.Size(508, 41);
+            this.panelTransfer.Size = new System.Drawing.Size(508, 43);
             this.panelTransfer.TabIndex = 30;
             // 
             // panelIncidentEditor
@@ -311,10 +313,10 @@
             this.panelIncidentEditor.Controls.Add(this.comboBoxType);
             this.panelIncidentEditor.Controls.Add(this.labelCreatorTxt);
             this.panelIncidentEditor.Controls.Add(this.labelDeadlineTxt);
-            this.panelIncidentEditor.Location = new System.Drawing.Point(49, 109);
+            this.panelIncidentEditor.Location = new System.Drawing.Point(49, 159);
             this.panelIncidentEditor.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
             this.panelIncidentEditor.Name = "panelIncidentEditor";
-            this.panelIncidentEditor.Size = new System.Drawing.Size(666, 672);
+            this.panelIncidentEditor.Size = new System.Drawing.Size(666, 674);
             this.panelIncidentEditor.TabIndex = 32;
             // 
             // labelTicketState
@@ -352,16 +354,16 @@
             // labelFeedBack
             // 
             this.labelFeedBack.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFeedBack.Location = new System.Drawing.Point(768, 848);
+            this.labelFeedBack.Location = new System.Drawing.Point(768, 898);
             this.labelFeedBack.Name = "labelFeedBack";
-            this.labelFeedBack.Size = new System.Drawing.Size(666, 39);
+            this.labelFeedBack.Size = new System.Drawing.Size(666, 41);
             this.labelFeedBack.TabIndex = 33;
             this.labelFeedBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // checkBoxSort
             // 
             this.checkBoxSort.AutoSize = true;
-            this.checkBoxSort.Location = new System.Drawing.Point(1161, 45);
+            this.checkBoxSort.Location = new System.Drawing.Point(1161, 95);
             this.checkBoxSort.Name = "checkBoxSort";
             this.checkBoxSort.Size = new System.Drawing.Size(128, 19);
             this.checkBoxSort.TabIndex = 34;
@@ -371,9 +373,9 @@
             // 
             // buttonSortDescending
             // 
-            this.buttonSortDescending.Location = new System.Drawing.Point(1161, 76);
+            this.buttonSortDescending.Location = new System.Drawing.Point(1161, 126);
             this.buttonSortDescending.Name = "buttonSortDescending";
-            this.buttonSortDescending.Size = new System.Drawing.Size(130, 23);
+            this.buttonSortDescending.Size = new System.Drawing.Size(130, 25);
             this.buttonSortDescending.TabIndex = 35;
             this.buttonSortDescending.Text = "Dalend";
             this.buttonSortDescending.UseVisualStyleBackColor = true;
@@ -382,9 +384,9 @@
             // 
             // buttonSortAscending
             // 
-            this.buttonSortAscending.Location = new System.Drawing.Point(1304, 76);
+            this.buttonSortAscending.Location = new System.Drawing.Point(1304, 126);
             this.buttonSortAscending.Name = "buttonSortAscending";
-            this.buttonSortAscending.Size = new System.Drawing.Size(130, 23);
+            this.buttonSortAscending.Size = new System.Drawing.Size(130, 25);
             this.buttonSortAscending.TabIndex = 36;
             this.buttonSortAscending.Text = "Stijgend";
             this.buttonSortAscending.UseVisualStyleBackColor = true;
@@ -399,17 +401,36 @@
             this.buttonAddTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonAddTicket.Location = new System.Drawing.Point(1229, 797);
             this.buttonAddTicket.Name = "buttonAddTicket";
-            this.buttonAddTicket.Size = new System.Drawing.Size(167, 37);
+            this.buttonAddTicket.Size = new System.Drawing.Size(167, 39);
             this.buttonAddTicket.TabIndex = 37;
             this.buttonAddTicket.Text = "Ticket aanmaken";
             this.buttonAddTicket.UseVisualStyleBackColor = false;
             this.buttonAddTicket.Click += new System.EventHandler(this.buttonAddTicket_Click);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(771, 54);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(378, 23);
+            this.textBoxSearch.TabIndex = 38;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(1161, 52);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(130, 25);
+            this.buttonSearch.TabIndex = 39;
+            this.buttonSearch.Text = "Zoeken";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // IncidentManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonAddTicket);
             this.Controls.Add(this.buttonSortAscending);
             this.Controls.Add(this.buttonSortDescending);
@@ -471,5 +492,7 @@
         private Button buttonSortDescending;
         private Button buttonSortAscending;
         private Button buttonAddTicket;
+        private TextBox textBoxSearch;
+        private Button buttonSearch;
     }
 }
