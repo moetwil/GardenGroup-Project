@@ -62,12 +62,14 @@
             // 
             // flowLayoutPanelUsers
             // 
+            this.flowLayoutPanelUsers.AutoScroll = true;
             this.flowLayoutPanelUsers.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.flowLayoutPanelUsers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelUsers.Location = new System.Drawing.Point(66, 82);
             this.flowLayoutPanelUsers.Name = "flowLayoutPanelUsers";
             this.flowLayoutPanelUsers.Size = new System.Drawing.Size(666, 878);
             this.flowLayoutPanelUsers.TabIndex = 0;
+            this.flowLayoutPanelUsers.WrapContents = false;
             // 
             // panelUserInformation
             // 
