@@ -8,6 +8,6 @@ namespace GardenGroupModel.Enums
 {
     public enum TicketState
     {
-        Closed, Open, InProgress, Resolved, Cancelled
+        Closed, Open, InProgress, Cancelled //Resolved
     }
 }
