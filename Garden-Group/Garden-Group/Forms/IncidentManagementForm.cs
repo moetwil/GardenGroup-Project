@@ -270,5 +270,24 @@ namespace Garden_Group.Forms
             
             fillFlowPanel(sortedTickets);
         }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string search = textBoxSearch.Text;
+            
+            if (search.Equals(String.Empty))
+            {
+
+
+
+
+                fillFlowPanel(this.allTickets);
+                return;
+            }
+            
+            IncidentManagementSearchService incidentManagementSearchService = new IncidentManagementSearchService();
+            List<Ticket> searchTickets = incidentManagementSearchService.FindTicketsBySearchKeywords(search);
+            fillFlowPanel(searchTickets);
+        }
     }
 }
