@@ -11,24 +11,28 @@ namespace GardenGroupLogica.Individual
     public  class IncidentManagementSearchService
     {
 
+        // Get tickets with based on the entered search string
         public  List<Ticket> FindTicketsBySearchKeywords(string searchKeywords)
         {
             // split the filter string into words
             List<string> searchKeywordsList = SplitKeywords(searchKeywords);
             return SearchTickets(searchKeywordsList);
-
-
-
-            //return m_Collection.AsQueryable().Where(wherePredicate).ToList();
         }
         
         // create search filter
-        public  List<Ticket> SearchTickets(List<string> searchKeywordsList)
+        private  List<Ticket> SearchTickets(List<string> searchKeywordsList)
         {
             Func<Ticket, bool> filter =
                (data) => searchKeywordsList.Any(keyword => data.Title.ToLower().Contains(keyword) || data.Description.ToLower().Contains(keyword));
 
-            return new TicketDao().FindTicketsBySearchKeywords(filter);
+            // get all tickets with the filter
+
+            List<Ticket> tickets = new TicketDao().FindTicketsBySearchKeywords(filter);
+
+            // sorteer tickets van nieuw -> oud
+            tickets = tickets.OrderBy(ticket => ticket.TicketDate.OpeningDate).ToList();
+
+            return tickets;
         }
 
 
