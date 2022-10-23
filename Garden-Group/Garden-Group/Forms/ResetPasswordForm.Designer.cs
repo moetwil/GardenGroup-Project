@@ -33,13 +33,14 @@
             this.SendEmailTextBox = new System.Windows.Forms.TextBox();
             this.SendEmailButton = new System.Windows.Forms.Button();
             this.ReactionLabel = new System.Windows.Forms.Label();
+            this.buttonBackToLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(537, 172);
+            this.label1.Location = new System.Drawing.Point(805, 326);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(216, 37);
             this.label1.TabIndex = 0;
@@ -48,7 +49,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(543, 228);
+            this.label2.Location = new System.Drawing.Point(811, 382);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(205, 15);
             this.label2.TabIndex = 1;
@@ -56,14 +57,14 @@
             // 
             // SendEmailTextBox
             // 
-            this.SendEmailTextBox.Location = new System.Drawing.Point(532, 281);
+            this.SendEmailTextBox.Location = new System.Drawing.Point(800, 435);
             this.SendEmailTextBox.Name = "SendEmailTextBox";
             this.SendEmailTextBox.Size = new System.Drawing.Size(221, 23);
             this.SendEmailTextBox.TabIndex = 2;
             // 
             // SendEmailButton
             // 
-            this.SendEmailButton.Location = new System.Drawing.Point(570, 333);
+            this.SendEmailButton.Location = new System.Drawing.Point(838, 487);
             this.SendEmailButton.Name = "SendEmailButton";
             this.SendEmailButton.Size = new System.Drawing.Size(132, 41);
             this.SendEmailButton.TabIndex = 3;
@@ -75,16 +76,27 @@
             // 
             this.ReactionLabel.AutoSize = true;
             this.ReactionLabel.ForeColor = System.Drawing.Color.Black;
-            this.ReactionLabel.Location = new System.Drawing.Point(532, 307);
+            this.ReactionLabel.Location = new System.Drawing.Point(800, 461);
             this.ReactionLabel.Name = "ReactionLabel";
             this.ReactionLabel.Size = new System.Drawing.Size(0, 15);
             this.ReactionLabel.TabIndex = 4;
+            // 
+            // buttonBackToLogin
+            // 
+            this.buttonBackToLogin.Location = new System.Drawing.Point(34, 26);
+            this.buttonBackToLogin.Name = "buttonBackToLogin";
+            this.buttonBackToLogin.Size = new System.Drawing.Size(150, 39);
+            this.buttonBackToLogin.TabIndex = 5;
+            this.buttonBackToLogin.Text = "Back to login";
+            this.buttonBackToLogin.UseVisualStyleBackColor = true;
+            this.buttonBackToLogin.Click += new System.EventHandler(this.buttonBackToLogin_Click);
             // 
             // ResetPasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.buttonBackToLogin);
             this.Controls.Add(this.ReactionLabel);
             this.Controls.Add(this.SendEmailButton);
             this.Controls.Add(this.SendEmailTextBox);
@@ -106,5 +118,6 @@
         private TextBox SendEmailTextBox;
         private Button SendEmailButton;
         private Label ReactionLabel;
+        private Button buttonBackToLogin;
     }
 }
