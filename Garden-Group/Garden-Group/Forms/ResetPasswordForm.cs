@@ -49,7 +49,7 @@ namespace Garden_Group.Forms
                 Body = $"" +
                 $"" +
                 $"<h1>Er is een nieuw wachtwoord voor je aangemaakt.</h1>" +
-                $"<p>Password: ${password}</p> als dit berictje in je mail zit is de wachtwoord nu veranderd",
+                $"<p>Password: ${password}</p> Dit is uw nieuwe wachtwoord.",
                 IsBodyHtml = true,
             };
 
@@ -71,7 +71,7 @@ namespace Garden_Group.Forms
             if (userService.CheckIfEmailExists(email))
             {
                 SendPassword(newPassword);
-                ReactionLabel.Text = "Er is een nieuw wachtwoord naar je email gestuurd";
+                ReactionLabel.Text = "Er is een nieuw wachtwoord naar uw email gestuurd";
                 ReactionLabel.ForeColor = Color.Green;
             }
             else
@@ -79,6 +79,14 @@ namespace Garden_Group.Forms
                 ReactionLabel.Text = "This email does not exist.";
                 ReactionLabel.ForeColor = Color.Red;
             }
+        }
+
+        private void buttonBackToLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -54,14 +54,23 @@ namespace Garden_Group.Forms
         private void fillFlowPanel(List<Ticket> tickets)
         {
             flowLayoutPanelIncidents.Controls.Clear();
+            //List<IncidentsUC> incidents = new List<IncidentsUC>();
             
             foreach (Ticket ticket in tickets)
             {
                 IncidentsUC incidentUC = new IncidentsUC(ticket, this);
                 incidentUC.Clicked += IncidentUC_Clicked;
                 incidentUC.Size = new Size(flowLayoutPanelIncidents.Width - SystemInformation.HorizontalScrollBarArrowWidth, 70);
+                
+                //incidents.Add(incidentUC);
+                //if (incidents.Count == 10)
+                //{
+                //    flowLayoutPanelIncidents.Controls.AddRange(incidents.ToArray());
+                //    incidents = new List<IncidentsUC>();
+                //}
                 flowLayoutPanelIncidents.Controls.Add(incidentUC);
             }
+            //flowLayoutPanelIncidents.Controls.AddRange(incidents.ToArray());
         }
 
         private void IncidentUC_Clicked(object sender, EventArgs e)
@@ -89,7 +98,7 @@ namespace Garden_Group.Forms
         {
             if (selectedTicket.TicketState != TicketState.Open)
             {
-                labelFeedBack.Text = "Ticket heeft al een werknemer u kunt mogelijk gebruik maken van de transfer knop";
+                labelFeedBack.Text = "Ticket heeft al een werknemer. U kunt mogelijk gebruik maken van de transfer knop";
                 return;
             }
 
@@ -116,7 +125,7 @@ namespace Garden_Group.Forms
             
             if (selectedTicket.TicketState == TicketState.Open)
             {
-                feedback = "Ticket is niet in behandeling dus is deze gecancelled";
+                feedback = "Ticket is niet in behandeling, handeling is gecancelled";
                 ticketState = TicketState.Cancelled;
             }
             else
