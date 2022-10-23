@@ -111,7 +111,7 @@ namespace Garden_Group.Forms
                 this.textBoxCity.Text == "" ||
                 this.textBoxPostalCode.Text == "" ||
                 this.textBoxCountry.Text == "")
-                throw new Exception("Please fill in all the fields");
+                throw new Exception("Vul alle velden in");
 
             return false;
         }
@@ -120,9 +120,9 @@ namespace Garden_Group.Forms
         private bool CheckValidFields()
         {
             if (!ValidateEmail(this.textBoxEmail.Text))
-                throw new Exception("Email is not valid");
+                throw new Exception("Email is niet geschikt");
             else if (CheckIfEmailExists(this.textBoxEmail.Text))
-                throw new Exception("Email already exists");
+                throw new Exception("Email wordt al gebruikt");
 
             return false;
         }
