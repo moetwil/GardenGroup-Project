@@ -42,6 +42,10 @@ namespace GardenGroupLogica
             mailMessage.To.Add(recipient);
 
             smtpClient.Send(mailMessage);
+
+
+
+
         }
 
         public void SendTicketToEmail(string recipient, Ticket ticket)
