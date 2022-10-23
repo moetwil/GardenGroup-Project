@@ -16,70 +16,58 @@ namespace Garden_Group.UserControls
     public partial class TicketUC : UserControl
     {
         private Ticket ticket;
-        private TicketOverviewForm parent;
         public TicketUC(Ticket ticket, TicketOverviewForm parent)
         {
-            this.parent = parent;
             this.ticket = ticket;
-            this.MinimumSize = new Size(450 - SystemInformation.VerticalScrollBarWidth, 70);
-            InitializeComponent();
             this.Tag = ticket;
-            this.AutoSize = true;
-            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panelTicketState.Visible = true;
+            InitializeComponent();
             FillUC();
-            this.Load += Items_Load;
+            //this.Load += Items_Load;
         }
-        private void Items_Load(object sender, EventArgs e)
-        {
-            this.MouseClick += Control_MouseClick;
-            foreach (Control control in Controls)
-            {
-                control.MouseClick += Control_MouseClick;
-            }
-        }
-        private void Control_MouseClick(object sender, MouseEventArgs e)
-        {
-            var wasClicked = WasClicked;
-            if (wasClicked != null)
-            {
-                WasClicked(this, EventArgs.Empty);
-            }
-        } 
-        public event EventHandler<EventArgs> WasClicked;
+        //public TicketUC(Ticket ticket, TicketOverviewForm parent)
+        //{
+        //    this.parent = parent;
+        //    this.ticket = ticket;
+        //    InitializeComponent();
+        //    this.Tag = ticket;
+        //    this.AutoSize = true;
+        //    this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        //    panelTicketState.Visible = true;
+        //    FillUC();
+        //    this.Load += Items_Load;
+        //}
+        //private void Items_Load(object sender, EventArgs e)
+        //{
+        //    this.MouseClick += Control_MouseClick;
+        //    foreach (Control control in Controls)
+        //    {
+        //        control.MouseClick += Control_MouseClick;
+        //    }
+        //}
+        //private void Control_MouseClick(object sender, MouseEventArgs e)
+        //{
+        //    var wasClicked = WasClicked;
+        //    if (wasClicked != null)
+        //    {
+        //        WasClicked(this, EventArgs.Empty);
+        //    }
+        //}
+        //public event EventHandler<EventArgs> WasClicked;
+
         public void FillUC()
         {
             labelTitle.Text = ticket.Title;
-            labelDescription.Text = ticket.Description;
-            labelTicketDateStart.Text = ticket.TicketDate.OpeningDate.Date.ToShortDateString();
-            labelTicketDateEnd.Text = ticket.TicketDate.ClosingDate.ToShortDateString();
-
-            /*if (ticket.TicketState.Name is not null)
-                labelTicketState.Text += ticket.TicketState.Name;
-            else
-                labelTicketState.Text += "No ticket state";
-
-            switch(ticket.TicketPriority.PriorityLevel)
-            {
-                case "Low":
-                    panelTicketState.BackColor = Color.Green;
-                    break;
-                case "Normal":
-                    panelTicketState.BackColor = Color.Orange;
-                    break;
-                case "High":
-                    panelTicketState.BackColor = Color.Red;
-                    break;
-                default:
-                    panelTicketState.BackColor = Color.SlateGray;
-                    break;
-            }*/
-
+            labelTicketDateStart.Text = ticket.TicketDate.OpeningDate.ToShortDateString();
+            labelPriorityLevel.Text = "Prioriteit " + ticket.TicketPriority.ToString();
+            labelTicketState.Text = "Status " + ticket.TicketState.ToString();
         }
-        //parent.ticketConrtol_Click(sender, e); 
+
         public void TicketUC_Click(object sender, EventArgs e)
         {
-            
+            TicketOverviewForm form = (TicketOverviewForm)ParentForm;
+            form.TicketUc_Click(this, e); 
         }
+        //parent.ticketConrtol_Click(sender, e); 
+
     }
 }
