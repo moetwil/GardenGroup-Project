@@ -33,6 +33,7 @@
             this.SendEmailTextBox = new System.Windows.Forms.TextBox();
             this.SendEmailButton = new System.Windows.Forms.Button();
             this.ReactionLabel = new System.Windows.Forms.Label();
+            this.buttonBackToLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -84,12 +85,23 @@
             this.ReactionLabel.Size = new System.Drawing.Size(0, 25);
             this.ReactionLabel.TabIndex = 4;
             // 
+            // buttonBackToLogin
+            // 
+            this.buttonBackToLogin.Location = new System.Drawing.Point(34, 26);
+            this.buttonBackToLogin.Name = "buttonBackToLogin";
+            this.buttonBackToLogin.Size = new System.Drawing.Size(150, 39);
+            this.buttonBackToLogin.TabIndex = 5;
+            this.buttonBackToLogin.Text = "Back to login";
+            this.buttonBackToLogin.UseVisualStyleBackColor = true;
+            this.buttonBackToLogin.Click += new System.EventHandler(this.buttonBackToLogin_Click);
+            // 
             // ResetPasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.buttonBackToLogin);
             this.Controls.Add(this.ReactionLabel);
             this.Controls.Add(this.SendEmailButton);
             this.Controls.Add(this.SendEmailTextBox);
@@ -111,5 +123,6 @@
         private TextBox SendEmailTextBox;
         private Button SendEmailButton;
         private Label ReactionLabel;
+        private Button buttonBackToLogin;
     }
 }
