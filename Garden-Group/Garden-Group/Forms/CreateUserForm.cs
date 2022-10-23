@@ -62,7 +62,7 @@ namespace Garden_Group.Forms
 
                 // Send password to user's email
                 EmailService emailService = new EmailService();
-                emailService.SendPassword("mail", password);
+                emailService.SendPassword(NewUser.ContactInfo.Email, password);
 
                 this.labelMessage.Text = "Gebruiker is aangemaakt!";
             }
