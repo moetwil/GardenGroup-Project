@@ -121,13 +121,14 @@
             // 
             // buttonEditUser
             // 
+            this.buttonEditUser.BackColor = System.Drawing.Color.White;
             this.buttonEditUser.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonEditUser.Location = new System.Drawing.Point(48, 777);
+            this.buttonEditUser.Location = new System.Drawing.Point(49, 754);
             this.buttonEditUser.Name = "buttonEditUser";
             this.buttonEditUser.Size = new System.Drawing.Size(160, 72);
             this.buttonEditUser.TabIndex = 13;
             this.buttonEditUser.Text = "Medewerker bewerken";
-            this.buttonEditUser.UseVisualStyleBackColor = true;
+            this.buttonEditUser.UseVisualStyleBackColor = false;
             this.buttonEditUser.Click += new System.EventHandler(this.buttonEditUser_Click);
             // 
             // comboBoxLocation
@@ -160,7 +161,7 @@
             // textBoxCountry
             // 
             this.textBoxCountry.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxCountry.Location = new System.Drawing.Point(303, 709);
+            this.textBoxCountry.Location = new System.Drawing.Point(303, 682);
             this.textBoxCountry.Name = "textBoxCountry";
             this.textBoxCountry.Size = new System.Drawing.Size(321, 33);
             this.textBoxCountry.TabIndex = 12;
@@ -168,7 +169,7 @@
             // textBoxPostalCode
             // 
             this.textBoxPostalCode.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxPostalCode.Location = new System.Drawing.Point(303, 643);
+            this.textBoxPostalCode.Location = new System.Drawing.Point(303, 623);
             this.textBoxPostalCode.Name = "textBoxPostalCode";
             this.textBoxPostalCode.Size = new System.Drawing.Size(321, 33);
             this.textBoxPostalCode.TabIndex = 11;
@@ -176,7 +177,7 @@
             // textBoxCity
             // 
             this.textBoxCity.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxCity.Location = new System.Drawing.Point(303, 586);
+            this.textBoxCity.Location = new System.Drawing.Point(303, 566);
             this.textBoxCity.Name = "textBoxCity";
             this.textBoxCity.Size = new System.Drawing.Size(321, 33);
             this.textBoxCity.TabIndex = 10;
@@ -184,7 +185,7 @@
             // textBoxHouseNumber
             // 
             this.textBoxHouseNumber.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxHouseNumber.Location = new System.Drawing.Point(303, 524);
+            this.textBoxHouseNumber.Location = new System.Drawing.Point(303, 515);
             this.textBoxHouseNumber.Name = "textBoxHouseNumber";
             this.textBoxHouseNumber.Size = new System.Drawing.Size(320, 33);
             this.textBoxHouseNumber.TabIndex = 9;
@@ -243,7 +244,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(49, 709);
+            this.label12.Location = new System.Drawing.Point(49, 682);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(62, 25);
             this.label12.TabIndex = 0;
@@ -253,7 +254,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(48, 646);
+            this.label11.Location = new System.Drawing.Point(48, 626);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(97, 25);
             this.label11.TabIndex = 0;
@@ -263,7 +264,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(48, 586);
+            this.label10.Location = new System.Drawing.Point(48, 566);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 25);
             this.label10.TabIndex = 0;
@@ -273,7 +274,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(48, 527);
+            this.label9.Location = new System.Drawing.Point(48, 518);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(124, 25);
             this.label9.TabIndex = 0;
@@ -362,36 +363,40 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(76, 64);
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(76, 58);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(36, 15);
+            this.label14.Size = new System.Drawing.Size(48, 21);
             this.label14.TabIndex = 2;
             this.label14.Text = "Email";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(197, 64);
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label15.Location = new System.Drawing.Point(276, 58);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(61, 15);
+            this.label15.Size = new System.Drawing.Size(82, 21);
             this.label15.TabIndex = 3;
             this.label15.Text = "Voornaam";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(382, 64);
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label16.Location = new System.Drawing.Point(382, 58);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(72, 15);
+            this.label16.Size = new System.Drawing.Size(94, 21);
             this.label16.TabIndex = 4;
             this.label16.Text = "Achternaam";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(593, 64);
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(593, 58);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(78, 15);
+            this.label17.Size = new System.Drawing.Size(102, 21);
             this.label17.TabIndex = 5;
             this.label17.Text = "Aantal tickets";
             // 
@@ -399,6 +404,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);

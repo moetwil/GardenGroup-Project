@@ -87,7 +87,7 @@
             this.groupBoxUnresolvedIncedents.Controls.Add(this.circularPBUnresolvedIncidents);
             this.groupBoxUnresolvedIncedents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxUnresolvedIncedents.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxUnresolvedIncedents.Location = new System.Drawing.Point(216, 366);
+            this.groupBoxUnresolvedIncedents.Location = new System.Drawing.Point(464, 355);
             this.groupBoxUnresolvedIncedents.Name = "groupBoxUnresolvedIncedents";
             this.groupBoxUnresolvedIncedents.Size = new System.Drawing.Size(440, 322);
             this.groupBoxUnresolvedIncedents.TabIndex = 4;
@@ -109,7 +109,7 @@
             this.groupBoxIncidentsPastDeadline.Controls.Add(this.circularProgressBarPastDeadline);
             this.groupBoxIncidentsPastDeadline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxIncidentsPastDeadline.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxIncidentsPastDeadline.Location = new System.Drawing.Point(764, 366);
+            this.groupBoxIncidentsPastDeadline.Location = new System.Drawing.Point(1012, 355);
             this.groupBoxIncidentsPastDeadline.Name = "groupBoxIncidentsPastDeadline";
             this.groupBoxIncidentsPastDeadline.Size = new System.Drawing.Size(440, 322);
             this.groupBoxIncidentsPastDeadline.TabIndex = 5;
@@ -161,6 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.groupBoxIncidentsPastDeadline);
             this.Controls.Add(this.groupBoxUnresolvedIncedents);
