@@ -57,17 +57,23 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panelUserInformation.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanelUsers
             // 
+            this.flowLayoutPanelUsers.AutoScroll = true;
             this.flowLayoutPanelUsers.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.flowLayoutPanelUsers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelUsers.Location = new System.Drawing.Point(66, 82);
             this.flowLayoutPanelUsers.Name = "flowLayoutPanelUsers";
             this.flowLayoutPanelUsers.Size = new System.Drawing.Size(666, 878);
             this.flowLayoutPanelUsers.TabIndex = 0;
+            this.flowLayoutPanelUsers.WrapContents = false;
             // 
             // panelUserInformation
             // 
@@ -353,11 +359,51 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Voornaam: ";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(76, 64);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(36, 15);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Email";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(197, 64);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 15);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Voornaam";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(382, 64);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(72, 15);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Achternaam";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(593, 64);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(78, 15);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Aantal tickets";
+            // 
             // UserManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.panelUserInformation);
             this.Controls.Add(this.flowLayoutPanelUsers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -368,6 +414,7 @@
             this.panelUserInformation.ResumeLayout(false);
             this.panelUserInformation.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -402,5 +449,9 @@
         private Label label1;
         private Button buttonEditUser;
         private Label labelErrorHandling;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private Label label17;
     }
 }
