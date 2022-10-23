@@ -65,8 +65,6 @@ namespace Garden_Group.Forms
                 emailService.SendPassword("mail", password);
 
                 this.labelMessage.Text = "Gebruiker is aangemaakt!";
-
-                this.labelMessage.Hide();
             }
             catch (Exception ex)
             {
