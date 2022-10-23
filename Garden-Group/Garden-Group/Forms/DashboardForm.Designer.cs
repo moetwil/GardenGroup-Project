@@ -80,6 +80,7 @@
             this.circularPBUnresolvedIncidents.Text = "1/15";
             this.circularPBUnresolvedIncidents.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.circularPBUnresolvedIncidents.Value = 68;
+            this.circularPBUnresolvedIncidents.Click += new System.EventHandler(this.circularPBUnresolvedIncidents_Click);
             // 
             // groupBoxUnresolvedIncedents
             // 
@@ -156,6 +157,7 @@
             this.circularProgressBarPastDeadline.Text = "1";
             this.circularProgressBarPastDeadline.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.circularProgressBarPastDeadline.Value = 68;
+            this.circularProgressBarPastDeadline.Click += new System.EventHandler(this.circularProgressBarPastDeadline_Click);
             // 
             // DashboardForm
             // 

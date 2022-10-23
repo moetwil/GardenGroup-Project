@@ -80,5 +80,13 @@ namespace Garden_Group.Forms
                 ReactionLabel.ForeColor = Color.Red;
             }
         }
+
+        private void buttonBackToLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+            this.Close();
+        }
     }
 }
