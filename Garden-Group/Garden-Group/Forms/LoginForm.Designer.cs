@@ -100,7 +100,7 @@
             this.ErrorMessage.AutoSize = true;
             this.ErrorMessage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ErrorMessage.ForeColor = System.Drawing.Color.Red;
-            this.ErrorMessage.Location = new System.Drawing.Point(650, 488);
+            this.ErrorMessage.Location = new System.Drawing.Point(650, 576);
             this.ErrorMessage.Name = "ErrorMessage";
             this.ErrorMessage.Size = new System.Drawing.Size(0, 25);
             this.ErrorMessage.TabIndex = 6;
