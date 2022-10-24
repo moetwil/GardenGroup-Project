@@ -65,6 +65,8 @@ namespace Garden_Group.Forms
                 emailService.SendPassword(NewUser.ContactInfo.Email, password);
 
                 this.labelMessage.Text = "Gebruiker is aangemaakt!";
+                this.labelMessage.ForeColor = Color.Green;
+                this.labelMessage.Show();
             }
             catch (Exception ex)
             {
