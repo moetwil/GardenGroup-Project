@@ -36,7 +36,7 @@ namespace GardenGroupLogica
                 Body = $"" +
                 $"" +
                 $"<h1>Er is een account voor je aangemaakt.</h1>" +
-                $"<p>Password: ${password}</p> Dit is uw nieuwe wachtwoord.",
+                $"<p>Password: {password}</p> Dit is uw nieuwe wachtwoord.",
                 IsBodyHtml = true,
             };
             mailMessage.To.Add(recipient);

@@ -56,44 +56,18 @@ namespace GardenGroupLogica
 
         public int GetOpenTicketsAmount(List<Ticket> tickets)
         {
-            // Deze methode mss met aggregate?
-            int amount = 0;
-            foreach (Ticket ticket in tickets)
-            {
-
-                if (ticket.TicketState == TicketState.Open ||
-                    ticket.TicketState == TicketState.InProgress)
-                    amount++;
-            }
-            // Mischien beter maar aggregate is nog beter
-            int amount2 = tickets.Where(ticket => ticket.TicketState == TicketState.Open || ticket.TicketState == TicketState.InProgress).Count();
+            int amount = tickets.Where(ticket => ticket.TicketState == TicketState.Open || ticket.TicketState == TicketState.InProgress).Count();
             return amount;
         }
 
         public int GetTicketsPastDeadlineAmount(List<Ticket> tickets)
         {
-            int amount = 0;
-            foreach (Ticket ticket in tickets)
-            {
-
-                if (ticket.TicketDate.Deadline < DateTime.Now &&
-                    (ticket.TicketState == TicketState.Open ||
-                    ticket.TicketState == TicketState.InProgress))
-                    amount++;
-            }
-            // Mischien beter maar aggregate is nog beter
-            int amount2 = tickets.Where(ticket => ticket.TicketDate.Deadline < DateTime.Now && (ticket.TicketState == TicketState.Open || ticket.TicketState == TicketState.InProgress)).Count();
+            int amount = tickets.Where(ticket => ticket.TicketDate.Deadline < DateTime.Now && (ticket.TicketState == TicketState.Open || ticket.TicketState == TicketState.InProgress)).Count();
             return amount;
         }
 
 
-
-
-        // Luc individual
-        /*public List<Ticket> FindTicketsBySearchKeywords()
-        {
-            return this.ticketDao.FindTicketsBySearchKeywords(searchKeywords);
-        }*/
+        
 
     }
 }
