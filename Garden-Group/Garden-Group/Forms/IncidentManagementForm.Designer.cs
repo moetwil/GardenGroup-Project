@@ -212,6 +212,7 @@
             // 
             this.buttonDelete.AutoSize = true;
             this.buttonDelete.BackColor = System.Drawing.Color.LightCoral;
+            this.buttonDelete.Enabled = false;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonDelete.Location = new System.Drawing.Point(1009, 836);
@@ -226,6 +227,7 @@
             // 
             this.buttonCloseTicket.AutoSize = true;
             this.buttonCloseTicket.BackColor = System.Drawing.Color.LightGray;
+            this.buttonCloseTicket.Enabled = false;
             this.buttonCloseTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCloseTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCloseTicket.Location = new System.Drawing.Point(1146, 836);
@@ -333,6 +335,7 @@
             // 
             this.buttonEditTicket.AutoSize = true;
             this.buttonEditTicket.BackColor = System.Drawing.Color.LightGray;
+            this.buttonEditTicket.Enabled = false;
             this.buttonEditTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonEditTicket.Location = new System.Drawing.Point(231, 491);

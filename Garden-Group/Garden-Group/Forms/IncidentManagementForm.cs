@@ -87,7 +87,7 @@ namespace Garden_Group.Forms
                 dateTimePickerDeadline.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.Deadline.Date;
                 labelCreatorName.Text = new UserService().GetUserById(((Ticket)selectedIncidentUC.Tag).CreatorId).ToString();
 
-                buttonBecomeSolver.Enabled = true;
+                changeButtonStateEnable(true);
             }
             catch(Exception ex)
             {
@@ -99,13 +99,44 @@ namespace Garden_Group.Forms
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Weet u zeker dat u dit incident wilt verwijderen?", "Bevestiging", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Weet u zeker dat u dit incident wilt verwijderen?", "Bevestiging", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             
-            if (DialogResult == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 ticketService.DeleteTicket((Ticket)selectedIncidentUC.Tag);
                 flowLayoutPanelIncidents.Controls.Remove(selectedIncidentUC);
+                changeButtonStateEnable(false);
+                clearTextBoxes();
             }
+        }
+        
+        //method to clear the textboxes
+        private void clearTextBoxes()
+        {
+            textBoxTitle.Text = "";
+            richTextBoxDescription.Text = "";
+            labelTicketState.Text = "";
+            comboBoxPriority.SelectedItem = null;
+            comboBoxType.SelectedItem = null;
+            dateTimePickerDeadline.Value = DateTime.Now;
+            labelCreatorName.Text = "";
+        }
+        
+        private void changeButtonStateEnable(bool enable)
+        {
+            if (enable)
+            {
+                buttonDelete.Enabled = true;
+                buttonBecomeSolver.Enabled = true;
+                buttonCloseTicket.Enabled = true;
+                buttonEditTicket.Enabled = true;
+                return;
+            }
+            
+            buttonDelete.Enabled = false;
+            buttonBecomeSolver.Enabled = false;
+            buttonCloseTicket.Enabled = false;
+            buttonEditTicket.Enabled = false;
         }
 
         private void buttonBecomeSolver_Click(object sender, EventArgs e)
