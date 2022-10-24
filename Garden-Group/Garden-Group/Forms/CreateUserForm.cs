@@ -71,6 +71,8 @@ namespace Garden_Group.Forms
             catch (Exception ex)
             {
                 this.ShowMessageLabel(ex.Message);
+                ErrorLogService errorLogService = new ErrorLogService();
+                errorLogService.CatchExeptionToLog(ex);
             }
         }
 
