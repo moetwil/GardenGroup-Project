@@ -34,6 +34,9 @@
             this.SendEmailButton = new System.Windows.Forms.Button();
             this.ReactionLabel = new System.Windows.Forms.Label();
             this.buttonBackToLogin = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -87,6 +90,7 @@
             // 
             // buttonBackToLogin
             // 
+            this.buttonBackToLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonBackToLogin.Location = new System.Drawing.Point(34, 26);
             this.buttonBackToLogin.Name = "buttonBackToLogin";
             this.buttonBackToLogin.Size = new System.Drawing.Size(150, 39);
@@ -95,12 +99,36 @@
             this.buttonBackToLogin.UseVisualStyleBackColor = true;
             this.buttonBackToLogin.Click += new System.EventHandler(this.buttonBackToLogin_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(147, 188);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(147, 309);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 100);
+            this.panel2.TabIndex = 7;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(147, 432);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 100);
+            this.panel3.TabIndex = 8;
+            // 
             // ResetPasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonBackToLogin);
             this.Controls.Add(this.ReactionLabel);
             this.Controls.Add(this.SendEmailButton);
@@ -124,5 +152,8 @@
         private Button SendEmailButton;
         private Label ReactionLabel;
         private Button buttonBackToLogin;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
     }
 }

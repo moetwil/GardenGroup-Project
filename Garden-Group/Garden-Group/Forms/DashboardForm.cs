@@ -118,7 +118,5 @@ namespace Garden_Group.Forms
             incidentManagementForm.ShowDialog();
             this.Close();
         }
-
-        
     }
 }
