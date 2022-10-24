@@ -77,8 +77,6 @@ namespace Garden_Group.Forms
         {
             try
             {
-                buttonBecomeSolver.Enabled = true;
-
                 selectedIncidentUC = (IncidentsUC)sender;
                 this.selectedTicket = (Ticket)selectedIncidentUC.Tag;
                 textBoxTitle.Text = ((Ticket)selectedIncidentUC.Tag).Title;
@@ -88,6 +86,8 @@ namespace Garden_Group.Forms
                 comboBoxType.SelectedItem = ((Ticket)selectedIncidentUC.Tag).TypeOfIncident;
                 dateTimePickerDeadline.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.Deadline.Date;
                 labelCreatorName.Text = new UserService().GetUserById(((Ticket)selectedIncidentUC.Tag).CreatorId).ToString();
+
+                buttonBecomeSolver.Enabled = true;
             }
             catch(Exception ex)
             {
