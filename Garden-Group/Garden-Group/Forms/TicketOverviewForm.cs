@@ -37,6 +37,8 @@ namespace Garden_Group.Forms
         
         private void fillOverview()
         {
+            flowTicketOverview.Controls.Clear();
+            
             foreach (Ticket ticket in this.user.Tickets)
             {
                 TicketUC ticketConrtol = new TicketUC(ticket, this);
@@ -68,13 +70,15 @@ namespace Garden_Group.Forms
         private void buttonHighPriority_Click(object sender, EventArgs e)
         {
             TicketSortService ticketSortService = new TicketSortService();
-            SortDefinition<Ticket> sort = Builders<Ticket>.Sort.Descending("TicketPriority");
-            List<Ticket> sortedTickets = ticketSortService.SortTicketsByPriority(this.user, sort);
+            this.user.Tickets = ticketSortService.SortTicketsByPriority(this.user, true);
+            fillOverview();
         }
 
         private void buttonLowPriority_Click(object sender, EventArgs e)
         {
-            var sort = Builders<BsonDocument>.Sort.Ascending("TicketPriorityId");
+            TicketSortService ticketSortService = new TicketSortService();
+            this.user.Tickets = ticketSortService.SortTicketsByPriority(this.user, false);
+            fillOverview();
         }
 
 

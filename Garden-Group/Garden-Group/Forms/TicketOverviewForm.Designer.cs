@@ -115,15 +115,15 @@
             this.buttonLowPriority.TabIndex = 4;
             this.buttonLowPriority.Text = "Prioriteit laag";
             this.buttonLowPriority.UseVisualStyleBackColor = false;
+            this.buttonLowPriority.Click += new System.EventHandler(this.buttonLowPriority_Click);
             // 
             // labelInfoTitle
             // 
-            this.labelInfoTitle.AutoSize = true;
-            this.labelInfoTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelInfoTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelInfoTitle.Location = new System.Drawing.Point(15, 21);
             this.labelInfoTitle.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.labelInfoTitle.Name = "labelInfoTitle";
-            this.labelInfoTitle.Size = new System.Drawing.Size(64, 32);
+            this.labelInfoTitle.Size = new System.Drawing.Size(278, 60);
             this.labelInfoTitle.TabIndex = 5;
             this.labelInfoTitle.Text = "Titel";
             // 
@@ -288,7 +288,7 @@
             // 
             this.labelDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDescription.Location = new System.Drawing.Point(15, 85);
+            this.labelDescription.Location = new System.Drawing.Point(15, 117);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(294, 208);
