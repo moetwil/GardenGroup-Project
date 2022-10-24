@@ -286,10 +286,6 @@ namespace Garden_Group.Forms
             
             if (search.Equals(String.Empty))
             {
-
-
-
-
                 fillFlowPanel(this.allTickets);
                 return;
             }

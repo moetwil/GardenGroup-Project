@@ -77,22 +77,33 @@ namespace Garden_Group.Forms
 
         private void CheckTextBoxes()
         {
-            if (EmailBox.Text == String.Empty && PasswordBox.Text != String.Empty)
+            try
             {
-                ErrorMessage.Text = ("Please enter your email");
+                if (EmailBox.Text == String.Empty && PasswordBox.Text != String.Empty)
+                {
+                     throw new Exception("Please enter your email");
+                }
+                else if (EmailBox.Text != String.Empty && PasswordBox.Text == String.Empty)
+                {
+                    throw new Exception("Please enter your password");
+                }
+                else if (EmailBox.Text == String.Empty && PasswordBox.Text == String.Empty)
+                {
+                    throw new Exception("Please enter your email address and password");
+                }
+                else
+                {
+                    throw new Exception("Email address or password is incorrect");
+                }
             }
-            else if (EmailBox.Text != String.Empty && PasswordBox.Text == String.Empty)
+            catch (Exception ex)
             {
-                ErrorMessage.Text = ("Please enter your password");
+                ErrorMessage.Text = ex.Message;
+                ErrorLogService errorLogService = new ErrorLogService();
+                errorLogService.CatchExeptionToLog(ex);
             }
-            else if (EmailBox.Text == String.Empty && PasswordBox.Text == String.Empty)
-            {
-                ErrorMessage.Text = ("Please enter your email address and password");
-            }
-            else
-            {
-                ErrorMessage.Text = ("Email address or password is incorrect");
-            }
+            
+            
         }
 
         private void dashboardButton_Click(object sender, EventArgs e)
