@@ -98,6 +98,25 @@ namespace Garden_Group.Forms
 
         }
 
+        private void circularPBUnresolvedIncidents_Click(object sender, EventArgs e)
+        {
+            if (this.user.JobInfo.Role == Role.Employee) return;
+            OpenIncidentForm();
+        }
 
+        private void circularProgressBarPastDeadline_Click(object sender, EventArgs e)
+        {
+            if (this.user.JobInfo.Role == Role.Employee) return;
+            OpenIncidentForm();
+        }
+
+
+        private void OpenIncidentForm()
+        {
+            this.Hide();
+            IncidentManagementForm incidentManagementForm = new IncidentManagementForm(this.user);
+            incidentManagementForm.ShowDialog();
+            this.Close();
+        }
     }
 }

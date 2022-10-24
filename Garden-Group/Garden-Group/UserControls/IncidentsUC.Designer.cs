@@ -88,7 +88,7 @@
             // 
             this.labelTextState.AutoSize = true;
             this.labelTextState.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTextState.Location = new System.Drawing.Point(323, 6);
+            this.labelTextState.Location = new System.Drawing.Point(233, 6);
             this.labelTextState.Name = "labelTextState";
             this.labelTextState.Size = new System.Drawing.Size(52, 20);
             this.labelTextState.TabIndex = 4;
@@ -128,8 +128,7 @@
             // 
             this.labelTicketState.AutoSize = true;
             this.labelTicketState.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTicketState.Location = new System.Drawing.Point(444, 6);
-            this.labelTicketState.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
+            this.labelTicketState.Location = new System.Drawing.Point(326, 5);
             this.labelTicketState.Name = "labelTicketState";
             this.labelTicketState.Size = new System.Drawing.Size(15, 20);
             this.labelTicketState.TabIndex = 8;

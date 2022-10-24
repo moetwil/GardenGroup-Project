@@ -15,6 +15,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Drawing.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Garden_Group.Forms
 {
@@ -23,7 +24,11 @@ namespace Garden_Group.Forms
         private UserService userService;
         private PasswordService passwordService;
         private User user;
-        private const int size = 50;
+        private EmailService emailService;
+        private const int Size = 50;
+        private const int CodeLength = 6;
+        private string code;
+        private string email = "";
         public ResetPasswordForm()
         {
             InitializeComponent();
@@ -31,48 +36,38 @@ namespace Garden_Group.Forms
             this.userService = new UserService();
             this.passwordService = new PasswordService();
             this.user = new User();
+            this.emailService = new EmailService();
+
+            this.code = RandomCode();
+
+            SendCodePanel.Visible = true;
+            ChangePasswordPanel.Visible = false;
+            InsertCodePanel.Visible = false;
         }
-
-        SmtpClient smtpClient = new SmtpClient("smtp.mailtrap.io")
+        
+        private string RandomCode()
         {
-            Port = 2525,
-            Credentials = new NetworkCredential("ab72e98e4fead6", "09b21e1738af1c"),
-            EnableSsl = true,
-        };
-
-        public void SendPassword(string password)
-        {
-            MailMessage mailMessage = new MailMessage
+            for (int i = 0; i < CodeLength; i++)
             {
-                From = new MailAddress("test@gmail.com"),
-                Subject = "Your new GardenGroup password.",
-                Body = $"" +
-                $"" +
-                $"<h1>Er is een nieuw wachtwoord voor je aangemaakt.</h1>" +
-                $"<p>Password: ${password}</p> als dit berictje in je mail zit is de wachtwoord nu veranderd",
-                IsBodyHtml = true,
-            };
-
-            mailMessage.To.Add("luc.moetwil@gmail.com");
-
-            smtpClient.Send(mailMessage);
-
+                Random random = new Random();
+                this.code += random.Next(0, 10).ToString();
+            }
+            return code;
         }
 
         private void SendEmailButton_Click(object sender, EventArgs e)
         {
-            string email = SendEmailTextBox.Text;
-            string newPassword = passwordService.generateRandomPassword();
-
-            user.Password = passwordService.GenerateSaltedHash(size, newPassword);
-
-            userService.UpdatePassword(email, user);
+            email = SendEmailTextBox.Text;
             
             if (userService.CheckIfEmailExists(email))
             {
-                SendPassword(newPassword);
-                ReactionLabel.Text = "Er is een nieuw wachtwoord naar je email gestuurd";
+                emailService.SendCode(SendEmailTextBox.Text, code);
+                ReactionLabel.Text = "De code is naar uw email gestuurd";
                 ReactionLabel.ForeColor = Color.Green;
+
+
+                SendCodePanel.Visible = false;
+                InsertCodePanel.Visible = true;
             }
             else
             {
@@ -80,5 +75,62 @@ namespace Garden_Group.Forms
                 ReactionLabel.ForeColor = Color.Red;
             }
         }
+
+        private void CheckCodeButton_Click(object sender, EventArgs e)
+        {
+            if (CodeCheckBox.Text == code)
+            {
+                InsertCodePanel.Visible = false;
+                ChangePasswordPanel.Visible = true;
+            }
+            else if (CodeCheckBox.Text == null)
+            {
+                ReactionLabel.Text = "U heeft geen code ingevuld.";
+                ReactionLabel.ForeColor = Color.Red;
+            }
+            else
+            {
+                ReactionLabel.Text = "De code is onjuist.";
+                ReactionLabel.ForeColor = Color.Red;
+            }
+        }
+
+        private void ChangePasswordButton_Click(object sender, EventArgs e)
+        {
+            if (FirstPasswordBox.Text == SecondPasswordBox.Text)
+            {
+                user.Password = passwordService.GenerateSaltedHash(Size, FirstPasswordBox.Text);
+
+                userService.UpdatePassword(email, user);
+
+                FirstPasswordBox.Text = "";
+                SecondPasswordBox.Text = "";
+
+                ReactionLabelPasswordChange.Text = "Uw wachtwoord is veranderd.";
+                ReactionLabelPasswordChange.ForeColor = Color.Green;
+            }
+            else if (FirstPasswordBox.Text == null || SecondPasswordBox.Text == null)
+            {
+                ReactionLabelPasswordChange.Text = "Een van de velden is niet ingevuld.";
+            }
+            else if (FirstPasswordBox.Text != SecondPasswordBox.Text)
+            {
+                ReactionLabelPasswordChange.Text = "De de velden zijn niet gelijk";
+            }
+            else
+            {
+                ReactionLabelPasswordChange.Text = "De velden zijn leeg";
+            }
+        }
+
+        private void buttonBackToLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+            this.Close();
+        }
+
+
     }
 }

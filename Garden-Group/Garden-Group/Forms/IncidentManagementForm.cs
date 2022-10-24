@@ -112,7 +112,7 @@ namespace Garden_Group.Forms
         {
             if (selectedTicket.TicketState != TicketState.Open)
             {
-                labelFeedBack.Text = "Ticket heeft al een werknemer u kunt mogelijk gebruik maken van de transfer knop";
+                labelFeedBack.Text = "Ticket heeft al een werknemer. U kunt mogelijk gebruik maken van de transfer knop";
                 return;
             }
 
@@ -139,7 +139,7 @@ namespace Garden_Group.Forms
             
             if (selectedTicket.TicketState == TicketState.Open)
             {
-                feedback = "Ticket is niet in behandeling dus is deze gecancelled";
+                feedback = "Ticket is niet in behandeling, handeling is gecancelled";
                 ticketState = TicketState.Cancelled;
             }
             else
@@ -304,10 +304,6 @@ namespace Garden_Group.Forms
             
             if (search.Equals(String.Empty))
             {
-
-
-
-
                 fillFlowPanel(this.allTickets);
                 return;
             }
