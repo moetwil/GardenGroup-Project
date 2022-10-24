@@ -166,7 +166,7 @@
             // 
             this.labelIncidentText.AutoSize = true;
             this.labelIncidentText.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelIncidentText.Location = new System.Drawing.Point(231, 57);
+            this.labelIncidentText.Location = new System.Drawing.Point(229, 84);
             this.labelIncidentText.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelIncidentText.Name = "labelIncidentText";
             this.labelIncidentText.Size = new System.Drawing.Size(80, 25);
@@ -199,7 +199,7 @@
             // 
             this.labelIncidentType.AutoSize = true;
             this.labelIncidentType.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelIncidentType.Location = new System.Drawing.Point(127, 57);
+            this.labelIncidentType.Location = new System.Drawing.Point(125, 84);
             this.labelIncidentType.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.labelIncidentType.Name = "labelIncidentType";
             this.labelIncidentType.Size = new System.Drawing.Size(94, 25);
@@ -291,7 +291,7 @@
             this.labelDescription.Location = new System.Drawing.Point(15, 117);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(294, 208);
+            this.labelDescription.Size = new System.Drawing.Size(294, 184);
             this.labelDescription.TabIndex = 6;
             // 
             // TicketOverviewForm

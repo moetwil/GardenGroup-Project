@@ -229,7 +229,6 @@
             this.buttonCloseTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCloseTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCloseTicket.Location = new System.Drawing.Point(1146, 836);
-            this.buttonCloseTicket.Location = new System.Drawing.Point(942, 847);
             this.buttonCloseTicket.Name = "buttonCloseTicket";
             this.buttonCloseTicket.Size = new System.Drawing.Size(126, 39);
             this.buttonCloseTicket.TabIndex = 26;
@@ -355,7 +354,7 @@
             // labelFeedBack
             // 
             this.labelFeedBack.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFeedBack.Location = new System.Drawing.Point(768, 898);
+            this.labelFeedBack.Location = new System.Drawing.Point(606, 915);
             this.labelFeedBack.Name = "labelFeedBack";
             this.labelFeedBack.Size = new System.Drawing.Size(666, 41);
             this.labelFeedBack.TabIndex = 33;
