@@ -87,6 +87,7 @@
             // 
             // buttonBackToLogin
             // 
+            this.buttonBackToLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonBackToLogin.Location = new System.Drawing.Point(34, 26);
             this.buttonBackToLogin.Name = "buttonBackToLogin";
             this.buttonBackToLogin.Size = new System.Drawing.Size(150, 39);
