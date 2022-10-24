@@ -75,23 +75,37 @@ namespace Garden_Group.Forms
 
         private void IncidentUC_Clicked(object sender, EventArgs e)
         {
-            buttonBecomeSolver.Enabled = true;
-            
-            selectedIncidentUC = (IncidentsUC)sender;
-            this.selectedTicket = (Ticket)selectedIncidentUC.Tag;
-            textBoxTitle.Text = ((Ticket)selectedIncidentUC.Tag).Title;
-            richTextBoxDescription.Text = ((Ticket)selectedIncidentUC.Tag).Description;
-            labelTicketState.Text = ((Ticket)selectedIncidentUC.Tag).TicketState.ToString();
-            comboBoxPriority.SelectedItem = ((Ticket)selectedIncidentUC.Tag).TicketPriority;            
-            comboBoxType.SelectedItem = ((Ticket)selectedIncidentUC.Tag).TypeOfIncident;
-            dateTimePickerDeadline.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.Deadline.Date;            
-            labelCreatorName.Text = new UserService().GetUserById(((Ticket)selectedIncidentUC.Tag).CreatorId).ToString();
+            try
+            {
+                buttonBecomeSolver.Enabled = true;
+
+                selectedIncidentUC = (IncidentsUC)sender;
+                this.selectedTicket = (Ticket)selectedIncidentUC.Tag;
+                textBoxTitle.Text = ((Ticket)selectedIncidentUC.Tag).Title;
+                richTextBoxDescription.Text = ((Ticket)selectedIncidentUC.Tag).Description;
+                labelTicketState.Text = ((Ticket)selectedIncidentUC.Tag).TicketState.ToString();
+                comboBoxPriority.SelectedItem = ((Ticket)selectedIncidentUC.Tag).TicketPriority;
+                comboBoxType.SelectedItem = ((Ticket)selectedIncidentUC.Tag).TypeOfIncident;
+                dateTimePickerDeadline.Value = ((Ticket)selectedIncidentUC.Tag).TicketDate.Deadline.Date;
+                labelCreatorName.Text = new UserService().GetUserById(((Ticket)selectedIncidentUC.Tag).CreatorId).ToString();
+            }
+            catch(Exception ex)
+            {
+                labelFeedBack.Text = "Er is iets fout gegaan bij het laden van het incident";
+                labelFeedBack.Visible = true;
+                labelErrorHandling.Text = ex.Message;
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            ticketService.DeleteTicket((Ticket)selectedIncidentUC.Tag);
-            flowLayoutPanelIncidents.Controls.Remove(selectedIncidentUC);
+            MessageBox.Show("Weet u zeker dat u dit incident wilt verwijderen?", "Bevestiging", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (DialogResult == DialogResult.Yes)
+            {
+                ticketService.DeleteTicket((Ticket)selectedIncidentUC.Tag);
+                flowLayoutPanelIncidents.Controls.Remove(selectedIncidentUC);
+            }
         }
 
         private void buttonBecomeSolver_Click(object sender, EventArgs e)
@@ -143,8 +157,7 @@ namespace Garden_Group.Forms
 
         private void buttonEditTicket_Click(object sender, EventArgs e)
         {
-
-            if (this.selectedTicket != null)
+            try
             {
                 selectedTicket.Title = textBoxTitle.Text;
                 selectedTicket.Description = richTextBoxDescription.Text;
@@ -153,6 +166,11 @@ namespace Garden_Group.Forms
                 selectedTicket.TicketDate.Deadline = dateTimePickerDeadline.Value;
                 ticketService.UpdateTicket(selectedTicket);
                 selectedIncidentUC.FillUC();
+            }
+            catch (Exception exception)
+            {
+                this.labelErrorHandling.Text = exception.Message;
+                this.labelErrorHandling.Visible = true;
             }
         }
         private void buttonAddTicket_Click(object sender, EventArgs e)
