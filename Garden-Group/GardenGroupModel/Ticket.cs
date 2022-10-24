@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GardenGroupModel.Enums;
 
 namespace GardenGroupModel
 {
@@ -18,20 +19,21 @@ namespace GardenGroupModel
         public string Description { get; set; }
         [BsonIgnore]
         public User Creator { get; set; }
-        public string CreatorID { get; set; }
-        [BsonIgnore]
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string CreatorId { get; set; }
+        
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string ServiceDeskEmployeeId { get; set; }
         public TicketState TicketState { get; set; }
-        public string TicketStateId { get; set; }
+        public TicketPriority TicketPriority { get; set; }
+        public TicketIncident TypeOfIncident { get; set; }
+        
+
         [BsonIgnore]
         public List<User> Solvers { get; set; }
         public List<string> TicketSolvers { get; set; }
         public TicketDate TicketDate { get; set; }
-        [BsonIgnore]
-        public TicketPriority TicketPriority { get; set; }
-        public string TicketPriorityId { get; set; } 
-        [BsonIgnore]
-        public TicketIncident TypeOfIncident { get; set; }
-        public string TypeOfIncidentId { get; set; } 
 
         public Ticket()
         {

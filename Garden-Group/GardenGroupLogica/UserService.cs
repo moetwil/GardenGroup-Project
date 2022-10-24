@@ -63,9 +63,9 @@ namespace GardenGroupLogica
             this.userDao.InsertUser(user);
         }
 
-        public void UpdateDocument(User user)
+        public void UpdateUser(User user)
         {
-            //this.userDao.UpdateDocument(user);
+            this.userDao.UpdateUser(user);
         }
 
         public List<User> GetAllUsers()

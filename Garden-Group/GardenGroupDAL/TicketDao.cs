@@ -48,7 +48,30 @@ namespace GardenGroupDAL
         public void UpdateTicket(Ticket ticket)
         {
             UpdateDocument<Ticket>(this.m_Collection, ticket.Id, ticket);
-        }        
+        }
+        public List<Ticket> SortTicketsByPriorityDescending()
+        {
+            
+            return m_Collection.Find(new BsonDocument()).SortByDescending(ticket => ticket.TicketPriority).ToList();
+        }
+        public List<Ticket> SortTicketsByPriorityAscending()
+        {
+            return m_Collection.Find(new BsonDocument()).SortBy(ticket => ticket.TicketPriority).ToList();
+        }
+        public List<Ticket> SortTicketsByPriority(User user, SortDefinition<Ticket> sortOrder)
+        {
+            return m_Collection.Find(new BsonDocument("CreatorId", user.Id)).Sort(sortOrder).ToList();
+        }
+
+        // Luc individual
+        // find tickets on search keywords in title or description
+        public List<Ticket> FindTicketsBySearchKeywords(Func<Ticket, bool> func)
+        {
+            return m_Collection.AsQueryable().Where(func).ToList();
+        }
+
+
+
     }
 }
 

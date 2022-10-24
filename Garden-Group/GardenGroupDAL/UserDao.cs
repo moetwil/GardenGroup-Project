@@ -24,7 +24,15 @@ namespace GardenGroupDAL
 
         public List<User> GetAllUsers()
         {
-            return GetAllDocuments<User>(m_Collection);
+            // old
+            //return GetAllDocuments<User>(m_Collection);
+            
+
+            List<User> users = this.m_Collection.Aggregate()
+                .Lookup("Tickets", "_id", "CreatorId", "Tickets")
+                .As<User>().ToList();
+
+            return users;
         }
 
         public User FindUserByFirstName(string firstName)
@@ -37,12 +45,16 @@ namespace GardenGroupDAL
         {
             return this.GetDocumentById(m_Collection, id);
         }
-
+        
         public User FindUserByEmail(string email)
         {
-            User user = m_Collection.Find(user => user.ContactInfo.Email.Equals(email)).FirstOrDefault();
-            return user;
+            // error handling?
+            return this.m_Collection.Aggregate()
+                .Lookup("Tickets", "_id", "CreatorId", "Tickets")
+                .Match(new BsonDocument("ContactInfo.Email", email))
+                .As<User>().ToList().FirstOrDefault();
         }
+
 
         public bool CheckIfEmailExists(string email)
         {
@@ -51,7 +63,6 @@ namespace GardenGroupDAL
             {
                 return true;
             }
-
             return false;
         }
         
@@ -75,10 +86,9 @@ namespace GardenGroupDAL
             this.InsertDocument(m_Collection, user);
         }
 
-        public void UpdateDocument(User user)
+        public void UpdateUser(User user)
         {
             this.UpdateDocument(m_Collection,user.Id, user);
         }
-
     }
 }

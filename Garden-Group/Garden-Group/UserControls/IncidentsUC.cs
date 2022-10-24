@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GardenGroupModel.Enums;
 
 namespace Garden_Group.UserControls
 {
@@ -25,7 +26,7 @@ namespace Garden_Group.UserControls
             this.parent = parent;
             this.ticket = ticket;            
             this.Tag = ticket;
-            panelTicketState.Visible = true;
+            panelTicketPriority.Visible = true;
             FillUC();
         }
 
@@ -53,25 +54,21 @@ namespace Garden_Group.UserControls
             labelDescription.Text = ticket.Description;
             labelTicketDateStart.Text = ticket.TicketDate.OpeningDate.Date.ToShortDateString();
             labelTicketDateEnd.Text = ticket.TicketDate.ClosingDate.ToShortDateString();
+            labelTicketState.Text = ticket.TicketState.ToString();
 
-            if (ticket.TicketState.Name is not null)
-                labelTicketState.Text += ticket.TicketState.Name;
-            else
-                labelTicketState.Text += "No ticket state";
-
-            switch (ticket.TicketPriority.PriorityLevel)
+            switch (ticket.TicketPriority)
             {
-                case "Low":
-                    panelTicketState.BackColor = Color.Green;
+                case TicketPriority.Low:
+                    panelTicketPriority.BackColor = Color.Green;
                     break;
-                case "Normal":
-                    panelTicketState.BackColor = Color.Orange;
+                case TicketPriority.Normal:
+                    panelTicketPriority.BackColor = Color.Orange;
                     break;
-                case "High":
-                    panelTicketState.BackColor = Color.Red;
+                case TicketPriority.High:
+                    panelTicketPriority.BackColor = Color.Red;
                     break;
                 default:
-                    panelTicketState.BackColor = Color.SlateGray;
+                    panelTicketPriority.BackColor = Color.SlateGray;
                     break;
             }
 

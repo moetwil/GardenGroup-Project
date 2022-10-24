@@ -6,23 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using GardenGroupModel.Enums;
+
 
 namespace GardenGroupLogica
 {
     public class TicketService
     {
         private TicketDao ticketDao;
-        private TicketStateService ticketStateService;
-        private TicketPriorityService ticketPriorityService;
-        private TicketIncidentService ticketIncidentService;
         private UserService userService;
 
         public TicketService()
         {
             ticketDao = new TicketDao();
-            ticketStateService = new TicketStateService();
-            ticketPriorityService = new TicketPriorityService();
-            ticketIncidentService = new TicketIncidentService();
             userService = new UserService();
         }
 
@@ -38,15 +34,14 @@ namespace GardenGroupLogica
 
         public List<Ticket> GetAllTickets()
         {
-            List<Ticket> tickets = ticketDao.GetAllTickets();
-            return filltickets(tickets);
+            return ticketDao.GetAllTickets();
         }
-        
+
         public List<Ticket> GetTicketsFromUser(User user)
         {
-            List<Ticket> tickets = ticketDao.GetTicketsFromUser(user);
-            return filltickets(tickets);
+            return ticketDao.GetTicketsFromUser(user);
         }
+
         // Delete ticket
         public void DeleteTicket(Ticket ticket)
         {
@@ -61,46 +56,19 @@ namespace GardenGroupLogica
 
         public int GetOpenTicketsAmount(List<Ticket> tickets)
         {
-            int amount = 0;
-            foreach(Ticket ticket in tickets)
-            {
-                ticket.TicketState = ticketStateService.GetTicketStateById(ticket.TicketStateId);
-
-                if (ticket.TicketState.Name.ToLower() == "open" ||
-                    ticket.TicketState.Name.ToLower() == "in progress")
-                    amount++;
-            }
+            int amount = tickets.Where(ticket => ticket.TicketState == TicketState.Open || ticket.TicketState == TicketState.InProgress).Count();
             return amount;
         }
-        
+
         public int GetTicketsPastDeadlineAmount(List<Ticket> tickets)
         {
-            int amount = 0;
-            foreach (Ticket ticket in tickets)
-            {
-                ticket.TicketState = ticketStateService.GetTicketStateById(ticket.TicketStateId);
-
-                if (ticket.TicketDate.Deadline < DateTime.Now && 
-                    (ticket.TicketState.Name.ToLower() == "open" ||
-                    ticket.TicketState.Name.ToLower() == "in progress"))
-                    amount++;
-            }
-
+            int amount = tickets.Where(ticket => ticket.TicketDate.Deadline < DateTime.Now && (ticket.TicketState == TicketState.Open || ticket.TicketState == TicketState.InProgress)).Count();
             return amount;
         }
-        private List<Ticket> filltickets(List<Ticket> tickets)
-        {
-            foreach (Ticket ticket in tickets)
-            {
-                ticket.Creator = userService.GetUserById(ticket.CreatorID);
-                ticket.TicketState = ticketStateService.GetTicketStateById(ticket.TicketStateId);
-                ticket.TicketPriority = ticketPriorityService.GetTicketPriorityById(ticket.TicketPriorityId);
-                ticket.TypeOfIncident = ticketIncidentService.GetTicketIncidentById(ticket.TypeOfIncidentId);
-                ticket.Solvers = userService.GetTicketSolvers(ticket.TicketSolvers);
-            }
-            return tickets;
-        }
-    
+
+
+        
+
     }
 }
 

@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GardenGroupModel.Enums;
+using System.Text.RegularExpressions;
 
 namespace Garden_Group.Forms
 {
@@ -17,6 +19,7 @@ namespace Garden_Group.Forms
     {
         private User user;
         private UserService userService;
+        public User SelectedUser;
         public UserManagementForm(User user)
         {
             this.user = user;
@@ -46,77 +49,84 @@ namespace Garden_Group.Forms
         // Fill comboboxes
         private void FillComboBoxes()
         {
-            FillRoleComboBox();
-            FillBrancheComboBox();
+            this.comboBoxCompanyRole.DataSource = Enum.GetValues(typeof(Role));
+            this.comboBoxLocation.DataSource = Enum.GetValues(typeof(Branch));
+        }
+        private void SuccesMessage(string text)
+        {
+            labelErrorHandling.ForeColor = Color.Green;
+            labelErrorHandling.Text = text;
         }
 
-        private void FillCombobox<T>(List<T> itemList, ComboBox comboBox)
+        private void ErrorMessage(string text)
         {
-            foreach (T item in itemList)
-            {
-                comboBox.Items.Add(item);
-                { Tag = item; };
-            }
+            labelErrorHandling.ForeColor = Color.Red;
+            labelErrorHandling.Text = text;
         }
-        private void FillRoleComboBox()
-        {
-            RoleService roleService = new RoleService();
-            List<Role> allRoles = roleService.GetAllRoles();
-            FillCombobox(allRoles, this.comboBoxCompanyRole);
-        }
-
-        private void FillBrancheComboBox()
-        {
-            BranchService branchService = new BranchService();
-            List<Branch> allBranches = branchService.GetAllBranches();
-            FillCombobox(allBranches, this.comboBoxLocation);
-        }
-
-        // show user information as the user is selected
-        private void ShowInformationInPanel(object sender, EventArgs e)
-        {
-            UserUC userUC = (UserUC)sender;
-            textBoxFirstname.Text = this.user.FirstName;
-            textBoxLastname.Text = this.user.LastName;
-            dateTimePickerDateOfBirth.Value = user.DateOfBirth;
-           // comboBoxCompanyRole.Text = user.JobInfo.Role;
-           // comboBoxBranch.Text = user.JobInfo.Branch;
-            textBoxEmail.Text = this.user.ContactInfo.Email;
-            textBoxPhoneNumber.Text = this.user.ContactInfo.PhoneNumber;
-            textBoxStreet.Text = this.user.ContactInfo.Address.Street;
-            textBoxHouseNumber.Text = this.user.ContactInfo.Address.HouseNumber;
-            textBoxPostalCode.Text = this.user.ContactInfo.Address.PostalCode;
-            textBoxCity.Text = this.user.ContactInfo.Address.City;
-            textBoxCountry.Text = this.user.ContactInfo.Address.Country;
-        }
-
         private void buttonEditUser_Click(object sender, EventArgs e)
         {
+            // get last selected usercontrol from flowpanellayout
+            UserUC userUC = (UserUC)this.flowLayoutPanelUsers.Controls[this.flowLayoutPanelUsers.Controls.Count - 1];
             UserService userService = new UserService();
 
             try
             {
                 // read data and change user
-                this.user.FirstName = textBoxFirstname.Text;
-                this.user.LastName = textBoxLastname.Text;
-                this.user.DateOfBirth = dateTimePickerDateOfBirth.Value;
-                this.user.JobInfo.RoleId = ((Role)comboBoxCompanyRole.SelectedItem).Id;
-                this.user.JobInfo.BranchId = ((Branch)comboBoxLocation.SelectedItem).Id;
-                this.user.ContactInfo.Email = textBoxEmail.Text;
-                this.user.ContactInfo.PhoneNumber = textBoxPhoneNumber.Text;
-                this.user.ContactInfo.Address.Street = textBoxStreet.Text;
-                this.user.ContactInfo.Address.HouseNumber = textBoxHouseNumber.Text;
-                this.user.ContactInfo.Address.PostalCode = textBoxPostalCode.Text;
-                this.user.ContactInfo.Address.City = textBoxCity.Text;
-                this.user.ContactInfo.Address.Country = textBoxCountry.Text;
+                checkForEmptyChoices();
+                this.SelectedUser.FirstName = textBoxFirstname.Text;
+                this.SelectedUser.LastName = textBoxLastname.Text;
+                this.SelectedUser.DateOfBirth = dateTimePickerDateOfBirth.Value;
+                this.SelectedUser.JobInfo.Role = (Role)comboBoxCompanyRole.SelectedItem;
+                this.SelectedUser.JobInfo.Branch = (Branch)comboBoxLocation.SelectedItem;
+                this.SelectedUser.ContactInfo.Email = textBoxEmail.Text;
+                this.SelectedUser.ContactInfo.PhoneNumber = textBoxPhoneNumber.Text;
+                this.SelectedUser.ContactInfo.Address.Street = textBoxStreet.Text;
+                this.SelectedUser.ContactInfo.Address.HouseNumber = textBoxHouseNumber.Text;
+                this.SelectedUser.ContactInfo.Address.PostalCode = textBoxPostalCode.Text;
+                this.SelectedUser.ContactInfo.Address.City = textBoxCity.Text;
+                this.SelectedUser.ContactInfo.Address.Country = textBoxCountry.Text;
 
-                userService.UpdateDocument(this.user);
+                userService.UpdateUser(this.SelectedUser);
+                SuccesMessage("Gebruiker is met succes aangepast. ");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                // show exception in label
+                ErrorMessage(ex.Message);
+                ErrorLogService errorLogService = new ErrorLogService();
+                errorLogService.CatchExeptionToLog(ex);
             }
+        }
+
+        private void checkForEmptyChoices() 
+        {
+            // check if all fields are filled in
+            if (textBoxFirstname.Text == "" || textBoxLastname.Text == "" || textBoxEmail.Text == "" || textBoxPhoneNumber.Text == "" || textBoxStreet.Text == "" || textBoxHouseNumber.Text == "" || textBoxPostalCode.Text == "" || textBoxCity.Text == "" || textBoxCountry.Text == "" || dateTimePickerDateOfBirth.Value == null || comboBoxCompanyRole.SelectedItem == null || comboBoxLocation.SelectedItem == null)
+            {
+                throw new Exception("Niet alle velden zijn ingevuld.");
+            }
+            // if phone number are not numbers throw exception
+            if (!textBoxPhoneNumber.Text.All(char.IsDigit))
+            {
+                throw new Exception("Telefoonnummer mag alleen cijfers bevatten");
+            }
+            if (!ValidateEmail(textBoxEmail.Text) || CheckIfEmailExists(textBoxEmail.Text)) 
+            {
+                throw new Exception("Dit email adres is niet geldig of al in gebruik.");
+            }
+        }
+
+        // Check if email is valid
+        private bool ValidateEmail(string email)
+        {
+            return new Regex(@"^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,3}").Match(email).Success;
+        }
+
+        // Check if email is unique
+        private bool CheckIfEmailExists(string email)
+        {
+            UserService userService = new UserService();
+            return userService.CheckIfEmailExists(email);
         }
     }
 }

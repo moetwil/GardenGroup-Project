@@ -27,8 +27,6 @@ namespace Garden_Group.UserControls
         private void MenuStripUC_Load(object sender, EventArgs e)
         {
             // Get role of the logged in user
-            RoleService roleService = new RoleService();
-            this.user.JobInfo.Role = roleService.GetRoleById(this.user.JobInfo.RoleId);
             LoadMenuItems(this.user.JobInfo);
             
             // Add logout button to the menu
@@ -38,12 +36,12 @@ namespace Garden_Group.UserControls
         // Load the correct menu
         private void LoadMenuItems(JobInfo jobInfo)
         {
-            switch (jobInfo.Role.JobName)
+            switch (jobInfo.Role)
             {
-                case "Employee":
+                case GardenGroupModel.Enums.Role.Employee:
                     LoadEmployeeMenu();
                     break;
-                case "ServiceDeskEmployee":
+                case GardenGroupModel.Enums.Role.ServiceDeskEmployee:
                     LoadServiceDeskEmployeeMenu();
                     break;
             }

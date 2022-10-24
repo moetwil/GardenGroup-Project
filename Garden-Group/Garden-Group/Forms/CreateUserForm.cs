@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GardenGroupModel.Enums;
 
 namespace Garden_Group.Forms
 {
@@ -61,15 +62,17 @@ namespace Garden_Group.Forms
 
                 // Send password to user's email
                 EmailService emailService = new EmailService();
-                emailService.SendPassword("mail", password);
+                emailService.SendPassword(NewUser.ContactInfo.Email, password);
 
                 this.labelMessage.Text = "Gebruiker is aangemaakt!";
-
-                this.labelMessage.Hide();
+                this.labelMessage.ForeColor = Color.Green;
+                this.labelMessage.Show();
             }
             catch (Exception ex)
             {
                 this.ShowMessageLabel(ex.Message);
+                ErrorLogService errorLogService = new ErrorLogService();
+                errorLogService.CatchExeptionToLog(ex);
             }
         }
 
@@ -79,8 +82,8 @@ namespace Garden_Group.Forms
             this.NewUser.FirstName = this.textBoxFirstname.Text;
             this.NewUser.LastName = this.textBoxLastname.Text;
             this.NewUser.DateOfBirth = this.dateTimePickerDoB.Value;
-            this.NewUser.JobInfo.RoleId = ((Role)this.comboBoxRole.SelectedItem).Id;
-            this.NewUser.JobInfo.BranchId = ((Branch)this.comboBoxLocationBranch.SelectedItem).Id;
+            this.NewUser.JobInfo.Role = (Role)this.comboBoxRole.SelectedItem;
+            this.NewUser.JobInfo.Branch = (Branch)this.comboBoxLocationBranch.SelectedItem;
             this.NewUser.ContactInfo.Email = this.textBoxEmail.Text;
             this.NewUser.ContactInfo.PhoneNumber = this.textBoxPhone.Text;
             this.NewUser.ContactInfo.Address.Street = this.textBoxStreet.Text;
@@ -110,7 +113,7 @@ namespace Garden_Group.Forms
                 this.textBoxCity.Text == "" ||
                 this.textBoxPostalCode.Text == "" ||
                 this.textBoxCountry.Text == "")
-                throw new Exception("Please fill in all the fields");
+                throw new Exception("Vul alle velden in");
 
             return false;
         }
@@ -119,15 +122,14 @@ namespace Garden_Group.Forms
         private bool CheckValidFields()
         {
             if (!ValidateEmail(this.textBoxEmail.Text))
-                throw new Exception("Email is not valid");
+                throw new Exception("Email is niet geschikt");
             else if (CheckIfEmailExists(this.textBoxEmail.Text))
-                throw new Exception("Email already exists");
+                throw new Exception("Email wordt al gebruikt");
 
             return false;
         }
 
         // Check if email is valid
-
         private bool ValidateEmail(string email)
         {
             return new Regex(@"^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,3}").Match(email).Success;
@@ -143,30 +145,9 @@ namespace Garden_Group.Forms
         // Fill comboboxes
         private void FillComboBoxes()
         {
-            FillRoleComboBox();
-            FillBrancheComboBox();
+            this.comboBoxRole.DataSource = Enum.GetValues(typeof(Role));
+            this.comboBoxLocationBranch.DataSource = Enum.GetValues(typeof(Branch));
         }
-
-        private void FillCombobox<T>(List<T> itemList, ComboBox comboBox)
-        {
-            foreach (T item in itemList)
-            {
-                comboBox.Items.Add(item);
-                { Tag = item; };
-            }
-        }
-        private void FillRoleComboBox()
-        {
-            RoleService roleService = new RoleService();
-            List<Role> allRoles = roleService.GetAllRoles();
-            FillCombobox(allRoles, this.comboBoxRole);
-        }
-
-        private void FillBrancheComboBox()
-        {
-            BranchService branchService = new BranchService();
-            List<Branch> allBranches = branchService.GetAllBranches();
-            FillCombobox(allBranches, this.comboBoxLocationBranch);
-        }
+        
     }
 }

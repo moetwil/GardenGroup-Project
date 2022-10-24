@@ -15,30 +15,22 @@ using System.Windows.Forms;
 namespace Garden_Group.Forms
 {
     /*
-     TODO:
-    - Load tickets currently open
-    - Add tickets to circular progress bar
-    
-    - Load tickets past deadline
-    - Add tickets to circular progress bar
-
-    - Add date to dashboard
-     
+    TODO:
+    - Load all tickets
      */
     public partial class DashboardForm : Form
     {
         private User user;
-        private RoleService roleService;
         private TicketService ticketService;
         public DashboardForm(User user)
         {
             this.user = user;
             InitializeComponent();
+            Test();
             this.Controls.Add(new MenuStripUC(this.user, this));
             this.SetSizeToDesktop();
 
             // Load service objects
-            this.roleService = new RoleService();
             this.ticketService = new TicketService();
         }
 
@@ -47,9 +39,6 @@ namespace Garden_Group.Forms
             // Set welcome text to user
             this.labelWelcomeText.Text = $"Welkom {user.FirstName} {user.LastName}";
 
-            // Get role from logged in user
-            this.user.JobInfo.Role = roleService.GetRoleById(this.user.JobInfo.RoleId);
-
             //SetProgressBar(0, 0, this.circularPBUnresolvedIncidents);
 
             // Load the two PieCharts
@@ -57,14 +46,22 @@ namespace Garden_Group.Forms
             
         }
 
+        private void Test()
+        {
+            /*TicketService ticketService = new TicketService();
+            Ticket ticket = ticketService.GetAllTickets()[0];
+            MessageBox.Show(ticket.Title);*/
+
+        }
+
         private void LoadPieCharts(User user)
         {
-            switch (user.JobInfo.Role.JobName)
+            switch (user.JobInfo.Role)
             {
-                case "Employee":
+                case Role.Employee:
                     LoadEmployeeCharts();
                     break;
-                case "ServiceDeskEmployee":
+                case Role.ServiceDeskEmployee:
                     LoadServiceEmployeeCharts();
                     break;
             }
@@ -74,12 +71,11 @@ namespace Garden_Group.Forms
 
         private void LoadEmployeeCharts()
         {
-            List<Ticket> ticketsFromUser = ticketService.GetTicketsFromUser(this.user);
-            int amountOpenTickets = ticketService.GetOpenTicketsAmount(ticketsFromUser);
-            int amountPastDeadlineTickets = ticketService.GetTicketsPastDeadlineAmount(ticketsFromUser);
+            int amountOpenTickets = ticketService.GetOpenTicketsAmount(this.user.Tickets);
+            int amountPastDeadlineTickets = ticketService.GetTicketsPastDeadlineAmount(this.user.Tickets);
 
-            SetProgressBar(amountOpenTickets, ticketsFromUser.Count, this.circularPBUnresolvedIncidents);
-            SetProgressBar(amountPastDeadlineTickets, ticketsFromUser.Count, this.circularProgressBarPastDeadline);
+            SetProgressBar(amountOpenTickets, this.user.Tickets.Count, this.circularPBUnresolvedIncidents);
+            SetProgressBar(amountPastDeadlineTickets, this.user.Tickets.Count, this.circularProgressBarPastDeadline);
         }
 
         private void LoadServiceEmployeeCharts()
@@ -102,6 +98,25 @@ namespace Garden_Group.Forms
 
         }
 
+        private void circularPBUnresolvedIncidents_Click(object sender, EventArgs e)
+        {
+            if (this.user.JobInfo.Role == Role.Employee) return;
+            OpenIncidentForm();
+        }
 
+        private void circularProgressBarPastDeadline_Click(object sender, EventArgs e)
+        {
+            if (this.user.JobInfo.Role == Role.Employee) return;
+            OpenIncidentForm();
+        }
+
+
+        private void OpenIncidentForm()
+        {
+            this.Hide();
+            IncidentManagementForm incidentManagementForm = new IncidentManagementForm(this.user);
+            incidentManagementForm.ShowDialog();
+            this.Close();
+        }
     }
 }

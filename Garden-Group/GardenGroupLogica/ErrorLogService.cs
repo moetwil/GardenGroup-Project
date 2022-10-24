@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace GardenGroupLogica
 {
     public class ErrorLogService
+
     {
         private ErrorLogDao errorLogDao;
 

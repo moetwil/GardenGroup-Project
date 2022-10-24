@@ -74,9 +74,8 @@
             this.labelMessage.ForeColor = System.Drawing.Color.Red;
             this.labelMessage.Location = new System.Drawing.Point(169, 885);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(73, 25);
+            this.labelMessage.Size = new System.Drawing.Size(0, 25);
             this.labelMessage.TabIndex = 19;
-            this.labelMessage.Text = "label13";
             // 
             // label8
             // 
@@ -300,6 +299,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.textBoxCountry);
             this.Controls.Add(this.textBoxPostalCode);
