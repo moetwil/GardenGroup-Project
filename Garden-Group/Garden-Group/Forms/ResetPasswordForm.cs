@@ -57,69 +57,95 @@ namespace Garden_Group.Forms
 
         private void SendEmailButton_Click(object sender, EventArgs e)
         {
-            email = SendEmailTextBox.Text;
-            
-            if (userService.CheckIfEmailExists(email))
+            try
             {
-                emailService.SendCode(SendEmailTextBox.Text, code);
-                ReactionLabel.Text = "De code is naar uw email gestuurd";
-                ReactionLabel.ForeColor = Color.Green;
+                email = SendEmailTextBox.Text;
+
+                if (userService.CheckIfEmailExists(email))
+                {
+                    emailService.SendCode(SendEmailTextBox.Text, code);
+                    ReactionLabel.Text = "De code is naar uw email gestuurd";
+                    ReactionLabel.ForeColor = Color.Green;
 
 
-                SendCodePanel.Visible = false;
-                InsertCodePanel.Visible = true;
+                    SendCodePanel.Visible = false;
+                    InsertCodePanel.Visible = true;
+                }
+                else
+                {
+                    ReactionLabel.Text = "This email does not exist.";
+                    ReactionLabel.ForeColor = Color.Red;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ReactionLabel.Text = "This email does not exist.";
-                ReactionLabel.ForeColor = Color.Red;
+                ErrorLogService errorLogService = new ErrorLogService();
+                errorLogService.CatchExeptionToLog(ex);
             }
         }
 
         private void CheckCodeButton_Click(object sender, EventArgs e)
         {
-            if (CodeCheckBox.Text == code)
+            try
             {
-                InsertCodePanel.Visible = false;
-                ChangePasswordPanel.Visible = true;
+                if (CodeCheckBox.Text == code)
+                {
+                    InsertCodePanel.Visible = false;
+                    ChangePasswordPanel.Visible = true;
+                }
+                else if (CodeCheckBox.Text == null)
+                {
+                    ReactionLabel.Text = "U heeft geen code ingevuld.";
+                    ReactionLabel.ForeColor = Color.Red;
+                }
+                else
+                {
+                    ReactionLabel.Text = "De code is onjuist.";
+                    ReactionLabel.ForeColor = Color.Red;
+                }
             }
-            else if (CodeCheckBox.Text == null)
+            catch (Exception ex)
             {
-                ReactionLabel.Text = "U heeft geen code ingevuld.";
-                ReactionLabel.ForeColor = Color.Red;
+                ErrorLogService errorLogService = new ErrorLogService();
+                errorLogService.CatchExeptionToLog(ex);
             }
-            else
-            {
-                ReactionLabel.Text = "De code is onjuist.";
-                ReactionLabel.ForeColor = Color.Red;
-            }
+
         }
 
         private void ChangePasswordButton_Click(object sender, EventArgs e)
         {
-            if (FirstPasswordBox.Text == SecondPasswordBox.Text)
+            try
             {
-                user.Password = passwordService.GenerateSaltedHash(Size, FirstPasswordBox.Text);
+                if (FirstPasswordBox.Text == SecondPasswordBox.Text)
+                {
+                    user.Password = passwordService.GenerateSaltedHash(Size, FirstPasswordBox.Text);
 
-                userService.UpdatePassword(email, user);
+                    userService.UpdatePassword(email, user);
 
-                FirstPasswordBox.Text = "";
-                SecondPasswordBox.Text = "";
+                    FirstPasswordBox.Text = "";
+                    SecondPasswordBox.Text = "";
 
-                ReactionLabelPasswordChange.Text = "Uw wachtwoord is veranderd.";
-                ReactionLabelPasswordChange.ForeColor = Color.Green;
+                    ReactionLabelPasswordChange.Text = "Uw wachtwoord is veranderd.";
+                    ReactionLabelPasswordChange.ForeColor = Color.Green;
+                }
+                else if (FirstPasswordBox.Text == null || SecondPasswordBox.Text == null)
+                {
+                    throw new Exception("Een van de velden is niet ingevuld.");
+                }
+                else if (FirstPasswordBox.Text != SecondPasswordBox.Text)
+                {
+                    throw new Exception("De de velden zijn niet gelijk");
+                }
+                else
+                {
+                    throw new Exception("De velden zijn leeg");
+                }
             }
-            else if (FirstPasswordBox.Text == null || SecondPasswordBox.Text == null)
+            catch (Exception ex)
             {
-                ReactionLabelPasswordChange.Text = "Een van de velden is niet ingevuld.";
-            }
-            else if (FirstPasswordBox.Text != SecondPasswordBox.Text)
-            {
-                ReactionLabelPasswordChange.Text = "De de velden zijn niet gelijk";
-            }
-            else
-            {
-                ReactionLabelPasswordChange.Text = "De velden zijn leeg";
+                ReactionLabelPasswordChange.Text = ex.Message;
+                ErrorLogService errorLogService = new ErrorLogService();
+                errorLogService.CatchExeptionToLog(ex);
             }
         }
 
