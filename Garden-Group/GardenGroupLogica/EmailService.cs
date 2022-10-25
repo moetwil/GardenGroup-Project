@@ -1,6 +1,7 @@
 ﻿using GardenGroupModel;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -47,6 +48,25 @@ namespace GardenGroupLogica
 
 
         }
+
+        public void SendCode(string recipient, string code) {
+            MailMessage mailMessage = new MailMessage
+            {
+                From = new MailAddress("thegardengroup2022@gmail.com"),
+                Subject = "Your code for password reset.",
+                Body = $"" +
+                $"" +
+                $"<h1>Hier is de code voor het wijzigen van uw wachtwoord.</h1>" +
+                $"<p>code: {code}</p> Dit is uw wijzigingscode.",
+                IsBodyHtml = true,
+            };
+
+            mailMessage.To.Add(recipient);
+
+            smtpClient.Send(mailMessage);
+
+        }
+            
 
         public void SendTicketToEmail(string recipient, Ticket ticket)
         {
