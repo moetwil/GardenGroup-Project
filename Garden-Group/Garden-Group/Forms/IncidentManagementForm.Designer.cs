@@ -73,7 +73,7 @@
             this.flowLayoutPanelIncidents.Location = new System.Drawing.Point(964, 159);
             this.flowLayoutPanelIncidents.Margin = new System.Windows.Forms.Padding(50, 0, 0, 0);
             this.flowLayoutPanelIncidents.Name = "flowLayoutPanelIncidents";
-            this.flowLayoutPanelIncidents.Size = new System.Drawing.Size(666, 674);
+            this.flowLayoutPanelIncidents.Size = new System.Drawing.Size(666, 672);
             this.flowLayoutPanelIncidents.TabIndex = 0;
             this.flowLayoutPanelIncidents.WrapContents = false;
             // 
@@ -212,6 +212,7 @@
             // 
             this.buttonDelete.AutoSize = true;
             this.buttonDelete.BackColor = System.Drawing.Color.LightCoral;
+            this.buttonDelete.Enabled = false;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonDelete.Location = new System.Drawing.Point(1009, 836);
@@ -226,6 +227,7 @@
             // 
             this.buttonCloseTicket.AutoSize = true;
             this.buttonCloseTicket.BackColor = System.Drawing.Color.LightGray;
+            this.buttonCloseTicket.Enabled = false;
             this.buttonCloseTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCloseTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonCloseTicket.Location = new System.Drawing.Point(1146, 836);
@@ -333,6 +335,7 @@
             // 
             this.buttonEditTicket.AutoSize = true;
             this.buttonEditTicket.BackColor = System.Drawing.Color.LightGray;
+            this.buttonEditTicket.Enabled = false;
             this.buttonEditTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditTicket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonEditTicket.Location = new System.Drawing.Point(231, 491);
@@ -354,7 +357,7 @@
             // labelFeedBack
             // 
             this.labelFeedBack.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelFeedBack.Location = new System.Drawing.Point(768, 898);
+            this.labelFeedBack.Location = new System.Drawing.Point(606, 915);
             this.labelFeedBack.Name = "labelFeedBack";
             this.labelFeedBack.Size = new System.Drawing.Size(666, 41);
             this.labelFeedBack.TabIndex = 33;

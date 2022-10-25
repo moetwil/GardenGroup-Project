@@ -51,7 +51,7 @@
             this.labelTicketDateStart.AutoSize = true;
             this.labelTicketDateStart.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.labelTicketDateStart.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTicketDateStart.Location = new System.Drawing.Point(173, 18);
+            this.labelTicketDateStart.Location = new System.Drawing.Point(309, 18);
             this.labelTicketDateStart.Name = "labelTicketDateStart";
             this.labelTicketDateStart.Size = new System.Drawing.Size(35, 15);
             this.labelTicketDateStart.TabIndex = 2;
@@ -63,7 +63,7 @@
             this.labelPriorityLevel.AutoSize = true;
             this.labelPriorityLevel.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.labelPriorityLevel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPriorityLevel.Location = new System.Drawing.Point(341, 18);
+            this.labelPriorityLevel.Location = new System.Drawing.Point(420, 18);
             this.labelPriorityLevel.Name = "labelPriorityLevel";
             this.labelPriorityLevel.Size = new System.Drawing.Size(43, 15);
             this.labelPriorityLevel.TabIndex = 4;

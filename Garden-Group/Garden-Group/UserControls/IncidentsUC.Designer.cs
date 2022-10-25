@@ -56,7 +56,7 @@
             this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelDescription.Location = new System.Drawing.Point(59, 34);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(262, 52);
+            this.labelDescription.Size = new System.Drawing.Size(241, 52);
             this.labelDescription.TabIndex = 1;
             this.labelDescription.Text = "Description";
             // 
@@ -65,7 +65,8 @@
             this.labelTicketDateStart.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelTicketDateStart.AutoSize = true;
             this.labelTicketDateStart.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTicketDateStart.Location = new System.Drawing.Point(419, 34);
+            this.labelTicketDateStart.Location = new System.Drawing.Point(444, 33);
+            this.labelTicketDateStart.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.labelTicketDateStart.Name = "labelTicketDateStart";
             this.labelTicketDateStart.Size = new System.Drawing.Size(45, 20);
             this.labelTicketDateStart.TabIndex = 2;
@@ -77,6 +78,7 @@
             this.labelTicketDateEnd.AutoSize = true;
             this.labelTicketDateEnd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTicketDateEnd.Location = new System.Drawing.Point(444, 55);
+            this.labelTicketDateEnd.Margin = new System.Windows.Forms.Padding(3, 0, 5, 0);
             this.labelTicketDateEnd.Name = "labelTicketDateEnd";
             this.labelTicketDateEnd.Size = new System.Drawing.Size(47, 20);
             this.labelTicketDateEnd.TabIndex = 3;
@@ -97,7 +99,8 @@
             this.labelTextSdate.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelTextSdate.AutoSize = true;
             this.labelTextSdate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTextSdate.Location = new System.Drawing.Point(323, 34);
+            this.labelTextSdate.Location = new System.Drawing.Point(323, 33);
+            this.labelTextSdate.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.labelTextSdate.Name = "labelTextSdate";
             this.labelTextSdate.Size = new System.Drawing.Size(90, 20);
             this.labelTextSdate.TabIndex = 5;
@@ -127,9 +130,9 @@
             this.labelTicketState.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTicketState.Location = new System.Drawing.Point(326, 5);
             this.labelTicketState.Name = "labelTicketState";
-            this.labelTicketState.Size = new System.Drawing.Size(87, 20);
+            this.labelTicketState.Size = new System.Drawing.Size(15, 20);
             this.labelTicketState.TabIndex = 8;
-            this.labelTicketState.Text = "Ticket state:";
+            this.labelTicketState.Text = "-";
             // 
             // IncidentsUC
             // 
