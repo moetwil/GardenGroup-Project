@@ -273,6 +273,12 @@ namespace Garden_Group.Forms
             // if the checkbx of the filter is not checked, do nothing
             if (!this.checkBoxFilter.Checked) return;
 
+            if (this.textBoxFilter.Text == "")
+            {
+                fillFlowPanel(this.allTickets);
+                return;
+            }
+
             // filter allTickets on the text in the textbox
             List<Ticket> filteredTickets = IncidentManagementFilterService.FilterTickets(this.allTickets, this.textBoxFilter.Text);
 
