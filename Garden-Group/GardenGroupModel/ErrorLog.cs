@@ -12,7 +12,23 @@ namespace GardenGroupModel
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        
+
+
+        private static ErrorLog instance;
+
+        private ErrorLog() { }
+
+        public static ErrorLog GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new ErrorLog();
+            }
+
+            return instance;
+        }
+
+
         public string? Id { get; set; }
         public string Message { get; set; }
         public string StackTrace { get; set; }

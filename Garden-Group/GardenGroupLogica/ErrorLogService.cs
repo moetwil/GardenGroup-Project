@@ -22,7 +22,7 @@ namespace GardenGroupLogica
 
         public void CatchExeptionToLog(Exception exception)
         {
-            ErrorLog errorLog = new ErrorLog();
+            ErrorLog errorLog = ErrorLog.GetInstance();
             errorLog.Message = exception.Message;
             errorLog.StackTrace = exception.StackTrace;
             errorLogDao.AddErrorLog(errorLog);
